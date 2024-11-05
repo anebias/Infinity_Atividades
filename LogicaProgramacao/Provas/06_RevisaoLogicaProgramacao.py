@@ -1,4 +1,3 @@
-import sys
 # Definição dos parâmetros de validação
 usuario_valido = 'usermain'
 senha_valida = 'senha1234'
