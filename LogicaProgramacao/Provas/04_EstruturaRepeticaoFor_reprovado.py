@@ -12,6 +12,7 @@ numero_1 = int(input('Informe o número inicial do intervalo:'))
 numero_2 = numero_1 - 1
 soma = 0
 
+print('estou aqui')
 while numero_2 < numero_1:
     numero_2 = int(input('Informe o número final do intervalo:'))
 

@@ -16,12 +16,15 @@ while numero_2 < numero_1:
     numero_2 = int(input('Informe o número final do intervalo:'))
 
 for numero in range(numero_1,numero_2 + 1):
-    if numero_2 - numero_1 > 1:
+    if numero_2 == numero_1:
         if numero % 2 == 0:
-            soma = soma + numero
-            mensagem = f'soma: {soma}'
+            mensagem = f'soma: {numero}'
+        else:
+            mensagem = 'Não existem números pares no intervalo informado'
+            break
     else:
-        mensagem = 'Não existem números pares no intervalo informado'
-        break
+        if numero % 2 == 0:
+            soma += numero
+            mensagem = f'soma: {soma}'
 
 print(mensagem)
