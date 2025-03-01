@@ -1,0 +1,114 @@
+MAIN---------------------------------------------------------------------
+import express from 'express';
+import mongoose from 'mongoose';
+import creatUser from './controller/user.controller.js';
+import User from './model/userSchema.js';
+
+const mongoUri = 'mongodb+srv://luis98988:6tHFUX1VxggZfWVw@cluster0.zxytv.mongodb.net/banco';
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+// Conexão com o MongoDB
+const connectDB = async () => {
+    try {
+        await mongoose.connect(mongoUri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        });
+        console.log('Banco conectado com sucesso');
+    } catch (erro) {
+        console.error('Erro ao conectar', erro);
+        process.exit(1);
+    }
+};
+
+connectDB();
+
+// Middleware Global
+app.use((req, res, next) => {
+    console.log('Middleware está observando');
+    next();
+});
+
+const middlewareUsuario = async(req, res, next) => {
+    const { email } = req.body;
+    const user = await User.findOne({email})
+
+    if (user) {
+        res.send('já tem esse email cadastrado')
+    } else {
+        next();
+    }
+};
+
+app.get('/', (req, res) => {
+    res.send('Olá mundo');
+});
+
+app.post('/criar/usuario',middlewareUsuario, async (req, res) => {
+    const { nome, email, senha } = req.body;
+    try {
+        const newUser = await creatUser({ nome, email, senha }); // Aguarde a criação do usuário
+        res.status(201).json({ message: 'Usuário criado com sucesso', user: newUser });
+    } catch (error) {
+        res.status(500).json({ error: 'Erro ao criar usuário', details: error });
+    }
+});
+
+
+app.listen(port, () => {
+    console.log(`Servidor está rodando na porta ${port}`);
+});
+SCHEMA-------------------------------------------------------------------
+import mongoose from 'mongoose';
+
+// Definição do schema
+const UserSchema = new mongoose.Schema({
+    nome: {
+        type: String,
+        required: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+    },
+    senha: {
+        type: String,
+        required: true,
+    },
+});
+
+const User = mongoose.model('User', UserSchema);
+
+export default User;
+
+CONTROLLER__------------------------------------------------------------------------------
+import User from '../model/userSchema.js'
+
+const creatUser = async (UserData)=>{
+    
+    const user = new User(UserData);
+    try{
+        const saveUser = await user.save()
+        console.log('usuario criado')
+        return saveUser
+    }catch(error){
+
+        if(error.name == 'ValidationError') {
+            console.log('erros de validações')
+
+            for (const filed in error.errors){
+                console.log(`${filed}: ${error.errors[filed].menssage}`)
+
+            }
+        }else{
+            console.log('deu erro no cadastro')
+        }
+    }
+
+}
+
+export default creatUser;
