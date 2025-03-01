@@ -1,0 +1,144 @@
+# 23/11/2024
+
+https://dontpad.com/dfs7072311
+
+#Drive dos exercícios:
+https://drive.google.com/drive/folders/13Klv1G-pgmOt_PuFPyIKQ-ihMPVFDKb5?usp=drive_link
+
+	
+
+Revisão estruturas sintáticas:
+# Declaração de variáveis
+menuzinho = 'Meu menu'
+
+#Estrutura sintática do IF, lembrando, nem todo if tem elif e else;
+if menuzinho != 'Meu menu':
+    print('Erro!')
+elif menuzinho == 'meu menu':
+    print('bem vindo...')
+else:
+    print('Bem vindo')
+
+
+condicao = True
+while condicao:
+    print('Bom dia! Escolha uma das opções:')
+    print('1 - Banana')
+    print('2 - Açaí')
+    print('3 - Abacate')
+    print('4 - Sair')
+    break
+
+#Estrutura de uma lista
+frutas = ['Abacaxi', 'Maçã', 'Uva', 'Laranja', 'Tangerina', 'Manga']
+
+# Estrutura sintática do for;
+for fruta in frutas:
+    print (f'A fruta {fruta} é deliciosa!')
+
+# O For pode operar sobre variáveis que são iteráveis, a fins de simplificação, listas e também strings;
+
+nome = 'Isabela'
+
+for letra in nome:
+    print(letra)
+
+
+# O segredo do if in...
+if elemento in conjunto consegue realizar a verificação de uma condição dentro de um conjunto.
+morango = "Morango"
+
+if morango in frutas:
+    print('Tem morango')
+
+
+
+
+
+#Desafio:
+
+#Quero criar menu para uma lista tarefas
+#-Ele não pode parar de funcionar por si só, só quando o usuário escolhe sair.
+#- Ele tem uma lista de opções de ações possíveis para o usuário. Cadastrar tarefa, ver tarefa,
+#marcar como concluída, etc...
+#- Acessa-lo requer só uma senha
+
+
+
+#Passos Lógicos:
+#Enviar mensagem para requisitar a senha do usuário
+#Ler/Capturar essa senha ----> ????
+#Verificar se está correto (if)
+#Cria uma estrutura de repetição que "não tem fim" até a condição especifica ser atingida;
+#Mostra ao usuário uma mensagem com a lista de opções.
+#Ler qual foi a escolhe do usuário
+#Verificar qual opção foi escolhida.
+#Executar a ação da opção.
+#Verificar se o usuário deseja continuar o fluxo.
+#Se ele não quer continuar quiser continuar (para a ação) e retorna ao menu.
+Se o usuário escolher a opção de sair o programa encerra.we
+
+bom dia!
+
+alguém explica pelo amor de deus como usa ''if in''
+	Nao sei usar !
+
+if "x" in exemplo:
+
+boa sorte galera!
+
+
+POSSÍVEL SOLUÇÃO:
+
+senhas = ['12A', '14B', '42']
+
+validado = False
+print('Bem vindo à lista de tarefas')
+digitado = input('Digite sua senha de acesso: ')
+tarefas = []
+while True:
+   
+    if digitado in senhas:
+        validado = True      
+    else:
+        digitado = input('Senha incorreta, digite novamente')
+        continue
+
+    print('Escolha uma das ações: ')
+    print('1 - Adicionar Tarefa')
+    print('2 - Listar tarefas')
+    print('3 - Concluir tarefa')
+    print('4 - Sair')
+    opcao = input('Digite sua opção: ')
+
+    if opcao == '1':
+        tarefa = input('Digite a tarefa a ser adicionada: ')
+        tarefas.append(tarefa)
+        continuar = input('Deseja continuar?s/n: ')
+        if continuar[0].lower() != 's':
+            break
+    if opcao == '2':
+        n = 1
+        print('-----------------------')
+        print('Tarefas:')
+        for tarefa in tarefas:
+            print(f'{n} - {tarefa}')
+            n += 1
+        print('----------------------')
+        continuar = input('Deseja continuar?s/n: ')
+        if continuar[0].lower() != 's':
+            break
+    if opcao == '3':
+        n = 1
+        for tarefa in tarefas:
+            print(f'{n} - {tarefa}')
+            n += 1
+        concluir = int(input('Digite o número da tarefa que deseja marcar como concluída: '))
+        tarefas.remove(tarefas[concluir - 1])
+        print('Tarefa removida com sucesso')
+        continuar = input('Deseja continuar?s/n: ')
+        if continuar[0].lower() != 's':
+            break
+
+    if opcao == '4':
+        break

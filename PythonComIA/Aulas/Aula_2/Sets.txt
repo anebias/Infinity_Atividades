@@ -1,0 +1,12 @@
+# update() - adiciona itens de outro conjunto ao set especificado (qualquer iterável: tuplas, listas, dicionários etc.)
+# add() - adiciona itens ao set
+# Não acessa itens do conjunto por chaves ou índices, mas avalia se algum 
+# elemente pertence ao conjunto e lê todos os itens.
+# remove() - remove o item informado do conjunto
+# discard() - remove o item informado do conjunto
+
+# OPERAÇÕES:
+# intersection() - novo conjunto resultante
+# intersection_update() - método que atualiza um dos conjuntos com o resultado
+# union() - novo conjunto com união dos elementos
+

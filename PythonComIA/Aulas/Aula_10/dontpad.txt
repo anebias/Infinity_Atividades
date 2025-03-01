@@ -1,0 +1,39 @@
+Aula X - 22/02/2025
+dontpad:dfs7072202
+
+github:
+https://github.com/thiagooshiro/python-classes
+
+git clone https://github.com/thiagooshiro/
+para clonar o repo:python-classes
+
+
+biblioteca = Biblioteca('Biblioteca Municipal de Belo Horizonte', 'Rua das Flores 176', horario)
+
+funcionario = Funcionario('Bruno', 'Dias', '14A7B', 'Rua das Camélias 154', '076.106.123-32', 'Bibliotecário')
+
+funcionario2 = Funcionario('Rodrigo', 'Silva', '24SB', 'Av X', '1233', 'Admin')
+
+biblioteca.cadastrar_funcionarios(funcionario)
+
+biblioteca.cadastrar_funcionarios(funcionario2)
+
+biblioteca.listar_funcionarios()
+
+livro = Livro('Boa vida', 'Zero', 1994, 'Terror', 'Boavida', '123SV')
+
+estante = Estante(1, 'A', 2, 'Terror')
+
+funcionario2.cadastrar_livros(livro, estante, biblioteca)
+
+estante.listar_livros_na_estante()
+
+horario = {
+    'Segunda': ('10:00', '17:00'),
+    'Terça': ('10:00', '17:00'),
+    'Quarta': ('10:00', '17:00'),
+    'Quinta': ('10:00', '17:00'),
+    'Sexta': ('10:00', '17:00'),
+    'Sábado': ('10:00', '17:00'),
+}
+

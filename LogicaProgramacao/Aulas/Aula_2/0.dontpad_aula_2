@@ -1,1 +1,46 @@
+# 19/10/2024
+
 https://dontpad.com/dfs7071910
+
+Email Prof: oshirothiago@gmail.com
+
+Exercícios:
+
+ Exercícios - Lógica de programação em Python
+
+# Input - para os exercícios abaixo você precisará utilizar o método input() para requisitar dados externos ao programa:
+
+# 1  - Crie um algoritmo em que o usuário informe uma frase qualquer e exiba a frase na tela (terminal) quando executado.
+
+
+# 2  - Crie um algoritmo em que o usuário informe o nome completo e exiba o nome completo na tela (terminal) quando executado.
+
+
+# 3  - Crie um algoritmo em que o usuário informe a idade e exiba a idade na tela (terminal) quando executado.
+
+
+# 4  -
+
+# 5  - Crie um algoritmo em que o usuário informe dois números inteiros (n1 e n2) e exiba a soma dos números na tela (terminal) quando executado.
+
+
+# 6  - Crie um algoritmo em que o usuário informe dois números inteiros (x1 e x2) e exiba a diferença dos números na tela (terminal) quando executado.
+
+
+# 7  - Crie um algoritmo em que o usuário informe dois números inteiros (a1 e a2) e exiba o produto dos números na tela (terminal) quando executado.
+
+
+# 8  - Crie um algoritmo em que o usuário informe dois números inteiros (x e y) e exiba o quociente dos números na tela (terminal) quando executado.
+
+
+# 9  - Crie um algoritmo em que o usuário informe quatro notas (n1, n2, n3 e n4). Após, calcule a média aritmética e exiba a média na tela (terminal) quando executado.
+	
+
+
+Desafio: Crie um algorimo que peça ao usuário o email e a senha. Caso o usuário e a senha estejam corretos imprima no terminal:
+"Acesso garantido", caso contrário imprima "Acesso negado"; Pre-defina a senha e e-mail corretos e compare com as entradas obtidas através do input.
+
+
+Desafio:   
+
+tchau galera!

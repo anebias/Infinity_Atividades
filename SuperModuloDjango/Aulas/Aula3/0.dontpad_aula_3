@@ -1,0 +1,65 @@
+# 09/11/2024
+
+https://dontpad.com/smdjango
+
+Repositorio do projeto (base)
+https://github.com/thiagooshiro/django-intro
+
+Para clonar o projeto:
+git clone https://github.com/thiagooshiro/django-intro
+
+Criar um novo projeto: 
+django-admin startproject nome_do_projeto
+
+Criar um novo aplicativo: 
+python manage.py startapp nome_do_app
+
+Rodar o servidor de desenvolvimento: 
+python manage.py runserver
+
+Criar migrações para alterações no modelo: 
+python manage.py makemigrations
+
+Aplicar migrações ao banco de dados: 
+python manage.py migrate
+
+Criar um superusuário (admin): 
+python manage.py createsuperuser
+
+Acessar o 
+python manage.py shell
+
+Parar o servidor: use Ctrl+C no terminal
+
+Listar todas as migrações: 
+python manage.py showmigrations
+
+Reverter uma migração específica: 
+python manage.py migrate nome_do_app nome_da_migracao_anterior
+
+Coletar arquivos estáticos para produção: 
+python manage.py collectstatic
+
+Testar a aplicação: 
+python manage.py test
+
+Dicas extras:
+
+Verificar erros e mensagens: 
+python manage.py check
+Gerar um arquivo de documentação: 
+python manage.py dumpdata > dados.json
+
+Verificar pacotes instalados no ambiente virtual:
+pip freeze
+Criar arquivo para instalação de pacotes:
+pip freeze > requirements.txt
+
+
+
+Se você quiser atualizar os arquivos/informações de um repo já clonado:
+git pull
+
+
+Recomendação de curso sobre agentes de IA:
+https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai

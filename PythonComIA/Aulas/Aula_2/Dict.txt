@@ -1,0 +1,22 @@
+# Chave e valor
+meu_dict = {}
+meu_dict = dict()
+meu_dict = dict([('Chave1', 'Valor1'),('Chave2', 'Valor2')])
+meu_dict = dict(Chave1 = 'Valor1', Chave2 = 'Valor2')
+
+# Usando compreensão de dicionários
+meu_dict = {elemento: f'Valor {elemento} for elemento in range(6)}
+
+# O método items() é utilizado para recuperação de chave, valor.
+# Os valores nos dicionários são acessados por suas chaves.
+
+# Recuperação do valor:
+meu_dict[chave] ou meu_dict.get(chave)
+
+# Operações:
+# list(dict) - Retorna lista com todas as chaves usadas
+# len(dict) - Retorna o número de itens do dicionários
+# dicionario[chave] - Retorna o valor da chave
+# dicionario[chave] = valor - Atualiza o valor ou cria chave/valor
+# del dict[chave] - Remove a chave e seu valor
+# chave in dict - Avalia se a chave pertence ao dicionário
