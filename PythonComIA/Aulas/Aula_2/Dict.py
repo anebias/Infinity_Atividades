@@ -247,18 +247,40 @@
 # seguintes chaves: 'nome','idade','notas'. As notas devem
 # ser armazenadas em uma tupla.
 
-lista_alunos = {
-    'aluno1':{
-    'nome': 'nome do aluno',
-    'idade': 10,
-    'notas': (1,2,3)
-    },
-'aluno2':{
-    'nome': 'nome do aluno',
-    'idade': 10,
-    'notas': (1,2,3)
-    }}
-print(lista_alunos)
+print('*'*10,'CADASTRO DE ALUNOS E NOTAS', '*'*10)
+print('Instruções:')
+print('Para cada aluno será necessário informar:\n1. Nome\n2. Idade \n3. Três notas: Matemática, Ciências e História, nesta ordem\n')
+
+disciplinas = ['Matemática', 'Ciências', 'História']
+cadastro_alunos = dict()
+contador = 0
+
+while True:
+
+    nome = input('Informe o nome do aluno ou "*" para sair: ').capitalize()
+
+    if nome == '*':
+        break
+    else:
+        while (len(nome) < 3 or nome in ' '*999):
+            nome = input('Nome inválido. Digite novamente: ').capitalize()
+
+        idade = input(f'Informe a idade do aluno {nome}: ')
+
+        while (not idade.isdigit() or idade in ' '*999):
+            idade = input('Idade inválida. Digite novamente: ')
+
+        notas_aluno = []
+        for disciplina in disciplinas:
+            nota = input(f'Informe a nota de {disciplina} do aluno {nome}: ')
+            while not nota.replace('.','').isnumeric() or nota in ' '*999:
+                nota = input('Nota inválida. Digite novamente: ')
+            notas_aluno.append(float(nota))
+
+        cadastro_alunos[f'{contador}'] = {'nome': nome, 'idade': idade, 'notas': tuple( notas_aluno)}
+        contador += 1
+
+print(cadastro_alunos)
 
 # DESAFIO PRÁTICO
 # Sistema de Cadastro de Alunos - passo 2
@@ -270,6 +292,42 @@ print(lista_alunos)
 # Aluno com Melhor Média: O programa deve identificar e
 # exibir o aluno com a melhor média de notas.
 
+print('*'*10,'ALUNOS CADASTRADOS','*'*10)
+
+contador = 0
+lista_medias = []
+
+for chave, valor in cadastro_alunos.items():
+    contador += 1
+    print(f'Nome do Aluno: {cadastro_alunos[chave]['nome']}')
+    print(f'Idade: {cadastro_alunos[chave]['idade']}')
+    soma = media = 0
+    
+    print('Notas do aluno:', end=' ')
+    for i, nota in enumerate(cadastro_alunos[chave]['notas']):
+        if i != len(cadastro_alunos[chave]['notas']):
+            print(f'{disciplinas[i]}: {nota}', end=', ')
+        else:
+            print(f'{disciplinas[i]}: {nota}')
+        soma += nota
+    media = soma / 3
+    lista_medias.append(media)
+
+    print(f'Média do Aluno: {media:.2f}')
+    print('*'*30)
+
+# Buscar aluno com melhor desempenho
+melhor_desempenho = lista_medias[0]
+aluno_melhor_desempenho = 0
+
+for j in range(len(lista_medias)-1):
+    if lista_medias[aluno_melhor_desempenho] < lista_medias[j+1]:
+        melhor_desempenho = lista_medias[j+1]
+        aluno_melhor_desempenho = j + 1
+
+nome_aluno_melhor_desempenho = cadastro_alunos.get(f'{aluno_melhor_desempenho}')['nome']
+print('Aluno com melhor desempenho: ',nome_aluno_melhor_desempenho)
+print('*'*30)
 
 # from datetime import datetime
 # antes = datetime.now()

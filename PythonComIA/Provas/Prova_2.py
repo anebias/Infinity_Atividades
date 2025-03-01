@@ -2,23 +2,17 @@
 
 informacoes_contato = dict()
 
-while True:
-    nome = input('Informe o seu nome: ')
-    while len(nome) < 3 or nome in ' '*999: #Mínimo 3 letras, como Ana
-        nome = input('Inválido. Informe o seu nome: ')
-    break
+nome = input('Informe o seu nome: ')
+while len(nome) < 3 or nome in ' '*999: #Mínimo 3 letras, como Ana
+    nome = input('Inválido. Informe o seu nome: ')
 
-while True:
-    telefone = input('Informe o seu telefone: ')
-    while len(telefone) < 8 or telefone in ' '*999: # Mínimo 8 dígitos
-        telefone = input('Inválido. Informe o seu telefone: ')
-    break
+telefone = input('Informe o seu telefone: ')
+while len(telefone) < 8 or telefone in ' '*999: # Mínimo 8 dígitos
+    telefone = input('Inválido. Informe o seu telefone: ')
 
-while True:
-    email = input('Informe o seu e-mail: ')
-    while len(email) < 7 or email in ' '*999: # 'a@b.com - cumprimento mínimo de e-mail'
-        email = input('Inválido. Informe o seu e-mail: ')
-    break
+email = input('Informe o seu e-mail: ')
+while len(email) < 7 or email in ' '*999: # 'a@b.com - cumprimento mínimo de e-mail'
+    email = input('Inválido. Informe o seu e-mail: ')
 
 informacoes_contato['nome'] = nome
 informacoes_contato['telefone'] = telefone
