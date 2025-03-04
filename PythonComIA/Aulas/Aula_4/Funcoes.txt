@@ -1,0 +1,2 @@
+
+# Toda função retorna alguma coisa. Caso não use Return será retornado None.
