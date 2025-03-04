@@ -129,10 +129,7 @@ while True:
     else:
         print('Escolha inválida, selecione uma das opções fornecidas')
 
-
-
 # lista de tarefas (com def)
-
 
 def menu_tarefas(nome):
     print(f'Olá, {nome}')
