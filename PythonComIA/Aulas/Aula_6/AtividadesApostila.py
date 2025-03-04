@@ -23,7 +23,22 @@
 #  informações como nome, descrição, prioridade e categoria. Você pode usar
 #  dicionários para representar as tarefas.
 
+#  Funções:
+#  Crie funções para adicionar tarefas, listar tarefas, marcar tarefas
+#  como concluídas, exibir tarefas por prioridade ou categoria, e outras
+#  funcionalidades que desejar.
+#  Menu de Comandos:
+#  Crie um menu de comandos de linha de comando que permita ao
+#  usuário interagir com o programa.
+
 lista_tarefas = dict()
+
+# TESTES
+lista_tarefas = {'1': {'nome': 'tarefa 1', 'descricao': 'descricao tarefa 1', 'prioridade': 'alta', 'categoria':'compras', 'status': 'ativa'}, 
+                 '2': {'nome': 'escola', 'descricao': 'descricao tarefa 2', 'prioridade': 'baixa', 'categoria':'categoria tafefa 2', 'status': 'ativa'},
+                 '3': {'nome': 'compras', 'descricao': 'descricao tarefa 2', 'prioridade': 'media', 'categoria':'categoria tafefa 3', 'status': 'ativa'}, '4': {'nome': 'tarefa 4', 'descricao': 'descricao tarefa 2', 'prioridade': 'extrema', 'categoria':'escola', 'status': 'ativa'},
+                 '5': {'nome': 'tarefa 5', 'descricao': 'descricao tarefa 2', 'prioridade': 'alta', 'categoria':'pagar', 'status': 'ativa'}
+                 }
 
 def incluir_tarefa():
     nome = input('Informe o nome: ')
@@ -134,40 +149,6 @@ def listar_por_status():
                     print(f'Prioridade: {valor['prioridade']}')
                     print(f'Categoria: {valor['categoria']}')
             print('*'*20)
-
-# TESTES
-# lista_tarefas = {'1': {'nome': 'tarefa 1', 'descricao': 'descricao tarefa 1', 'prioridade': 'alta', 'categoria':'compras', 'status': 'ativa'}, 
-#                  '2': {'nome': 'escola', 'descricao': 'descricao tarefa 2', 'prioridade': 'baixa', 'categoria':'categoria tafefa 2', 'status': 'ativa'},
-#                  '3': {'nome': 'compras', 'descricao': 'descricao tarefa 2', 'prioridade': 'media', 'categoria':'categoria tafefa 3, 'status': 'ativa'}
-#                  , '4': {'nome': 'tarefa 4', 'descricao': 'descricao tarefa 2', 'prioridade': 'extrema', 'categoria':'escola', 'status': 'ativa'},
-#                  '5': {'nome': 'tarefa 5', 'descricao': 'descricao tarefa 2', 'prioridade': 'alta', 'categoria':'pagar', 'status': 'ativa'}
-#                  }
-# print(incluir_tarefa('fazer bolo', 'fazer bolo de ninho', 'alta', 'festa'))
-# print(incluir_tarefa('comer o bolo', 'comer o bolo de ninho', 'baixa', 'festa'))
-# print(incluir_tarefa('vender o bolo', 'vender o bolo de ninho', 'media', 'festa'))
-# print(incluir_tarefa('', 'fazer bolo de ninho', 'alta', 'festa'))
-# print(incluir_tarefa('fazer bolo', '', 'media', 'festa'))
-# print(incluir_tarefa('fazer bolo', 'fazer bolo de ninho', '', 'festa'))
-# print(incluir_tarefa('fazer bolo', 'fazer bolo de ninho', 'media', ''))
-# print(incluir_tarefa(' ', 'fazer bolo de ninho', 'alta', 'festa'))
-# print(incluir_tarefa('fazer bolo', ' ', 'extrema', 'festa'))
-# print(incluir_tarefa('fazer bolo', 'fazer bolo de ninho', ' ', 'festa'))
-# print(incluir_tarefa('fazer bolo', 'fazer bolo de ninho', 'baixa', ' '))
-# print(lista_tarefas)
-# listar_prioridades()
-# concluir_tarefa()
-# listar_tarefas()
-# listar_por_prioridade()
-# print(listar_categorias())
-# listar_por_categoria()
-
-#  Funções:
-#  Crie funções para adicionar tarefas, listar tarefas, marcar tarefas
-#  como concluídas, exibir tarefas por prioridade ou categoria, e outras
-#  funcionalidades que desejar.
-#  Menu de Comandos:
-#  Crie um menu de comandos de linha de comando que permita ao
-#  usuário interagir com o programa.
 
 while True:
     print('\n','*'*10,'MENU - LISTA DE TAREFAS (TO DO)','*'*10)
