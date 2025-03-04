@@ -96,7 +96,6 @@ def saudar(nome):
 saudar('Isabela')
 
 
-
 def soma_das_notas(a, b, c ,d):
     resultado = a + b + c + d
     return resultado
