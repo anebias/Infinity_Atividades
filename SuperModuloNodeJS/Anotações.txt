@@ -2,3 +2,7 @@ https://www.canva.com/design/DAGSCmSplMA/ni8in3xQ9Kop7LoYFGxtQw/edit?utm_content
 
 extensões path intellisense
 
+CONNECT_STRING = 'mongodb+srv://anebiasinfinity:QTGy03cz52qBFvGI@bancodadosaulanode.suwrv.mongodb.net/?retryWrites=true&w=majority&appName=BancoDadosAulaNode'
+
+LINK Professor Augusto
+https://github.com/santaugusto/superNodeJS/blob/main/aula05/material.ipynb

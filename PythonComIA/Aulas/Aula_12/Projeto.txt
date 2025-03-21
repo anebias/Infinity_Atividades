@@ -1,0 +1,133 @@
+SISTEMA DE HAMBURGUERIA
+
+"Estou querendo criar um sistema pra minha hamburgueria... 
+Vou precisar de um cardápio, um sistema de fidelização de clientes,
+e um jeito pra pessoa poder fazer pedido e vir aqui pegar ou mandar motoboy entregar?
+E aí você consegue fazer até semana que vem?"
+
+Requisitos:
+ - Classe Menu
+    Listar_opções_menu()
+
+ - Classe Pessoa
+    * super PESSOA e sub usuario e cliente
+    - nome
+    - endereco
+    - telefone
+    - cpf *Não obrigatório para cliente
+
+    métodos:
+    - consultar_telefone
+    - consultar_cpf
+    - consultar_nome
+    - alterar_telefone
+    - alterar_endereco
+
+    - Classe clientes
+        - Cadastrar cliente *Classe Hamburgueria
+            - total_pedidos_fidelizacao
+            
+            métodos:
+            - incluir_pedido_fidelizacao
+            
+    - Classe usuario
+        - Cadastrar usuario *Classe Hamburgueria
+            - perfil_usuario //adm ou user
+    
+    - Classe entregador
+        - Cadastar entregador
+            - placa_veiculo
+            - tipo_veiculo
+            - lista_pedidos_entregador
+    
+ - Classe Produto
+    * super PRODUTO e sub hamburguer e bebida
+        - nome
+        - valor
+        - codigo_produto
+
+        métodos:
+        - alterar_valor
+        - alterar_nome
+
+    - Cadastrar hamburguer *Classe Hamburgueria
+        - descricao
+
+        métodos:
+        - alterar_valor
+        - alterar_descricao
+
+    - Cadastrar bebida *Classe Hamburgueria
+        - tipo_bebida
+        - tipo_recipiente
+        - volume
+
+        métodos
+        - alterar_volume
+        - alterar_tipo_recipiente
+
+ - Classe pedido
+    - cliente
+    - hamburguer *não obrigatório
+    - bebida *não obrigatório
+    - valor_pedido
+    - data_pedido
+    - numero_pedido
+    - tipo_entrega
+    - entregador
+    - lista_itens_pedido
+    - status_pedido *aberto, preparacao, rota, fechado, cancelado
+    
+    métodos:
+    - consultar_pedido_numero_pedido
+    - consultar_pedido_cliente
+    - alterar_tipo_entrega
+    - adicionar_item_pedido
+    - excluir_item_pedido
+    - excluir_pedido
+    - calcular_valor_total_pedido
+    - listar_pedidos_entregador
+
+ - Classe Caixa
+    - descricao
+    - tipo_registro *entrada, saída
+    - meio_pagamento
+    - valor
+    - data
+
+    métodos
+    - receber_pagamento
+    - realizar_pagamento
+    - excluir_registro *restrito
+    - consultar_registros_data
+    - listar_valores_pagos_dia
+    - listar_valores_recebidos_dia
+    - saldo_caixa_dia
+    - saldo_caixa_mes
+    - saldo_caixa_ano
+
+ - Classe Hamburgueria
+    - Incluir_hamburgueria()
+        - nome
+        - endereco
+        - horario_funcionamento
+
+    - Incluir_pedido()
+        - verificar se cliente está cadastrado e incluir se não
+
+    - Entregar_pedido()
+        - consultar_pedido_cliente OU consultar_pedido_numero_pedido
+        - Total_pedido_cliente()
+        - Recebimento_caixa_pedido() *Precisa ser chamado na entrega do pedido
+    
+    - Cancelar_pedido()
+        - consultar_pedido_cliente OU consultar_pedido_numero_pedido
+        - excluir_pedido
+
+    - Listar_pedidos_espera()
+    - Listar_pedidos_entregues_dia()
+    - Cadastrar_hamburguer()
+    - Cadastrar_bebida()
+    - Cadastrar_cliente()
+    - Cadastrar_usuario()
+    

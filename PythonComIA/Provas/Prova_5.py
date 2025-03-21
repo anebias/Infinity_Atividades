@@ -8,9 +8,9 @@ def maior(num1 , num2, num3):
         num2 = float(num2)
         num3 = float(num3)
         
-        if num1 > num2 and num1 > num3:
+        if num1 >= num2 and num1 >= num3:
             return num1
-        elif num2 > num1 and num2 > num3:
+        elif num2 >= num1 and num2 >= num3:
             return num2
         else:
             return num3
@@ -19,16 +19,21 @@ def maior(num1 , num2, num3):
         return 'valores não numéricos'
 
 # TESTES
-print(maior('1','2.99','3'))
-print(maior('1','3','2.99'))
-print(maior('2.99','1','3'))
-print(maior('2.99999','3','1'))
-print(maior('3','1','2.999'))
-print(maior('3','2.999','1'))
-print(maior('','2.999','1'))
-print(maior(' ','2.999','1'))
-print(maior('a','2.999','1'))
-print(maior('.','2.9999','1'))
+print(maior('2','2','2'))
+print(maior('2','1','2'))
+print(maior('1','2','2'))
+print(maior('2','2','1'))
+
+# print(maior('1','2.99','3'))
+# print(maior('1','3','2.99'))
+# print(maior('2.99','1','3'))
+# print(maior('2.99999','3','1'))
+# print(maior('3','1','2.999'))
+# print(maior('3','2.999','1'))
+# print(maior('','2.999','1'))
+# print(maior(' ','2.999','1'))
+# print(maior('a','2.999','1'))
+# print(maior('.','2.9999','1'))
 
 
 
