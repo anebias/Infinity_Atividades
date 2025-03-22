@@ -5,6 +5,7 @@ from os import listdir
 lista_arquivos = listdir()
 
 print('*'*10,'Lista de Arquivos no diretório raiz: ','*'*10)
+
 for item in lista_arquivos:
     print(item)
 
