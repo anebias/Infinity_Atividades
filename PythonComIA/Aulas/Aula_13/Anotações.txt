@@ -1,0 +1,5 @@
+Faltam 5 aulas e os seguintes conteúdos da apostila:
+- 3 AULAS FLET (AULAS 9, 10, 14)
+- 3 AULAS SQL (AULAS 15, 16, 17)
+- 1 AULA PROJETO (AULA 18)
+
