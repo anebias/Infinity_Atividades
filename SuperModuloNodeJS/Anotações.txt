@@ -6,3 +6,206 @@ CONNECT_STRING = 'mongodb+srv://anebiasinfinity:QTGy03cz52qBFvGI@bancodadosaulan
 
 LINK Professor Augusto
 https://github.com/santaugusto/superNodeJS/blob/main/aula05/material.ipynb
+https://todo-not.notion.site/React-com-TypeScript-128ca9b6cae1801898cde00889468d60
+https://github.com/NOT39/aulas-sm-node
+https://github.com/NOT39/task-manager
+
+03/04/2025 - PROF NOT
+https://todo-not.notion.site/Aula-05-Revis-o-1caca9b6cae181e194cbcb00a025b54e
+
+- NPM cada pasta é um projeto separado e trata as instalações dos pacotes como se fossem ambientes virtuais.
+- Comando para criação de um pacote NPM com arquivo package.json: npm init -y
+- Criar arquivo scripts.js: script  
+- Executar arquivo com Node no terminal: node caminho arquivo
+- Ferramentas para instalação e uso: express OU fastify OU nestjs
+- Instalar express: npm install express OU npm i express (pode colocar mais pacotes para instalar junto)
+- package-lock.json (dificilmente é alterado)
+- Ao copiar o projeto, apagar a pasta node_modules
+- Para usar o express no projeto é preciso importar o módulo: import express from "express";
+- Para usar o import / export precisa adicionar no package.json "type" = module
+- criar o app como uma função do express: const app = express()
+- para rodar a aplicação (listem=ouvir): app.listem(3000,()=>{console.log("servidor rodando na porta 3000")})
+- para reload da aplicação: node --watch nomearquivo (à partir da versão 22). Para versões anteriores, precisa instalar o pacote para uso em desenvolvimento (-D): npm i -D nodemon
+- nodemon é um script e para rodar usa o npx: npx nodemon nomearquivo
+- no package.json podemos dar apelidos para os comandos em scripts "apelido":"comando sem npx". Exemplo: "dev": "scripts.js" (rodar em desenvolvimento). No terminal: npm dev | "start":node scripts,js" (rodar em produção). No terminal: npm start
+
+-Estrutura de pastas:
+src
+  server.js
+package-lock.json
+package.json
+
+- hendler: função que será executada ao tentar acessar um recurso. Todo hendler precisa retornar alguma coisa: erro ou resposta: res.send envia como texto, res.json envia como json
+- Dica para enviar respostas json: enviar como objeto, ainda que de um único elemento. Exemplo:
+res.json({data: projetos}) OU res.json({projetos})
+- Thunder Client: é um cliente que envia uma requisição para um servidor http. Outras: insomnia, postman
+- Dados enviados nas requisições:
+   - body: grande volume de dados, dados sigilosos
+   - router: identificador de registro. Exemplo: "/rota/:identificador" (req.params)
+   - query: filtrar dados. Exemplo: "/rota?chave=valor&chave=valor&chave=valor"
+
+- Middleware: podem ser customizados ou usados próprios do express. Globais ou locais ou rotas específicas.
+  - Middleware do express: app.use(express.json())
+
+biblioteca npm http-status-codes. Exemplo: res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
+    message:"Titulo obrigatório"})
+
+Dica para uso de if: Verificar primeiro casos de erro
+
+spread operator (...)
+Exemplo:
+pessoa = {
+    nome: "nome",
+    endereco: "endereco"
+}
+novapessoa = {...pessoa, telefone: 9857485}
+
+DATA DA AULA : 03/04/2025
+
+LINKS DE CONTEUDOS:
+
+https://todo-not.notion.site/Aula-05-Revis-o-1caca9b6cae181e194cbcb00a025b54e?pvs=4
+https://todo-not.notion.site/React-com-TypeScript-128ca9b6cae1801898cde00889468d60?pvs=4
+
+======================================================================================
+LINKS GitHub:
+
+https://github.com/NOT39/aulas-sm-node
+https://github.com/NOT39/task-manager
+
+======================================================================================
+
+https://coder.donot.site/@NOT39/dsadsa.main/apps/code-server/?folder=/home/coder
+
+not.exemplo@gmail.com
+#N&2Z^UV&L7#M2Hk9GcXGj^%
+
+======================================================================================
+COMANDOS PASSADOS PELO CHAT:
+
+npm init -y
+
+node script.js
+
+npm i express
+
+"type": "module",
+
+node --watch script.js
+
+npm i -D nodemon
+
+npm run dev
+
+http://localhost:3000/
+
+npm i http-status-codes
+
+======================================================================================
+CÓDIGO DA  AULA.
+
+import express from "express";
+import { StatusCodes } from "http-status-codes";
+
+const projetos = [
+  { id: 0, titulo: "Primeiro projeto", descricao: "Meu primeiro projeto" },
+  { id: 1, titulo: "Segundo projeto", descricao: "Meu primeiro projeto" },
+  { id: 2, titulo: "Terceiro projeto", descricao: "Meu primeiro projeto" }
+]
+
+const app = express()
+
+app.use(express.json())
+
+app.get("/", (req, res) => {
+  return res.send("<h1>Olá, mundo!</h1>")
+})
+
+app.get("/projetos", (req, res) => {
+  const { titulo } = req.query
+
+  let projetosEncontrados = projetos
+
+  if (titulo) {
+    projetosEncontrados = projetos.filter((projeto) => {
+      return projeto.titulo.toLowerCase().includes(titulo.toLowerCase())
+    })
+  }
+
+  return res.json({
+    data: projetosEncontrados
+  })
+})
+
+app.post("/projetos", (req, res) => {
+  const { titulo, descricao } = req.body
+
+  if (!titulo) {
+    return res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({
+      mensagem: "Titulo é obrigatório."
+    })
+  }
+
+  const projetoCriado = {
+    id: projetos[projetos.length - 1].id + 1,
+    titulo,
+    descricao
+  }
+
+  projetos.push(projetoCriado)
+
+  return res.status(StatusCodes.CREATED).json({
+    data: projetoCriado
+  })
+})
+
+app.put("/projetos/:id", (req, res) => {
+  const { id } = req.params
+  const { titulo, descricao } = req.body
+
+  const indiceProjeto = projetos.findIndex((projeto) => {
+    return projeto.id === parseInt(id)
+  })
+
+  if (indiceProjeto < 0) {
+    return res.status(StatusCodes.NOT_FOUND).json({
+      mensagem: "O projeto informado não foi encontrado."
+    })
+  }
+
+  const projetoEncontrado = projetos[indiceProjeto]
+
+  const novoProjeto = {
+    ...projetoEncontrado,
+    titulo: titulo ? titulo : projetoEncontrado.titulo,
+    descricao: descricao ? descricao : projetoEncontrado.descricao
+  }
+
+  projetos[indiceProjeto] = novoProjeto
+
+  return res.json({
+    data: novoProjeto
+  })
+})
+
+app.delete("/projetos/:id", (req, res) => {
+  const { id } = req.params
+
+  const indiceProjeto = projetos.findIndex((projeto) => {
+    return projeto.id === parseInt(id)
+  })
+
+  if (indiceProjeto < 0) {
+    return res.status(StatusCodes.NOT_FOUND).json({
+      mensagem: "O projeto informado não foi encontrado."
+    })
+  }
+
+  projetos.splice(indiceProjeto, 1)
+
+  return res.status(StatusCodes.NO_CONTENT).send()
+})
+
+app.listen(3000, () => {
+  console.log("Servidor rodando na porta 3000!")
+})
