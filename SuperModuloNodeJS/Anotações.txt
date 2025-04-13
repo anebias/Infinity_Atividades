@@ -209,3 +209,95 @@ app.delete("/projetos/:id", (req, res) => {
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000!")
 })
+
+AULA 10/04/2025
+Organização do projeto, separando:
+- app: arquivo que lida com o app;
+- server: arquivo que cuida da conexão e ouvir o servidor;
+- routes: pastas por rota com arquivo indicando as rotas, que chamam as funções que estão em controllers;
+- controllers (hendlers): lógicas do negócio, que contém as funções que serão executadas em cada rota;
+** ao usar o node, não esquecer de colocar o .js quando importar **
+** ORM - Representação das tabelas como classes;
+** ODM - Representação dos dados(schemas) para bancos de dados NOSQL (Mongose para MongoDB);
+
+Usaremos o ORM Prisma e SQLite
+ - Instalação NPM i -D prisma
+ - Inicializar o prisma: npx prisma init --datasource-provider sqlite (gera pasta prisma)
+ - Instalar extensão Prisma
+ - Configurações - settings e incluir as configurações indicadas na extensão.
+
+ Modelagem para o banco de dados:
+ model => usado para tabelas relacionais
+
+ dentro da pasta prisma, arquivo schema.prisma:
+ - após configurações do banco, inclui os models:
+ Exemplo:
+ model Usuario {
+  id String @id @default(uuid())
+  email String @unique
+  hash_senha String 
+  nome String? : ? significa opcional
+  projetos Projeto[] : cria relacionamento com a "tabela" Projeto do tipo lista. Ao salvar, ele cria o relacionamento na model Projeto.
+  @@map("usuarios") : opção para salvar a tabela no banco de dados com nome definido, senão, será salvo como o da classe.
+ }
+
+model Projeto {
+ id Int @id @default(autoincrement())
+ titulo String
+ descricao String?
+ imagemURL String? @map("imagem_url") : define o nome da coluna no banco
+ repositorioURL String? @map("repositorio_url")
+ previewURL String? @map("preview_url")
+}
+
+model Like{
+  id Int @id @default(autoincrement())
+  usuario Usuario
+  projeto Projeto
+  --faltam relacionamentos
+  @@map("like")
+}
+
+model Dislike{
+  id Int @id @default(autoincrement())
+  usuario Usuario
+  projeto Projeto
+  --faltam relacionamentos
+  @@map("dislike")
+}
+
+** Rodar para o banco de dados: npx prisma migrate dev
+
+indicação: incluir script no package.json:
+   - "migrate:dev": "prisma migrate dev"
+   - "migrate:": "prisma migrate deploy"
+
+Prisma ERD gera 
+https://www.npmjs.com/package/prisma-erd-generator
+instalação: npm i -D prisma-generator-erd-generate
+gerar: npx prisma generate
+
+npx prisma studio: permite manipular o banco de dados através da ferramenta studio do prisma
+
+Como usar o prisma dentro do projeto:
+Nos controllers (funções), você usa a instância do prisma.
+para facilitar o uso, criar pasta lib e arquivo prisma.js
+
+no schema.prisma adicionar no generator client {
+  provider  = 
+  output = "../src/generated/prisma"
+}
+
+import {PrismaClient} from ../gerenate/prisma/client'
+
+export const prisma = new PrismaClient()
+
+Na função:
+import {prisma} from '../../lib/prisma.js'
+prisma é assincrona, usar assync e await
+prisma.projeto.findMany() <<>> prisma instância, tabela, instrução select
+
+instrução include: {
+  quais outras colunas ele quer trazer
+}
+

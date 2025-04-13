@@ -1,1 +1,523 @@
-Aula 14 - //2025
+Aula 14 - 29/03/2025
+https://dontpad.com/dfs7072903
+Bom dia!
+
+docs:
+https://flet.dev/docs/
+
+Outro framework:
+https://docs.streamlit.io/get-started/tutorials/create-an-app
+
+
+Repositório de agentes de IA:
+https://github.com/thiagooshiro/AI-agents
+
+email: oshirothiago@gmail.com
+
+Introdução ao Flet:
+
+Criar um ambiente virtual;
+python3 -m venv .venv
+Ativação do ambiente virtual:
+
+source .venv/bin/activate
+
+NO WINDOWS para ativar SERIA:
+.venv\Scripts\activate
+
+Instalação do Flet:
+pip install flet
+
+Arquivo base:
+import flet as ft
+
+def main(page:ft.Page):
+    ola = ft.Text(value='Olá mundo!', size=30)
+    page.controls.append(ola)
+    page.update()
+
+ft.app(target=main)
+
+
+
+
+Pra rodar como web app:
+flet run --web flet2.py
+
+
+#Linux instalar versão do python:
+sudo apt install python3-venv python3-pip
+
+
+# Linux:
+# 1. Criar ambiente virtual: python3 -m venv nome_do_ambiente
+# 2. Ativar ambiente virtual: source nome_do_ambiente/bin/activate
+# 3. Desativar ambiente virtual: deactivate
+
+# Windows (Prompt de Comando):
+# 1. Criar ambiente virtual: python -m venv nome_do_ambiente
+# 2. Ativar ambiente virtual: nome_do_ambiente\Scripts\activate
+# 3. Desativar ambiente virtual: deactivate
+
+# Windows (PowerShell):
+# 1. Criar ambiente virtual: python -m venv nome_do_ambiente
+# 2. Ativar ambiente virtual: .\nome_do_ambiente\Scripts\Activate
+# 3. Desativar ambiente virtual: deactivate
+
+
+APP CHAT BOT COM FLET:
+
+import flet as ft
+
+def main(page: ft.Page):
+    page.title = "Meu Web App com Flet"
+    page.theme_mode = ft.ThemeMode.LIGHT  # Pode alternar para DARK se preferir
+    page.bgcolor = "#F5F5F5"
+    
+    # Cabeçalho estilizado
+    header = ft.Container(
+        content=ft.Text("Bem-vindo ao Meu Web App", size=24, weight=ft.FontWeight.BOLD),
+        alignment=ft.alignment.center,
+        padding=10,
+        bgcolor="#007BFF",
+        border_radius=10,
+        margin=10,
+    )
+    
+    # Campo de entrada e botão
+    input_field = ft.TextField(label="Digite algo", width=300)
+    result_text = ft.Text("Resultado aparecerá aqui", size=16)
+    
+    def on_click(e):
+        result_text.value = f"Você digitou: {input_field.value}"
+        page.update()
+    
+    button = ft.ElevatedButton("Enviar", on_click=on_click, bgcolor="#007BFF", color="white")
+    
+    # Layout
+    content = ft.Column([
+        header,
+        input_field,
+        button,
+        result_text
+    ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+    
+    page.add(content)
+    
+ft.app(target=main, view=ft.WEB_BROWSER)
+
+
+
+Novo Chat:
+
+import flet as ft
+
+# Função para gerar a resposta do chatbot
+def resposta_chatbot(mensagem):
+    respostas = {
+        "oi": "Olá! Como posso ajudar?",
+        "qual seu nome?": "Eu sou o ChatBot. Como posso te ajudar?",
+        "tchau": "Até logo!",
+    }
+    # Retorna uma resposta baseada na mensagem do usuário ou uma resposta padrão
+    return respostas.get(mensagem.lower(), "Desculpe, não entendi sua pergunta.")
+
+# Função que atualiza a interface com a nova mensagem
+def main(page: ft.Page):
+    page.title = "ChatBot"
+    page.vertical_alignment = ft.MainAxisAlignment.START
+
+    # Criação dos elementos da interface
+    chat_box = ft.Column(scroll=ft.ScrollMode.AUTO)  # Caixa de chat para exibir mensagens
+    text_input = ft.TextField(label="Digite sua mensagem", autofocus=True, on_submit=lambda e: enviar_mensagem(e, chat_box, text_input))
+
+    # Função para enviar e exibir a mensagem
+    def enviar_mensagem(event, chat_box, text_input):
+        usuario_mensagem = text_input.value
+        chat_box.controls.append(ft.Text(f"Você: {usuario_mensagem}", color=ft.colors.BLUE))
+        bot_resposta = resposta_chatbot(usuario_mensagem)
+        chat_box.controls.append(ft.Text(f"Bot: {bot_resposta}", color=ft.colors.GREEN))
+        text_input.value = ""  # Limpar campo de texto
+        text_input.focus()  # Colocar o foco de volta no campo de texto
+        page.update()
+
+    # Adiciona o layout inicial
+    page.add(chat_box, text_input)
+
+# Executar o aplicativo Flet
+ft.app(target=main)
+
+passo a passao para criar nosso chatbot minimante inteligente:
+
+pip install requests
+
+Modelo Chatbot com LLM integrada usando API da GROQ:
+
+import flet as ft
+import requests
+import os
+
+# Configuração da API Groq
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") or "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"  # Substitua ou use variável de ambiente
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+
+# Função para gerar a resposta do chatbot usando a API da Groq
+def resposta_chatbot(mensagem, model="llama3-70b-8192", temperature=0.7):
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "messages": [
+            {
+                "role": "system",
+                "content": "Você é um assistente útil, prestativo e educado."
+            },
+            {
+                "role": "user",
+                "content": mensagem
+            }
+        ],
+        "model": model,
+        "temperature": temperature,
+        "max_tokens": 1024
+    }
+    
+    try:
+        response = requests.post(GROQ_API_URL, json=payload, headers=headers)
+        response.raise_for_status()
+        
+        resposta_api = response.json()
+        return resposta_api["choices"][0]["message"]["content"]
+    
+    except requests.exceptions.RequestException as e:
+        return f"Erro ao conectar com a API Groq: {str(e)}"
+    except (KeyError, IndexError) as e:
+        return "Erro ao processar a resposta da API."
+
+# Função principal da interface
+def main(page: ft.Page):
+    page.title = "ChatBot Groq"
+    page.vertical_alignment = ft.MainAxisAlignment.START
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.theme_mode = ft.ThemeMode.LIGHT
+    
+    # Elementos da interface
+    chat_box = ft.ListView(expand=True, spacing=10, auto_scroll=True)
+    text_input = ft.TextField(
+        label="Digite sua mensagem",
+        autofocus=True,
+        expand=True,
+        on_submit=lambda e: enviar_mensagem(e)
+    )
+    
+    # Botão de envio
+    send_button = ft.ElevatedButton(
+        "Enviar",
+        icon=ft.icons.SEND,
+        on_click=lambda e: enviar_mensagem(e)
+    )
+    
+    # Função para enviar mensagem
+    def enviar_mensagem(e):
+        if not text_input.value.strip():
+            return
+            
+        # Adiciona mensagem do usuário ao chat
+        chat_box.controls.append(
+            ft.Container(
+                ft.Text(f"Você: {text_input.value}", color=ft.colors.BLUE_800),
+                bgcolor=ft.colors.BLUE_100,
+                padding=10,
+                border_radius=10,
+                alignment=ft.alignment.top_left
+            )
+        )
+        
+        user_message = text_input.value
+        text_input.value = ""
+        page.update()
+        
+        # Mostra indicador de digitação
+        typing_indicator = ft.Text("Bot: digitando...", italic=True, color=ft.colors.GREY)
+        chat_box.controls.append(typing_indicator)
+        page.update()
+        
+        # Obtém resposta do bot
+        bot_response = resposta_chatbot(user_message)
+        
+        # Remove indicador e adiciona resposta real
+        chat_box.controls.remove(typing_indicator)
+        chat_box.controls.append(
+            ft.Container(
+                ft.Text(f"Bot: {bot_response}", color=ft.colors.GREEN_800),
+                bgcolor=ft.colors.GREEN_100,
+                padding=10,
+                border_radius=10,
+                alignment=ft.alignment.top_left
+            )
+        )
+        
+        page.update()
+    
+    # Layout da interface
+    input_row = ft.Row(
+        controls=[text_input, send_button],
+        alignment=ft.MainAxisAlignment.CENTER,
+        vertical_alignment=ft.CrossAxisAlignment.CENTER
+    )
+    
+    page.add(
+        ft.Container(
+            content=chat_box,
+            expand=True,
+            padding=20,
+            margin=10,
+            border=ft.border.all(1, ft.colors.GREY_300),
+            border_radius=10
+        ),
+        ft.Divider(),
+        input_row
+    )
+
+# Executar o aplicativo
+if __name__ == "__main__":
+    ft.app(target=main)
+
+
+
+COM LEITOR DE ARQUIVO DEFEITUOSO:
+
+import flet as ft
+import requests
+import os
+import time
+
+# Configuração da API Groq - REMOVA SUA CHAVE ANTES DE COMPARTILHAR O CÓDIGO
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") or "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"
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+
+def ler_arquivo_texto(caminho_arquivo):
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf-8') as file:
+            return file.read()
+    except Exception as e:
+        return f"Erro ao ler arquivo: {str(e)}"
+
+def resposta_chatbot(mensagem, contexto_arquivo=None, model="llama3-70b-8192", temperature=0.7):
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    # Construir o payload corretamente
+    messages = [{
+        "role": "system",
+        "content": "Você é um assistente útil que pode analisar textos e arquivos. "
+                   "Se fornecido com um arquivo, você pode resumir ou responder perguntas sobre ele."
+    }]
+    
+    # Adicionar contexto do arquivo como mensagem do usuário se existir
+    if contexto_arquivo and ("arquivo" in mensagem.lower() or 
+                            "resum" in mensagem.lower() or 
+                            "analis" in mensagem.lower()):
+        messages.append({
+            "role": "user",
+            "content": f"Por favor, analise este texto:\n\n{contexto_arquivo}\n\nPergunta: {mensagem}"
+        })
+    else:
+        messages.append({
+            "role": "user",
+            "content": mensagem
+        })
+    
+    payload = {
+        "messages": messages,
+        "model": model,
+        "temperature": temperature,
+        "max_tokens": 4096
+    }
+    
+    try:
+        response = requests.post(GROQ_API_URL, json=payload, headers=headers)
+        
+        # Verificar erros na resposta
+        if response.status_code != 200:
+            error_detail = response.json().get("error", {}).get("message", "Erro desconhecido")
+            return f"Erro na API (HTTP {response.status_code}): {error_detail}"
+        
+        resposta_api = response.json()
+        return resposta_api["choices"][0]["message"]["content"]
+    
+    except requests.exceptions.RequestException as e:
+        return f"Erro de conexão: {str(e)}"
+    except Exception as e:
+        return f"Erro ao processar resposta: {str(e)}"
+
+def main(page: ft.Page):
+    page.title = "ChatBot Groq com Upload de Arquivos"
+    page.theme_mode = ft.ThemeMode.LIGHT
+    page.padding = 20
+    
+    # Variáveis de estado
+    conteudo_arquivo = None
+    nome_arquivo = None
+    
+    # Elementos da interface
+    chat_box = ft.ListView(expand=True, spacing=10, auto_scroll=True)
+    
+    text_input = ft.TextField(
+        label="Digite sua mensagem ou comando",
+        multiline=True,
+        min_lines=1,
+        max_lines=5,
+        expand=True,
+    )
+    
+    # Upload de arquivo
+    def pick_files_result(e: ft.FilePickerResultEvent):
+        nonlocal conteudo_arquivo, nome_arquivo
+        if e.files:
+            try:
+                file_path = e.files[0].path
+                nome_arquivo = e.files[0].name
+                conteudo_arquivo = ler_arquivo_texto(file_path)
+                
+                if len(conteudo_arquivo) > 100000:  # Limite de ~100k caracteres
+                    chat_box.controls.append(
+                        ft.Container(
+                            ft.Text("Arquivo muito grande (limite: 100k caracteres)", color=ft.colors.RED),
+                            padding=10
+                        )
+                    )
+                    conteudo_arquivo = None
+                else:
+                    chat_box.controls.append(
+                        ft.Container(
+                            ft.Text(f"✅ Arquivo carregado: {nome_arquivo} ({len(conteudo_arquivo)} caracteres)", 
+                                   color=ft.colors.BLUE_800),
+                            bgcolor=ft.colors.BLUE_50,
+                            padding=10,
+                            border_radius=10,
+                        )
+                    )
+                page.update()
+            except Exception as e:
+                chat_box.controls.append(
+                    ft.Container(
+                        ft.Text(f"Erro ao carregar arquivo: {str(e)}", color=ft.colors.RED),
+                        padding=10
+                    )
+                )
+                page.update()
+    
+    pick_files_dialog = ft.FilePicker(on_result=pick_files_result)
+    page.overlay.append(pick_files_dialog)
+    
+    upload_button = ft.ElevatedButton(
+        "📁 Upload Arquivo",
+        on_click=lambda _: pick_files_dialog.pick_files(
+            allowed_extensions=["txt", "md", "csv", "json", "log"],
+            allow_multiple=False
+        ),
+    )
+    
+    # Envio de mensagem
+    def enviar_mensagem(e):
+        nonlocal conteudo_arquivo, nome_arquivo
+        
+        if not text_input.value.strip():
+            return
+            
+        user_message = text_input.value
+        text_input.value = ""
+        
+        # Adicionar mensagem do usuário
+        chat_box.controls.append(
+            ft.Container(
+                ft.Text(f"Você: {user_message}", color=ft.colors.BLUE_800),
+                bgcolor=ft.colors.BLUE_100,
+                padding=10,
+                border_radius=10,
+            )
+        )
+        page.update()
+        
+        # Indicador de processamento
+        typing_indicator = ft.Container(
+            ft.Row([
+                ft.ProgressRing(width=16, height=16, stroke_width=2),
+                ft.Text("Processando...", italic=True, color=ft.colors.GREY)
+            ], spacing=5),
+            padding=10
+        )
+        chat_box.controls.append(typing_indicator)
+        page.update()
+        
+        # Obter resposta
+        start_time = time.time()
+        bot_response = resposta_chatbot(user_message, conteudo_arquivo)
+        elapsed_time = time.time() - start_time
+        
+        # Remover indicador e mostrar resposta
+        chat_box.controls.remove(typing_indicator)
+        
+        chat_box.controls.append(
+            ft.Column([
+                ft.Container(
+                    ft.Text(f"🤖 Bot: {bot_response}", color=ft.colors.GREEN_800),
+                    bgcolor=ft.colors.GREEN_100,
+                    padding=10,
+                    border_radius=10,
+                ),
+                ft.Text(f"⏱️ {elapsed_time:.2f} segundos", size=10, color=ft.colors.GREY)
+            ], spacing=5)
+        )
+        page.update()
+    
+    send_button = ft.ElevatedButton(
+        "📤 Enviar",
+        icon=ft.icons.SEND,
+        on_click=enviar_mensagem,
+    )
+    
+    # Limpar chat
+    def limpar_chat(e):
+        nonlocal conteudo_arquivo, nome_arquivo
+        chat_box.controls.clear()
+        conteudo_arquivo = None
+        nome_arquivo = None
+        page.update()
+    
+    clear_button = ft.ElevatedButton(
+        "🧹 Limpar",
+        on_click=limpar_chat,
+    )
+    
+    # Layout
+    page.add(
+        ft.Column([
+            ft.Text("ChatBot Groq - Análise de Texto", 
+                   size=24, weight=ft.FontWeight.BOLD, color=ft.colors.BLUE_800),
+            
+            ft.Container(
+                chat_box,
+                expand=True,
+                padding=10,
+                border=ft.border.all(1, ft.colors.GREY_300),
+                border_radius=10,
+                margin=ft.margin.only(bottom=10)
+            ),
+            
+            ft.Row([upload_button, clear_button], spacing=10),
+            
+            ft.Row([
+                text_input,
+                ft.IconButton(icon=ft.icons.SEND, on_click=enviar_mensagem)
+            ], spacing=5)
+        ], expand=True)
+    )
+
+if __name__ == "__main__":
+    ft.app(target=main)
