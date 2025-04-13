@@ -7,8 +7,10 @@ informações de clientes e gerenciar reservas.'''
 
 import flet as ft
 from class_gerenciadorReservas import GerenciadorReservas
+from testes import testes
 
 gerenciador = GerenciadorReservas()
+testes(gerenciador)
 
 def main(page:ft.Page):
     
@@ -21,21 +23,22 @@ def main(page:ft.Page):
         secondary=ft.colors.BLUE, #botões secundários, pequenos elementos
         background=ft.colors.WHITE, #tela fundo
         surface=ft.colors.INDIGO, #cartões, caixas diálogo, listas
-        on_primary=ft.colors.WHITE, #cor sobre os elementos primários
-        on_secondary=ft.colors.WHITE, #cor sobre os elementos secundários
+        on_primary=ft.colors.BLACK, #cor sobre os elementos primários
+        on_secondary=ft.colors.BLACK, #cor sobre os elementos secundários
         on_background=ft.colors.INDIGO, #cor dos elementos sobre o fundo
-        on_surface=ft.colors.WHITE #cor sobre os elementos de superfície
+        on_surface=ft.colors.BLACK #cor sobre os elementos de superfície
     ))
 
     cabecalho = ft.Text('Consulta de Disponibilidade dos Quartos',text_align="center",size=24, color="blue")
 
-    lista_quartos = gerenciador.lista_quartos()
+    lista_quartos = gerenciador.listar_quartos_disponibilidades()
 
     def opcoes_quartos():
         opcoes = []
         for quarto in lista_quartos:
             opcoes.append(ft.DropdownOption(quarto))
         return opcoes
+    
     container_opcoes = ft.Dropdown(options=opcoes_quartos(),label = "Quartos",width=300)
 
     botao_reserva = ft.ElevatedButton(text="Realizar RESERVA")

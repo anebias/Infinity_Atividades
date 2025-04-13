@@ -55,7 +55,7 @@ class GerenciadorReservas():
 
                 return _reserva
 
-    def listar_reservas(self):
+    def listar_reservas_ativas(self):
         print ('**** LISTA RESERVAS ATIVAS ****')
         reservas_ativas = False
         for reserva in self.lista_reservas:
@@ -66,6 +66,17 @@ class GerenciadorReservas():
         if not reservas_ativas:
             print("Não existem reservas ativas")            
         
+    def listar_reservas(self):
+
+        lista_reservas_cadastradas = []
+
+        for reserva in self.lista_reservas:
+
+            if reserva.status_reserva == "ativa":
+                lista_reservas_cadastradas.append(f'Quarto {reserva.quarto_reservado.numero_quarto} | Nome hóspede: {reserva.dono_reserva.nome} | Data Check In: {reserva.data_checkin}')
+        
+        return lista_reservas_cadastradas
+
     def consultar_cliente(self, cliente):
         
         for _cliente in self.lista_clientes:
@@ -73,44 +84,23 @@ class GerenciadorReservas():
                 return cliente.exibir_informacoes()
 
         return 'Cliente não encontrado'
+    
+    def listar_quartos_disponibilidades(self):
+        
+        lista_quartos_disponibilidades = []
 
-# # TESTES
-# gerenciador = GerenciadorReservas()
+        if self.lista_quartos:
+            for quarto in self.lista_quartos:
+                disponibilidade = self.verificar_disponibilidade_quarto(quarto)
+                lista_quartos_disponibilidades.append(f'{quarto.numero_quarto} | {disponibilidade}')
+        return lista_quartos_disponibilidades
 
-# hospede_1 = gerenciador.cadastrar_cliente("Ana","3198877-1645","ana@gmail.com")
-# hospede_2 = gerenciador.cadastrar_cliente("Jose","6198555-1254","jose@outlook.com")
-# hospede_3 = gerenciador.cadastrar_cliente("Viviane","5198526-1475","vivi@hotmail.com")
 
-# quarto_1 = gerenciador.cadastrar_quarto(401,"single",269.00)
-# quarto_2 = gerenciador.cadastrar_quarto(402,"double",469.00)
-# quarto_3 = gerenciador.cadastrar_quarto(403,"suite",669.00)
+    def listar_clientes(self):
+        lista_clientes_cadastrados = []
 
-# reserva_1 = gerenciador.criar_reserva(hospede_1,quarto_1,"2025-02-28","2025-03-04")
-# reserva_2 = gerenciador.criar_reserva(hospede_2,quarto_2,"2025-03-03","2025-03-13")
-# reserva_3 = gerenciador.criar_reserva(hospede_3,quarto_3,"2025-03-28","2025-04-04")
+        if self.lista_clientes:
+            for cliente in self.lista_clientes:
+                lista_clientes_cadastrados.append(cliente.nome)
+        return lista_clientes_cadastrados
 
-# print(gerenciador.verificar_disponibilidade_quarto(quarto_1))
-# print(gerenciador.verificar_disponibilidade_quarto(quarto_2))
-# print(gerenciador.verificar_disponibilidade_quarto(quarto_3))
-
-# gerenciador.listar_reservas()
-
-# gerenciador.modificar_reserva(reserva_1,quarto_2,"2025-01-01","2025-01-15")
-# gerenciador.modificar_reserva(reserva_2,quarto_1,"2025-10-01","2025-10-15")
-# gerenciador.modificar_reserva(reserva_3,quarto_3,"2025-10-01","2025-10-11")
-
-# gerenciador.listar_reservas()
-
-# print(gerenciador.verificar_disponibilidade_quarto(quarto_1))
-# print(gerenciador.verificar_disponibilidade_quarto(quarto_2))
-# print(gerenciador.verificar_disponibilidade_quarto(quarto_3))
-
-# gerenciador.cancelar_reserva(reserva_1)
-# gerenciador.cancelar_reserva(reserva_2)
-# gerenciador.cancelar_reserva(reserva_3)
-
-# gerenciador.listar_reservas()
-
-# print(gerenciador.consultar_cliente(hospede_1))
-# print(gerenciador.consultar_cliente(hospede_2))
-# print(gerenciador.consultar_cliente(hospede_3))
