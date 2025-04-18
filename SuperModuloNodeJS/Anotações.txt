@@ -290,7 +290,9 @@ no schema.prisma adicionar no generator client {
 
 import {PrismaClient} from ../gerenate/prisma/client'
 
-export const prisma = new PrismaClient()
+export const prisma = new PrismaClient({
+  log:["query"]
+})
 
 Na função:
 import {prisma} from '../../lib/prisma.js'
@@ -301,3 +303,35 @@ instrução include: {
   quais outras colunas ele quer trazer
 }
 
+17/04:
+Repository Pattern: Classe que representa o seu banco de dados com métodos para reutilização de código com funções de acesso ao banco de dados.
+Em src, pasta repositories
+No exemplo: 
+src
+- repositories
+-- projetos-repositories
+
+export class ProjetosRepository {
+  assync listar(titulo){
+    const projetosEncontrados = await prisma.projeto.findMany({
+      where:{
+        titulo:{
+          contains: titulo
+        }
+      }
+    })
+    return projetosEncontrados
+  }
+}
+
+Uso:
+
+const projetosEncontrados = new ProjetosRepository()
+const projetoEncontrato = await projetosEncontrados.listar({titulo})
+
+Ao receber senhas, criptografamos para gravar: npm i pcrypt
+Uso hash_senha: await bcrypt.hash(senha, 6): será criptografado 6 vezes consecutivas
+
+GIT PROJETO: https://github.com/NOT39/node-online-abril-05
+no console: node e depois o comando para gerar a chave secreta:
+console.log(require('crypto').randomBytes(32).toString('hex'))
