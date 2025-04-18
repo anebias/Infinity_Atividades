@@ -1,0 +1,14 @@
+h1 {
+    color: blueviolet;
+}
+
+p {
+    border: 4px;
+    border-color: blueviolet;
+    border-style: double;
+    border-radius: 10px;
+}
+
+img {
+    width: 300px;
+}

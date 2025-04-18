@@ -1,0 +1,144 @@
+<!-- Seletor de Elemento (Tipo). Aplica estilos a todos os elementos de um tipo específico. Exemplo: p { color: blue; } -->
+
+<!-- Aplica estilos a todos os elementos com uma classe específica. Classes são definidas com um ponto (.). Exemplo: .my-class { font-size: 18px; } -->
+
+<!-- Seletor de ID: Aplica estilos a um único elemento com um ID específico.
+IDs são definidos com um cerquilha (#). Exemplo: #my-id { background-color: yellow; } -->
+
+<!-- Seletor Universal: Aplica estilos a todos os elementos na página. 
+ Exemplo: * {
+            margin: 0;
+            padding: 0;
+            } -->
+
+<!-- Propriedades:
+`background-color`: Define a cor de fundo do elemento.
+`color`: Define a cor do texto.
+`padding`: Adiciona espaço interno ao redor do conteúdo.
+`margin`: Adiciona espaço externo ao redor do elemento.
+`border-radius`: Adiciona bordas arredondadas com um
+raio especificado. -->
+
+<!-- Exemplo HTML e CSS:
+ HTML:
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+
+    initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Aula 03</title>
+
+    </head>
+
+    <body>
+    <div>
+    <p>Olá Mundo!</p>
+    </div>
+    </body>
+    </html>
+
+CSS:
+    div{
+        padding: 20px;
+    }
+    p{
+        color: red;
+        margin: 18px;
+        font-size: 15px;
+    } -->
+
+<!-- CSS INLINE: Aplicado diretamente em elementos HTML com o atributo style.
+Ideal para ajustes específicos e rápidos. 
+    <p style="font-size: 20px;">Texto com estilo inline</p>
+-->
+
+<!-- CSS INTERNO: Definido na tag <style> dentro do documento HTML.
+Útil para estilizar um único documento. 
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página com Estilo CSS Interno</title>
+        <style>
+            body {
+                background-color: #f0f0f0;
+            }
+
+            h1 {
+                color: blue;
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <h1>Título com CSS Interno</h1>
+    </body>
+
+    </html>
+
+-->
+
+<!-- CSS EXTERNO:Armazenado em um arquivo separado e vinculado com a tag <link>.
+Ideal para projetos grandes, permitindo centralizar e reutilizar estilos. 
+
+HTML:
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Página com Estilo CSS Externo</title>
+        <link rel="stylesheet" href="Aula_4_Atividade_1.css">
+    </head>
+    <body>
+        <h1>Título com CSS Externo</h1>
+    </body>
+    </html>
+    
+    CSS:
+    body{
+        background-color: #f0f0f0;
+    }
+    
+    h1{
+        color: green;
+    }
+    -->
+
+<!-- CONTEÚDO (CONTENT)
+É a área onde o conteúdo do elemento, como texto, imagens ou outros elementos, é exibido. A largura e a altura do conteúdo podem ser controladas diretamente através das
+propriedades `width` e `height`. -->
+
+<!-- PREENCHIMENTO (PADDING)
+O preenchimento é o espaço entre o conteúdo e a borda do elemento.
+Ele cria um espaçamento interno dentro da caixa, aumentando o espaço entre o conteúdo e a borda. O preenchimento pode ser ajustado individualmente para cada lado
+(superior, inferior, esquerdo, direito) usando as propriedades: 
+    padding-top
+    padding-right
+    padding-bottom
+    padding-left -->
+
+<!-- BORDA (BORDER)
+    A borda envolve o conteúdo e o preenchimento. Ela pode ter espessura, estilo e cor específicos, e também pode ser ajustada individualmente para cada lado.     
+    As propriedades principais incluem:    
+    border-width
+    border-style
+    border-color -->
+
+<!-- MARGEM (MARGIN)
+    A margem é o espaço externo entre a borda do elemento e os elementos adjacentes.
+    Ela não afeta a cor de fundo do elemento e é usada para criar espaçamento entre os elementos em uma página. Assim como o preenchimento, as margens podem ser
+    definidas para cada lado individualmente:    
+    margin-top
+    margin-right
+    margin-bottom
+    margin-left -->
