@@ -1,0 +1,13 @@
+# LISTAS ORDENADAS E NAO ORDENADAS
+<ol> - Order list
+<ul> - Unorder List
+<li> - List Item
+
+# TABELAS
+<table> - Tabela (envolve toda a estrutura)
+<thead> - Cabeçalho da tabela
+<tbody> - Corpo da tabela
+<tfoot> - Rodapé da tabela
+<tr> - Linha da tabela
+<td> - Célula dentro da linha da tabela
+<th> - Célula de cabeçalho
