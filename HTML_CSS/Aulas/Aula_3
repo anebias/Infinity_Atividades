@@ -1,0 +1,59 @@
+<!-- <section>: Define uma seção genérica do conteúdo, usada para dividir o conteúdo em partes logicamente relacionadas. -->
+
+<!-- <article>: Representa um conteúdo independente que pode ser distribuído separadamente, como artigos de blogs, postagens ou comentários. -->
+
+<!-- <aside>:Define um conteúdo relacionado, mas secundário, como barras laterais, citações ou widgets. -->
+
+<!-- <div>: Nível de Bloco: Elementos de nível de bloco ocupam toda a largura disponível e criam uma nova linha na página. Eles são usados para agrupar grandes
+seções de conteúdo ou outros elementos.-->
+
+<!-- <span>: Elementos em linha ocupam apenas o espaço necessário para o conteúdo e não criam uma nova linha. Eles são usados para estilizar partes de conteúdo dentro de outros elementos, como texto dentro de um parágrafo. -->
+
+<!-- <form>: são contêineres que reúnem diversos campos de entrada, permitindo         a coleta de dados do usuário através de campos de texto, botões e seleções. Ele contém os campos de entrada e os botões de envio e reset. Um formulário geralmente também inclui um atributo action (para especificar onde os dados serão enviados) e um atributo method (para definir o método HTTP, como POST ou GET). 
+    `action`: Define o destino (URL) onde os dados do formulário serão enviados.`method`: Define o método de envio (GET ou POST). 
+
+    Texto Simples
+    `type="text"`: Campo para entradas curtas.
+    `type="password"`: Campo com conteúdo
+    oculto para senhas.
+    `type="email"`: Campo que valida e-mails.
+    `type="url"`: Campo que valida URLs.
+    `type="search"`: Campo estilizado para
+    pesquisas.
+    `type="tel"`: Campo para números de telefone
+    com formatação específica.
+
+    Seleção de Dados
+    `type="checkbox"`: Caixa de seleção para múltiplas escolhas.
+    `type="radio"`: Botão de opção para uma escolha em um grupo.
+    `type="range"`: Controle deslizante para selecionar um valor
+    dentro de um intervalo.
+    `type="color"`: Seletor de cor.
+    `type="date"`: Seletor de data.
+    `type="datetime-local"`: Seletor de data e hora sem fuso horário.
+    `type="month"`: Seletor de mês e ano.
+    `type="week"`: Seletor de semana.
+    `type="time"`: Seletor de hora.
+
+    Campos Numéricos
+    `type="number"`: Campo para números com botões de incremento e decremento.
+    `type="range"`: Campo com um controle deslizante para selecionar valores numéricos.
+    
+    Upload de Arquivos
+    `type="file"`: Permite que o usuário selecione um ou mais arquivos do sistema para upload.
+
+    Botões e Controles
+    type="submit": Envia o formulário.
+    type="reset": Redefine os campos do formulário.
+    type="button": Botão genérico para ações personalizadas com JavaScript.
+    type="image": Botão de envio estilizado como uma imagem.
+
+    A tag <label> é usada para associar um rótulo ao campo de entrada correspondente. O uso de label é importante para acessibilidade, pois facilita a identificação do campo para todos os usuários. 
+
+    Campos Avançados
+    Área de Texto (<textarea>): Usada para entradas de texto mais longas, como mensagens ou descrições.
+
+    Botões (<button>): Utilizados para enviar os dados do formulário (type="submit") ou para redefinir os campos (type="reset").
+
+    Campos de Seleção (<select> e <option>): Utilizados para criar menus suspensos, onde o usuário pode escolher uma opção dentre várias.
+        -->

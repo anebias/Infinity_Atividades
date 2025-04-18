@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Cadastro</title>
+</head>
+
+<body>
+    <header>
+        <h1>FORMULÁRIO DE CADASTRO</h1>
+    </header>
+    <main>
+        <form action="#" method="post">
+            <label for="name">Nome do Usuário:</label>
+            <input type="text" id="name" name="nome">
+
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email">
+
+            <label for="password">Senha: </label>
+            <input type="password" name="password" id="password">
+
+            <label for="pais">País: </label>
+            <select name="pais" id="pais">
+                <option value="brasil">Brasil</option>
+                <option value="canada">Canadá</option>
+                <option value="china">China</option>
+                <option value="coreiasul">Coréia do Sul</option>
+                <option value="usa">Estados Unidos</option>
+                <option value="france">França</option>
+                <option value="japao">Japão</option>
+            </select>
+
+            <label for="message">Mensagem: </label>
+            <textarea name="message" id="message"></textarea>
+
+            <button type="submit">enviar</button>
+
+            <button type="reset">limpar</button>
+        </form>
+    </main>
+    <footer></footer>
+</body>
+
+</html>
