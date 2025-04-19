@@ -1,0 +1,120 @@
+<!-- TRANSIÇÕES E ANIMAÇÕES
+
+TRANSIÇÕES
+Transições: Suavizam mudanças de propriedades CSS, como a cor de um botão ao passar o mouse. São configuradas com a propriedade a ser alterada, duração e função de temporização.
+
+elemento {
+    transition: propriedade duração função-temporização;
+}
+-->
+
+<!-- 
+EXEMPLO:
+    button{
+        background-color: blue;
+        transition: background-color 0.5s ease;
+    }
+
+    button:hover{
+        background-color:green;
+    }
+
+    button: Define os estilos iniciais para o elemento <button>.
+        
+    background-color: blue; Define a cor de fundo inicial do botão como azul.
+
+    transition: background-color 0.5 ease; Define uma transição suave de 0.5 segundos para a mudança de cor de fundo, com a função de temporização "ease" (início e fim suaves, meio rápido).
+
+    button: hover: Define os estilos para o botão no estado de hover.
+
+    background-color: green; Altera a cor de fundo do botão para verde quando o cursor do mouse está sobre ele.
+
+    Resultado: A cor de fundo do botão muda suavemente de azul para verde em 0.5 segundos ao passar o mouse sobre ele. -->
+
+<!-- ANIMAÇÕES
+Animações: Permitem sequências de movimentos e transformações com @keyframes. Podem ser configuradas para repetir, reverter e pausar, oferecendo controle detalhado sobre os elementos. 
+
+elemento {
+    animation: nome-da-animacao duração função-temporização;
+    } -->
+<!-- 
+
+PROPRIEDADES COMUNS DE ANIMAÇÃO
+    animation-name: Nome da animação definida com @keyframes.
+    animation-duration: Duração da animação.
+    animation-timing-function: Função de temporização (ex.: ease, linear).
+    animation-delay: Atraso antes do início da animação.
+    animation-iteration-count: Número de repetições da animação (ex.: infinite).
+    animation-direction: Direção da animação (ex.: normal, reverse, alternate). -->
+
+<!-- SINTAXE DE ANIMAÇÃO
+    @keyframes nome-da-animacao: Define a animação com o nome nome-da-animacao.
+
+    0% { propriedade: valor; }: Estado inicial da animação.
+
+    100% { propriedade: valor; }: Estado final da animação.
+
+    elemento: Seleciona o elemento que receberá a animação.
+
+    animation: Aplica a animação ao elemento. nome-da-animacao: Nome da animação.
+    duração: Tempo de execução da animação (ex.: 2s). função-temporização: Controla a velocidade da animação (ex.: ease, linear). 
+    
+    @keyframes nome-da-animacao {
+        0% {propriedade:valor}
+        100% {propriedade:valor}
+    }
+    
+    elemento{
+        animation: nome-da-animacao duração função-temporização;
+        }
+    -->
+
+    <!-- EXEMPLO:
+    A animação mover desloca o elemento div-movimento 100px à direita em 2 segundos, com a função de temporização "ease-in-out", que começa e termina lentamente, acelerando no meio.
+
+    @keyframes mover {
+        0% {transform: translateX(0);}
+        100% {transform: translateX(100px);}
+    }
+    
+    .div-movimento{
+        animation: mover 2s ease-in-out;
+        } -->
+
+<!-- CSS VARIABLES
+Sintaxe:
+Definição: --nome-da-variavel: valor;
+Uso: var(--nome-da-variavel);
+
+O código CSS ao lado usa variáveis para definir e reutilizar valores de estilo.
+
+Em :root, as variáveis --main-color e --padding são definidas com uma cor azul e um espaçamento de 10px.
+
+A classe .elemento aplica essas variáveis, definindo a cor de fundo como azul e o espaçamento interno como 10px, facilitando a manutenção e a consistência do design. -->
+
+<!-- EXEMPLO
+:root{
+    --main-color: #3498db;
+    --padding: 10px;
+}
+
+.elemento{
+    background-color: var(--main-color)
+    --padding: var(--padding)
+} -->
+
+<!-- APLICAÇÕES DAS VARIÁVEIS NO CSS
+Cores Temáticas:
+Definir cores principais, secundárias, e de fundo para todo o site, facilitando a criação de temas e a alteração de esquemas de cores.
+
+Tamanhos de Fonte:
+Controlar tamanhos de fonte para diferentes elementos, garantindo consistência tipográfica em todo o site.
+
+Espaçamentos:
+Definir margens e espaçamentos padrão para ser reutilizados em várias partes do layout.
+
+Bordas e Raios de Bordas:
+Controlar estilos de borda e raios de borda de forma consistente
+
+Transições e Animações:
+Definir durações padrão para transições e animações. -->

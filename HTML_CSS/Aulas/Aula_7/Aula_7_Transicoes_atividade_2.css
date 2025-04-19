@@ -1,0 +1,10 @@
+@keyframes mover {
+    0% {transform: translateX(0);}
+    100% {transform: translateX(100px);}
+}
+
+div{
+    border: 4px red double;
+    height: 100px;
+    animation: mover 2s ease-in-out;
+    }

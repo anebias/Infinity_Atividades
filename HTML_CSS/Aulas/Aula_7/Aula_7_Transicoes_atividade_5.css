@@ -1,0 +1,77 @@
+:root {
+    --desktop-font-size: 48px;
+    --tablet-font-size: 28px;
+    --celular-font-size: 16px;
+
+    --desktop-padding: 20px;
+    --tablet-padding: var(--desktop-padding) 0.8rem;
+    --celular-padding: var(--desktop-padding) 0.6rem;
+
+    --main-background-color: #8cc8f0;
+    --main-color-text: #03273f;
+    --main-family-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --main-font-size: 24px;
+
+    --main-color-titles: blue;
+
+    --main-color-button: #a51125;
+    --main-color-text-button: #faf3f4;
+
+    --destaque_background-color: #0c042c;
+    --destaque_color-text: #f5f8f0;
+
+    --border-color: rgb(112, 29, 29);
+    --border-radius: 10px;
+
+    --padding: 10px;
+}
+
+button {
+    background-color: var(--main-color-button);
+    color: var(--main-color-text-button);
+    border: var(--main-color-button) solid;
+    border-radius: var(--border-radius);
+    font-size: var(--main-font-size) 0.9;
+}
+
+p {
+    color: var(--main-color-text);
+    background-color: var(--main-background-color);
+    font-family: var(--main-family-font);
+    font-size: var(--main-font-size);
+    padding: var(--padding);
+}
+
+h1 {
+    color: var(--main-color-titles);
+    padding: var(--padding);
+}
+
+header,
+footer {
+    background-color: var(--destaque_background-color);
+    color: var(--destaque_color-text);
+    font-size: var(--main-font-size) 0.8rem;
+    padding: var(--padding);
+}
+
+@media (max-width:600px) {
+    * {
+        font-size: var(--celular-font-size);
+        padding: var(--celular-padding);
+    }
+}
+
+@media (min-width:601px) and (max-width:1023px) {
+    * {
+        font-size: var(--tablet-font-size);
+        padding: var(--tablet-padding);
+    }
+}
+
+@media (min-width:1024px) {
+    * {
+        font-size: var(--desktop-font-size);
+        padding: var(--desktop-padding);
+    }
+}

@@ -1,0 +1,74 @@
+@keyframes mover {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(100px, 0);
+    }
+
+    50% {
+        transform: translate(100px, 100px);
+    }
+
+    75% {
+        transform: translate(0, 100px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+
+    0% {
+        background-color: aquamarine;
+    }
+
+    25% {
+        background-color: bisque;
+    }
+
+    50% {
+        background-color: brown;
+    }
+
+    75% {
+        background-color: blueviolet;
+    }
+
+    100% {
+        background-color: aqua;
+    }
+
+    0% {
+        opacity: 1;
+    }
+
+    25% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    75% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 1;
+    }
+
+}
+
+div {
+    border: 4px red double;
+    height: 100px;
+    background-color: blue;
+    transition: background-color 2s ease;
+    animation: mover 4s infinite;
+}
+
+.btn {
+    animation: mover 4s infinite;
+}
