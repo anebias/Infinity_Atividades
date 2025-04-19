@@ -1,0 +1,65 @@
+@media(max-width: 600px) {
+
+    .header,
+    .footer {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 12px;
+        color: rgb(255, 255, 255);
+        background-color: black;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .main,
+    .nav {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 14px;
+        color: rgb(38, 38, 38);
+        background-color: bisque;
+    }
+}
+
+@media(min-width: 601px) and (max-width: 1024px) {
+
+    .header,
+    .footer {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+        background-color: rgb(10, 10, 79);
+        color: rgb(168, 209, 246);
+    }
+}
+
+@media(min-width: 601px) and (max-width: 1024px) {
+
+    .main,
+    .nav {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+        background-color: rgb(168, 209, 246);
+        color: rgb(10, 10, 79);
+    }
+}
+
+@media(min-width: 1024px) {
+
+    .header,
+    .footer {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 36px;
+        color: bisque;
+        background-color: rgb(90, 6, 44);
+    }
+}
+
+@media(min-width: 1024px) {
+
+    .main,
+    .nav {
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size: 40px;
+        color: rgb(90, 6, 44);
+        background-color: bisque;
+    }
+}

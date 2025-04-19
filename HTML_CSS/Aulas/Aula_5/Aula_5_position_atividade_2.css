@@ -1,0 +1,28 @@
+* {
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    font-size: 36px;
+    color: brown;
+}
+
+.relativo {
+    position: relative;
+    top: 0px;
+    bottom: 150px;
+    left: 0px;
+    right: 150px;
+    color: blue;
+    background-color: aqua;
+}
+
+.absoluto {
+    position: absolute;
+    top: 50px;
+    bottom: 150px;
+    left: 50px;
+    right: 50px;
+    color: rgb(36, 5, 66);
+}

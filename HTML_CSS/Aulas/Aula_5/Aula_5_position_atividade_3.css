@@ -1,0 +1,23 @@
+* {
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    font-size: 36px;
+    color: brown;
+}
+
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    z-index: 1;
+}
+
+.imagem {
+    position: relative;
+    top: 80px;
+    z-index: 2;
+}

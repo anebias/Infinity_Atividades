@@ -1,0 +1,33 @@
+.grid-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px 15px;
+    border: 4px;
+    align-items: center;
+    align-content: center;
+    border-color: aqua;
+    border-style: solid;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 36px;
+    color: blue;
+}
+
+.botao{
+    background-color: blue;
+    color: bisque;
+    text-align: center;
+}
+@media(max-width: 600px){
+    .paragrafo{
+        font-size: 16px;
+        color: brown;
+    }
+ }
+
+ @media(max-width: 600px){
+    .botao{
+        background-color: brown;
+    }
+ }
+

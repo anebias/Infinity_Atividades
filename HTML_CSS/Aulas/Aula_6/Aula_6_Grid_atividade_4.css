@@ -1,0 +1,39 @@
+.grid-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px 15px;
+    border: 4px;
+    align-items: center;
+    align-content: center;
+    border-color: aqua;
+    border-style: solid;
+    padding: 20px;
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.paragrafo::before {
+    content: "INÍCIO: ";
+    background-color: aqua;
+    margin-right: 8px
+}
+
+.paragrafo::after {
+    content: ". FIM";
+    background-color: aqua;
+    margin-left: 5px;
+}
+
+.paragrafo::first-letter {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: rgb(138, 17, 68);
+}
+
+.paragrafo::first-line {
+    font-weight: bold;
+    color: darkblue;
+    background-color: rgb(234, 240, 128);
+    font-size: 1.2em;
+}
+

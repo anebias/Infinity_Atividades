@@ -1,0 +1,119 @@
+<!-- Grid Container e Grid Items:
+    Grid Container: O elemento pai que define o contexto do grid.
+    Grid Items: Os elementos filhos dentro do grid container que são posicionados e organizados. -->
+
+<!-- Propriedades principais do container:
+    display: grid;
+    grid-template-columns: Define o número de colunas.    
+    grid-template-rows: Define o número de linhas. -->
+
+<!-- Propriedades importantes:
+    grid-template-columns: Define a largura das colunas.   
+    grid-template-rows: Define a altura das linhas. -->
+
+<!-- Unidades de medida:
+    fr: Fração do espaço disponível (ex.: 1fr).    
+    px, %, auto: Unidades tradicionais também podem ser usadas -->
+
+<!-- MANIPULAÇÃO DE ÁREAS DO GRID
+
+A manipulação de áreas no CSS Grid Layout permite posicionar elementos em células específicas da grade usando a propriedade grid-area. Com grid-template-areas, você pode nomear áreas e distribuir os elementos de forma organizada, facilitando o controle de layouts complexos e intuitivos.
+
+grid-template-areas: Define o layout da página em áreas nomeadas (header, sidebar,main, footer).
+
+grid-area: Cada elemento é posicionado na área definida pela propriedade grid-template-areas.
+
+Resultado: Um layout de página simples com cabeçalho, barra lateral, conteúdoprincipal e rodapé, todos organizados por áreas no Grid Layout. -->
+
+<!-- 
+::before
+O pseudo-elemento ::before permite inserir conteúdo antes do conteúdo de um elemento, sem
+alterar o HTML original. Ele é amplamente utilizado para adicionar símbolos, ícones, ou qualquer conteúdo visual antes de um texto ou de outro elemento. ele só funciona em elementos que aceitam conteúdo, como <p>, <div>, <button>, <a>, etc. Ele não funciona em elementos como <img>.
+    Onde buscar:
+    https://unicode-table.com/
+    https://emojipedia.org/
+    pesquisa Google: unicode play symbol
+} -->
+
+<!-- 
+::after
+O pseudo-elemento ::after permite inserir conteúdo após o conteúdo de um elemento, sem modificar o HTML original. Ele é utilizado para adicionar símbolos, ícones ou conteúdo visual após o elemento, criando efeitos e estilizações dinâmicas. -->
+
+<!-- 
+::first-letter
+O pseudo-elemento ::first-letter permite estilizar a primeira letra de um bloco de texto.
+Ele é frequentemente utilizado para criar efeitos visuais, como capitulares (letras grandes e estilizadas no início de um parágrafo), adicionando um toque decorativo ao
+texto. -->
+
+<!-- 
+::first-line
+O pseudo-elemento ::first-line permite estilizar a primeira linha de um bloco de texto. Ele é útil para aplicar estilos específicos à primeira linha, como mudar a cor, o tamanho da fonte ou o espaçamento, adicionando um efeito visual único ao início de
+um parágrafo. -->
+
+<!-- 
+.botao::before{
+    content: "▶️";
+    color: blue;
+    margin-right: 8px
+    } -->
+
+<!--     
+.link::after{
+    content: "\219D";
+    color: red;
+    margin-left: 5px;
+    } -->
+
+<!--     
+.paragrafo::first-letter{
+    font-size: 2em;
+    font-weight: bold;
+    color: darkblue;
+} -->
+    
+<!-- 
+.paragrafo::first-line{
+    font-weight: bold;
+    color: darkblue;
+    font-size: 1.2em;
+} -->
+
+<!-- MEDIA QUERIES
+Media Queries são uma funcionalidade do CSS que permite aplicar estilos específicos para diferentes dispositivos e tamanhos de tela. Elas são essenciais para criar layouts responsivos, adaptando o design do site a diversas resoluções, desde dispositivos móveis até desktops, com base em características como largura, altura e orientação da tela.
+
+@media (condição) {
+    /* Estilos aplicados quando a condição é verdadeira */
+    }
+ -->
+
+ <!-- Exemplos:
+ # Altera layout, mudando a direção da flexbox para coluna em telas menores que 768px:
+ @media(max-width: 768px){
+    .container{
+        flex-direction: column;
+    }
+ }
+
+ # Modifica fonte, aumentando o tamanho da fonte dos títulos em telas maiores que 1024px:
+ @media(min-width: 1024px) {
+    h1 {
+        font-size: 3em;
+    }
+ } -->
+
+ <!-- BREAK POINTS
+ Breakpoints são pontos no CSS onde as media queries alteram o layout e o estilo de uma página web, criando designs responsivos que se adaptam a diferentes tamanhos de tela e dispositivos. Por exemplo, um breakpoint comum é 600px, usado para aplicar estilos específicos para dispositivos móveis. Definindo breakpoints, os desenvolvedores garantem que o conteúdo seja exibido adequadamente em várias resoluções, melhorando a experiência do usuário em smartphones, tablets e desktops.
+ 
+ BREAK POINTS COMUNS
+ 
+ @media(max-width: 600px){
+    /*Estilos para dispositivos móveis*/
+ }
+
+ @media(min-width: 600px) and (max-width: 768px){
+    /*Estilos para dispositivos tablets*/
+ }
+
+ @media(min-width: 1024px){
+    /*Estilos para dispositivos desktops*/
+ } -->

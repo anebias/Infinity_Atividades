@@ -1,0 +1,25 @@
+.grid-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px 15px;
+    border: 4px;
+    align-items: center;
+    align-content: center;
+    border-color: aqua;
+    border-style: solid;
+    padding: 20px;
+    font-size: 24px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.paragrafo::before {
+    content: "INÍCIO: ";
+    background-color: aqua;
+    margin-right: 8px
+}
+
+.paragrafo::after {
+    content: ". FIM";
+    background-color: aqua;
+    margin-left: 5px;
+}
