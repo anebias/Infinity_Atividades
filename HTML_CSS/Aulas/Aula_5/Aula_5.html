@@ -1,0 +1,93 @@
+<!-- `display`: Controla o modo como um elemento é exibido, determinando se ele é tratado como bloco, linha ou se é removido do layout. -->
+
+<!-- `visibility`: Define se um elemento é visível ou invisível, mantendo o espaço que ele ocupa no layout. -->
+
+<!-- `display: block`: O elemento ocupa toda a largura disponível e força quebras de linha antes e depois. Exemplo: <div>, <p>, <h1>. -->
+
+<!-- `display: inline`: O elemento ocupa apenas o espaço necessário para o conteúdo e não força quebras de linha. Exemplo: <span>, <a>. -->
+
+<!-- `display: inline-block`: Combina características de inline e block, permitindo definir largura e altura enquanto se comporta como inline. -->
+
+<!-- `display: none`: O elemento não é exibido e não ocupa espaço no layout, sendo removido do fluxo visual. -->
+
+<!-- EXEMPLOS:
+
+.bloco{
+    display: block;
+}
+
+.linha{
+    display: inline;
+}
+
+.linha-bloco{
+    display: inline-block;
+}
+
+.oculto{
+    display: none;
+}
+
+.visivel{
+    visibility: visible;
+}
+
+.invisivel{
+    visibility: hidden;
+} -->
+
+<!-- Posicionamento Estático (`static`):
+O elemento segue o fluxo normal do documento e não é afetado por propriedades de posicionamento como `top`, `right`, `bottom` ou `left`.
+
+    .estatico{
+        position:static;
+    } -->
+
+    <!-- Posicionamento Relativo (`relative`):
+    O elemento é posicionado em relação à sua posição original no fluxo do documento. Ele ainda ocupa o mesmo espaço, mas pode ser deslocado usando `top`, `right`, `bottom` ou `left`.
+    
+        Sintaxe:
+        position: relative;
+        top: 10px;
+        left: 20px;
+        -->
+
+<!-- Posicionamento Fixo (`absolute`):
+O elemento é removido do fluxo normal do documento e posicionado em relação ao seu contêiner mais próximo que não tenha `position: static`. Se nenhum contêiner for encontrado, ele será posicionado em relação ao `<html>`.
+    
+    Sintaxe:
+    position: absolute;
+    top: 50px;
+    right: 0; 
+    -->
+
+<!-- Posicionamento Fixo (`fixed`):
+O elemento é removido do fluxo do documento e posicionado em
+relação à janela de visualização do navegador. Ele permanece fixo na
+tela, mesmo durante a rolagem.
+    
+    Sintaxe:
+    position: fixed; bottom: 0; right: 0; 
+    -->
+
+<!-- Posicionamento Fixo (`sticky`): 
+O elemento alterna entre relative e fixed dependendo da posição de
+rolagem da página. Ele fica fixo ao atingir uma posição específica e
+retorna ao fluxo normal quando necessário.
+    
+    Sintaxe:
+    position: sticky;
+    top: 0; -->
+
+<!-- CONTROLE DE CAMADAS
+O que é o z-index?
+Propriedade CSS que controla a ordem de empilhamento dos elementos em uma página.
+
+Define qual elemento aparece acima ou abaixo de outro.
+
+Como Funciona?
+Valores Positivos: Elementos com z-index maior aparecem acima dos com z-index menor.
+
+Valores Negativos: Elementos com z-index negativo aparecem atrás dos demais.
+
+Contexto de empilhamento: Só funciona em elementos com posicionamento diferente de static (ex.: relative, absolute, fixed). -->
