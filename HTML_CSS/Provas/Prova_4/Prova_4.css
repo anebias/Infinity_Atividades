@@ -1,0 +1,82 @@
+/* 
+Paleta Gerada com o site Colormind
+https://colormind.io/
+#204E58
+#84C0B1
+#F3EFD2
+#C74E2F
+#28261F
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    font-size: 20px;
+}
+
+header {
+    background-color: #204E58;
+    color: #F3EFD2;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #204E58;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #C74E2F;
+    text-decoration: none;
+}
+
+p {
+    color: #28261F;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #F3EFD2;
+}
+
+section h2 {
+    font-size: 2em;
+    color: #204E58;
+    margin-bottom: 10px;
+    text-align: center;
+}
+form   {
+    background-color: #84C0B1;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+form button {
+    background-color: #C74E2F;
+    color: #F3EFD2;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #204E58;
+    color: #F3EFD2;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
