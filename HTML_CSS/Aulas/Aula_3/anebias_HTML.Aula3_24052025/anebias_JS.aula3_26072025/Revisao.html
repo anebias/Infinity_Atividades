@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Calculadora de IMC</h1>
+
+    <div>
+      <label for="peso"> Peso </label> <br />
+      <input type="number" id="peso" />
+    </div>
+    <div>
+      <label for="altura"> Altura </label> <br />
+      <input type="number" id="altura" />
+    </div>
+
+    <button onclick="calcularIMC()">Calcular</button>
+
+    <br />
+
+    <p id="imc"></p>
+    <p id="resultado"></p>
+
+    <script>
+      // Crie a função calcularIMC() que deve:
+      // 1. Capturar os valores inseridos pelo usuário nos campos de peso e altura.
+      // 2. Calcular o IMC com a fórmula IMC = peso / (altura * altura).
+      // 3. Criar uma variável para armazenar o resultado.
+      // 4. Se o IMC for:
+      //    - Menor que 18.5, exibir "Abaixo do peso".
+      //    - Entre 18.5 e 24.9, exibir "Peso normal".
+      //    - Entre 25 e 29.9, exibir "Sobrepeso".
+      //    - Entre 30 e 39.9, exibir "Obesidade".
+      //    - Maior ou igual a 40, exibir "Obesidade mórbida".
+      // 5. Exibir a classificação do IMC dentro da tag <p> com id="resultado".
+      function calcularIMC() {
+        // Entrada
+        const peso = Number(document.getElementById("peso").value);
+        const altura = Number(document.getElementById("altura").value);
+
+        // Processamento
+        let classificacao;
+        const imc = peso / (altura * altura);
+
+        if (imc < 18.5) {
+          classificacao = "Abaixo do peso";
+        } else if (imc < 25) {
+          classificacao = "Peso normal";
+        } else if (imc < 30) {
+          classificacao = "Sobrepeso";
+        } else if (imc < 40) {
+          classificacao = "Obesidade";
+        } else {
+          classificacao = "Obesidade mórbida";
+        }
+
+        // Saída
+        const pImc = document.getElementById("imc");
+        pImc.innerText = `IMC: ${imc.toFixed(2)}`;
+
+        const pResultado = document.getElementById("resultado");
+        pResultado.innerText = classificacao;
+      }
+    </script>
+  </body>
+</html>

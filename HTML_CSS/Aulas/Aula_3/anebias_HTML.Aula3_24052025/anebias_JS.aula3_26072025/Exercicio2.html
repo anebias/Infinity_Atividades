@@ -1,0 +1,60 @@
+<!-- // Ex02 Faça um programa que peça um numero para o usuário através de um input, e depois mostre uma contagem dentro de
+um "p" (paragrafo) -->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>While  - Exercício 2</title>
+</head>
+
+<body>
+
+    <label for="numero">Insira um número para contagem</label>
+    <input type="number" id="numero">
+
+    <p id="exibir"></p>
+
+    <button onclick="contar()">Contar</button>
+
+    <script>
+
+        function contar() {
+            let pExibir = document.getElementById("exibir")
+            const numero = Number(document.getElementById('numero').value)
+
+            let contador = 0; // variável de controle
+            let cadeiaCaracteres = ''
+         
+            
+            while (contador < numero) {
+                contador++;
+                cadeiaCaracteres += ' ' + contador;
+                pExibir.innerText = cadeiaCaracteres
+            }
+        }
+
+        // <!--
+        //     Outra solução:
+        //     function contar() {
+        //     let pExibir = document.getElementById("exibir")
+        //     const numero = Number(document.getElementById('numero').value)
+
+        //     let contador = 0; // variável de controle
+        //     pExibir = ''
+         
+            
+        //     while (contador < numero) {
+        //         pExibir.TextContent = ' ' + contador;
+        //         contador++;
+        //     }
+        // }   
+        //     -->
+
+    </script>
+
+</body>
+
+</html>

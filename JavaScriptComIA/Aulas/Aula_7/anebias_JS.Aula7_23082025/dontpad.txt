@@ -1,0 +1,347 @@
+Sejam Bem Vindos a Aula 07 de JS
+//Bom dia!!
+
+Repositório Aula de Hoje:
+https://github.com/Davi-Classes/JAVASCRIPT2025-DFS707/tree/main/Aula%2007
+
+-----------------------------------------------------------------------------------------------------------
+Exercícios.
+
+// Para melhor organização recomenda-se criarem arquivos separados para cada exercícios;
+// A nomeação padrão dos arquivos é: "Ex01" para o primeiro e assim por diante;
+
+// 1 - Faça um programa onde você declare um array de numeros, depois utilize a função "map" para criar um novo array onde deve ter todos os valores multiplicados por 2.
+
+// 2 - Faça um programa onde você declare um array com 6 precos, depois utilize a função "map" para criar um novo array de precos onde deve ser aplicado um desconto de 20% em todos eles.
+
+// 3 - Faça um programa onde você declare um array com 5 nomes, depois utilize a função "map" para criar um novo array onde todos os nomes devem estar em maiúsculo (.toUpperCase).
+
+// 4 - Faça um programa que tenha um array com 10 numeros (negativos e positivos), utilize o filter para criar um array somente com os numeros positivos.
+
+// 5 - Dado o array de preços abaixo, faça um programa que crie um novo array utilizando o filter, onde ele deve trazer somente os preços menores que 100.
+const precos = [12, 45, 76, 34, 65, 87, 88, 12, 344, 200, 445]
+
+// 6 - Dado o array de numeros abaixo, faça um programa onde você deve criar 2 novos arrays:
+
+// a) Crie um array somente com os numeros pares
+// b) Crie um array somente com os numeros ìmpares
+const numeros = [12, 87, 45, 3, 66, 29, 74, 58, 91, 10, 34, 22, 18, 99, 5, 67, 39, 81, 23, 44];
+
+// 7 - Dado o array de numeros abaixo, faça um programa que crie um novo array utilizando o filter, onde ele deve trazer somente os preços maiores que 40 e menores que 100.
+const numeros = [12, 45, 76, 34, 65, 87, 88, 12, 344, 200, 445]
+
+// 8 - Dado o array de nomes, você deve filtrar (filter) todos os nomes que contém "joão" (ignore se é maiusculo ou minusculo), e depois crie um novo array onde todos os nomes devem estar em maiúsculo (map).
+const nomes = [
+    "Davi",
+    "Guilherme",
+    "João Pedro",
+    "João Guilherme",
+    "Maria",
+    "Carlos JOÃO",
+    "joão",
+    "jOÃo Victor",
+    "Victor",
+    "Fernanda",
+    "Lara",
+    "Thays"
+]
+
+------------------------------------------------------------------------------------------------------------
+revisao1.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Revisão Funções
+        // Uma função é uma ação
+
+        // Mostra um prompt para o usuário e espera ele inserir uma entrada.
+        // const texto = prompt('Insira um texto: ') 
+
+        // Mostra um texto no console.
+        // console.log(texto)
+
+        // Definir Funções
+
+        // Boas Práticas:
+        // 1. Definir função com CamelCase (minhaFuncao)
+        // 2. Não utilizar caracteres especiais
+        // 3. Utilizar verbos
+
+        /*
+        function <nomeFuncao>(parametros...) {
+            <blocoDeCodigo>...
+        }
+        */
+
+        function mostrarSaudacao(nome) {
+            alert(`Olá ${nome}, seja bem vindo.`)
+        }
+
+        mostrarSaudacao('Lara')
+        mostrarSaudacao('Guilherme')
+    </script>
+</body>
+</html>
+
+
+
+------------------------------------------------------------------------------------------------------------
+
+revisao2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Funções com Retornos
+        const produtos = [
+            "Café",
+            "Arroz",
+            "Feijão",
+            "Azeite de Oliva",
+            "Pão",
+            "Leite",
+            "Queijo",
+            "Manteiga",
+            "Macarrão",
+            "Chocolate"
+        ];
+
+        // Funcao com return (Específica, filtra somente pela letra A)
+        function filtrarProdutosPelaLetraA(produtos) {
+            const produtosFiltrados = []
+
+            for (const produto of produtos) {
+                if (produto.includes('a')) {
+                    produtosFiltrados.push(produto)
+                }
+            }
+
+            return produtosFiltrados
+        }
+
+        const filtro = filtrarProdutosPelaLetraA(produtos)
+        console.log(produtos)
+        console.log(filtro)
+
+        function filtrarProdutos(produtos, filtro) {
+            const produtosFiltrados = []
+
+            for (const produto of produtos) {
+                if (produto.includes(filtro)) {
+                    produtosFiltrados.push(produto)
+                }
+            }
+
+            return produtosFiltrados
+        }
+
+        console.log(produtos)
+        console.log(filtrarProdutos(produtos, 'Ma'))
+ 
+    </script>
+</body>
+</html>
+
+-------------------------------------------------------------------------------------------------------------------------------------
+revisao3.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Funções com Retornos
+        const produtos = [
+            "Café",
+            "Arroz",
+            "Feijão",
+            "Azeite de Oliva",
+            "Pão",
+            "Leite",
+            "Queijo",
+            "Manteiga",
+            "Macarrão",
+            "Chocolate"
+        ];
+
+
+        // Funcao com return (Genérica, filtra pelo que o usuário informar no parametro "filtro")
+        function filtrarProdutos(produtos, filtro) {
+            const produtosFiltrados = []
+
+            for (const produto of produtos) {
+                if (produto.includes(filtro)) {
+                    produtosFiltrados.push(produto)
+                }
+            }
+
+            return produtosFiltrados
+        }
+
+        console.log(produtos)
+        console.log(filtrarProdutos(produtos, 'Ma'))
+ 
+    </script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------------------------------------------
+arrow-functions.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Arrow Functions
+
+        // Definição Tradicional...
+        // function soma(n1, n2) {
+        //     return n1 + n2
+        // }
+
+        // Definição com Arrow Function
+        // Sintaxe (Simplificada)
+        // (parametros...) => <retorno>
+        const soma = (n1, n2) => n1 + n2
+
+        // Sintaxe (Função Completa)
+        const multiplicar = (n1, n2) => {
+            return n1 * n2
+        }
+
+        console.log(multiplicar(2, 5))
+
+    </script>
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------------------------------------------------
+callbacks.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Callbacks
+        // Uma callback é quando a gente passa uma função como parametro
+        // para outra função executar.
+        const produtos = [
+            "Café",
+            "Arroz",
+            "Feijão",
+            "Azeite de Oliva",
+            "Pão",
+            "Leite",
+            "Queijo",
+            "Manteiga",
+            "Macarrão",
+            "Chocolate"
+        ];
+
+        // For Convencional
+        // for (const produto of produtos) {
+        //     console.log(produto)
+        // }
+
+        // ForEach: Para cada Elemento do Array, Execute A Arrow Function
+        // Passando no primeiro parametro o elemento corrente do array.
+        produtos.forEach((produto) => console.log(produto))
+    </script>
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------------------------------------------------
+funcoes-agregadoras.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Map
+        // Aplicar um Aumento de 10%
+        const precos = [40.9, 44.99, 20, 10, 1200]
+        const precosCorrigidos = precos.map((preco) => preco * 1.1)
+
+        // Com JS Puro na Mão
+        // const precosCorrigidos = []
+
+        // for (const preco of precos) {
+        //     precosCorrigidos.push(preco * 1.1)
+        // }
+
+        console.log('Exemplo Map')
+        console.log(precos)
+        console.log(precosCorrigidos)
+
+        // Filter
+        const produtos = [
+            "Café",
+            "Arroz",
+            "Feijão",
+            "Azeite de Oliva",
+            "Pão",
+            "Leite",
+            "Queijo",
+            "Manteiga",
+            "Macarrão",
+            "Chocolate"
+        ];
+        const filtro = 'Ma'
+        
+        console.log('Exemplo Filter')
+        const precosFiltrados = precos.filter((preco) => preco < 45)
+        const produtosFiltrados = produtos.filter((produto) => produto.includes(filtro))
+
+        // Com JS Puro na Mão
+        // const produtosFiltrados = []
+
+        // for (const produto of produtos) {
+        //     if (produto.includes(filtro)) {
+        //         produtosFiltrados.push(produto)
+        //     }
+        // }
+
+        console.log(produtos)
+        console.log(produtosFiltrados)
+
+        // Reduce (...)
+
+    </script>
+</body>
+</html>

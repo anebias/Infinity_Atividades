@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="../styles/styles-global.css">
+    <link rel="stylesheet" href="../styles/styles-formulario.css">
+</head>
+<body>
+    
+    <nav>
+        <ul>
+            <a href="../pages/home.html">Home</a>
+            <a href="../pages/projetos.html">Projetos</a>
+        </ul>
+    </nav>
+
+    <form action="submit">
+        
+        <label for="nome">Quem é você:</label>
+        <input type="text" id="nome" placeholder="Digite o seu nome">
+
+        <label for="email">Qual seu email:</label>
+        <input type="email" name="email" id="email" placeholder="Digite o seu e-mail">
+
+        <label for="selecao-motivo-contato">Motivo do Contato</label>
+        <select name="selecao-motivo-contato" id="selecao-motivo-contato">
+            <option value="opcao-1">Profissional</option>
+
+            <option value="opcao-2">Pessoal</option>
+
+            <option value="opcao-3">Outro</option>
+
+        </select>
+
+        <label for="mensagem">Sua mensagem:</label>
+        <textarea name="mensagem" id="mensagem">Digite aqui a sua mensagem</textarea>
+
+        <button type="submit">Enviar</button>
+
+    </form>
+
+</body>
+</html>

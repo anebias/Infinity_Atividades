@@ -1,0 +1,280 @@
+https://dontpad.com/dfs7072903
+
+Bom dia!
+
+docs:
+https://flet.dev/docs/
+
+Outro framework:
+https://docs.streamlit.io/get-started/tutorials/create-an-app
+
+Introdução ao Flet:
+
+Criar um ambiente virtual;
+python3 -m venv .venv
+Ativação do ambiente virtual:
+
+source .venv/bin/activate
+
+NO WINDOWS para ativar SERIA:
+.venv\Scripts\activate
+
+Instalação do Flet:
+pip install flet
+
+Arquivo base:
+import flet as ft
+
+def main(page:ft.Page):
+    ola = ft.Text(value='Olá mundo!', size=30)
+    page.controls.append(ola)
+    page.update()
+
+ft.app(target=main)
+
+
+
+
+Pra rodar como web app:
+flet run --web flet2.py
+
+
+#Linux instalar versão do python:
+sudo apt install python3-venv python3-pip
+
+
+# Linux:
+# 1. Criar ambiente virtual: python3 -m venv nome_do_ambiente
+# 2. Ativar ambiente virtual: source nome_do_ambiente/bin/activate
+# 3. Desativar ambiente virtual: deactivate
+
+# Windows (Prompt de Comando):
+# 1. Criar ambiente virtual: python -m venv nome_do_ambiente
+# 2. Ativar ambiente virtual: nome_do_ambiente\Scripts\activate
+# 3. Desativar ambiente virtual: deactivate
+
+# Windows (PowerShell):
+# 1. Criar ambiente virtual: python -m venv nome_do_ambiente
+# 2. Ativar ambiente virtual: .\nome_do_ambiente\Scripts\Activate
+# 3. Desativar ambiente virtual: deactivate
+
+
+APP CHAT BOT COM FLET:
+
+import flet as ft
+
+def main(page: ft.Page):
+    page.title = "Meu Web App com Flet"
+    page.theme_mode = ft.ThemeMode.LIGHT  # Pode alternar para DARK se preferir
+    page.bgcolor = "#F5F5F5"
+    
+    # Cabeçalho estilizado
+    header = ft.Container(
+        content=ft.Text("Bem-vindo ao Meu Web App", size=24, weight=ft.FontWeight.BOLD),
+        alignment=ft.alignment.center,
+        padding=10,
+        bgcolor="#007BFF",
+        border_radius=10,
+        margin=10,
+    )
+    
+    # Campo de entrada e botão
+    input_field = ft.TextField(label="Digite algo", width=300)
+    result_text = ft.Text("Resultado aparecerá aqui", size=16)
+    
+    def on_click(e):
+        result_text.value = f"Você digitou: {input_field.value}"
+        page.update()
+    
+    button = ft.ElevatedButton("Enviar", on_click=on_click, bgcolor="#007BFF", color="white")
+    
+    # Layout
+    content = ft.Column([
+        header,
+        input_field,
+        button,
+        result_text
+    ], alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER)
+    
+    page.add(content)
+    
+ft.app(target=main, view=ft.WEB_BROWSER)
+
+
+
+Novo Chat:
+
+import flet as ft
+
+# Função para gerar a resposta do chatbot
+def resposta_chatbot(mensagem):
+    respostas = {
+        "oi": "Olá! Como posso ajudar?",
+        "qual seu nome?": "Eu sou o ChatBot. Como posso te ajudar?",
+        "tchau": "Até logo!",
+    }
+    # Retorna uma resposta baseada na mensagem do usuário ou uma resposta padrão
+    return respostas.get(mensagem.lower(), "Desculpe, não entendi sua pergunta.")
+
+# Função que atualiza a interface com a nova mensagem
+def main(page: ft.Page):
+    page.title = "ChatBot"
+    page.vertical_alignment = ft.MainAxisAlignment.START
+
+    # Criação dos elementos da interface
+    chat_box = ft.Column(scroll=ft.ScrollMode.AUTO)  # Caixa de chat para exibir mensagens
+    text_input = ft.TextField(label="Digite sua mensagem", autofocus=True, on_submit=lambda e: enviar_mensagem(e, chat_box, text_input))
+
+    # Função para enviar e exibir a mensagem
+    def enviar_mensagem(event, chat_box, text_input):
+        usuario_mensagem = text_input.value
+        chat_box.controls.append(ft.Text(f"Você: {usuario_mensagem}", color=ft.colors.BLUE))
+        bot_resposta = resposta_chatbot(usuario_mensagem)
+        chat_box.controls.append(ft.Text(f"Bot: {bot_resposta}", color=ft.colors.GREEN))
+        text_input.value = ""  # Limpar campo de texto
+        text_input.focus()  # Colocar o foco de volta no campo de texto
+        page.update()
+
+    # Adiciona o layout inicial
+    page.add(chat_box, text_input)
+
+# Executar o aplicativo Flet
+ft.app(target=main)
+
+passo a passao para criar nosso chatbot minimante inteligente:
+
+pip install requests
+
+Modelo Chatbot com LLM integrada usando API da GROQ:
+
+import flet as ft
+import requests
+import os
+
+# Configuração da API Groq
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") or "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"  # Substitua ou use variável de ambiente
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+
+# Função para gerar a resposta do chatbot usando a API da Groq
+def resposta_chatbot(mensagem, model="llama3-70b-8192", temperature=0.7):
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "messages": [
+            {
+                "role": "system",
+                "content": "Você é um assistente útil, prestativo e educado."
+            },
+            {
+                "role": "user",
+                "content": mensagem
+            }
+        ],
+        "model": model,
+        "temperature": temperature,
+        "max_tokens": 1024
+    }
+    
+    try:
+        response = requests.post(GROQ_API_URL, json=payload, headers=headers)
+        response.raise_for_status()
+        
+        resposta_api = response.json()
+        return resposta_api["choices"][0]["message"]["content"]
+    
+    except requests.exceptions.RequestException as e:
+        return f"Erro ao conectar com a API Groq: {str(e)}"
+    except (KeyError, IndexError) as e:
+        return "Erro ao processar a resposta da API."
+
+# Função principal da interface
+def main(page: ft.Page):
+    page.title = "ChatBot Groq"
+    page.vertical_alignment = ft.MainAxisAlignment.START
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+    page.theme_mode = ft.ThemeMode.LIGHT
+    
+    # Elementos da interface
+    chat_box = ft.ListView(expand=True, spacing=10, auto_scroll=True)
+    text_input = ft.TextField(
+        label="Digite sua mensagem",
+        autofocus=True,
+        expand=True,
+        on_submit=lambda e: enviar_mensagem(e)
+    )
+    
+    # Botão de envio
+    send_button = ft.ElevatedButton(
+        "Enviar",
+        icon=ft.icons.SEND,
+        on_click=lambda e: enviar_mensagem(e)
+    )
+    
+    # Função para enviar mensagem
+    def enviar_mensagem(e):
+        if not text_input.value.strip():
+            return
+            
+        # Adiciona mensagem do usuário ao chat
+        chat_box.controls.append(
+            ft.Container(
+                ft.Text(f"Você: {text_input.value}", color=ft.colors.BLUE_800),
+                bgcolor=ft.colors.BLUE_100,
+                padding=10,
+                border_radius=10,
+                alignment=ft.alignment.top_left
+            )
+        )
+        
+        user_message = text_input.value
+        text_input.value = ""
+        page.update()
+        
+        # Mostra indicador de digitação
+        typing_indicator = ft.Text("Bot: digitando...", italic=True, color=ft.colors.GREY)
+        chat_box.controls.append(typing_indicator)
+        page.update()
+        
+        # Obtém resposta do bot
+        bot_response = resposta_chatbot(user_message)
+        
+        # Remove indicador e adiciona resposta real
+        chat_box.controls.remove(typing_indicator)
+        chat_box.controls.append(
+            ft.Container(
+                ft.Text(f"Bot: {bot_response}", color=ft.colors.GREEN_800),
+                bgcolor=ft.colors.GREEN_100,
+                padding=10,
+                border_radius=10,
+                alignment=ft.alignment.top_left
+            )
+        )
+        
+        page.update()
+    
+    # Layout da interface
+    input_row = ft.Row(
+        controls=[text_input, send_button],
+        alignment=ft.MainAxisAlignment.CENTER,
+        vertical_alignment=ft.CrossAxisAlignment.CENTER
+    )
+    
+    page.add(
+        ft.Container(
+            content=chat_box,
+            expand=True,
+            padding=20,
+            margin=10,
+            border=ft.border.all(1, ft.colors.GREY_300),
+            border_radius=10
+        ),
+        ft.Divider(),
+        input_row
+    )
+
+# Executar o aplicativo
+if __name__ == "__main__":
+    ft.app(target=main)

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de Javascript</title>
+</head>
+
+<body>
+    <h1>Exercícios de Javascript</h1>
+    <label for="idade">Digite sua idade:</label>
+    <input type="number" name="idade" id="idade"><br>
+    <label for="pago">Você pagou a taxa de inscrição? (Digite "sim" ou "não"):</label>
+    <input type="text" name="pago" id="pago"><br>
+    <p id="resultado"></p>
+    <button onclick="action()">Clique aqui para executar a função</button>
+
+    <script>
+        function action() {
+            // Enunciado:
+            // O aluno pode se inscrever para a competição se:
+            // 1. A idade do aluno for maior ou igual a 18 anos.
+            // 2. O aluno pagou a taxa de inscrição.
+            // O aluno pode se inscrever caso ambas as condições sejam verdadeiras.
+            // Utilize o operador lógico AND (&&) para verificar ambas as condições.
+            
+            let idade = parseInt(document.getElementById('idade').value);  // Captura a idade do aluno
+            let pago = document.getElementById('pago').value.toLowerCase();  // Captura se pagou a taxa ("sim" ou "não")
+            let resultado = '';  // Variável para armazenar o resultado final
+
+            if (idade >= 18 && pago === 'sim') {
+                resultado = 'Você pode se inscrever para a competição'
+            } else {
+                resultado = 'Você ainda não pode se inscrever para a competição'
+            }
+            
+            document.getElementById('resultado').innerText = resultado;  // Exibe o resultado na página
+        }
+    </script>
+</body>
+
+</html>

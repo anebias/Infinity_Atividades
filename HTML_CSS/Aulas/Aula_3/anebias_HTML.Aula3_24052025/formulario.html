@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entre em Contato Comigo - A Bolinha de Pêlo</title>
+    <link rel="stylesheet" href="styles-form.css">
+</head>
+
+<body>
+
+<form>
+
+    <h2>Entre em Contato Comigo</h2>
+    
+    <div>
+        <label for="email-text">Email: </label>
+        <input type="text" id="email-text">
+    </div>
+
+    <div>
+        <label for="message-text">Mensagem: </label>
+        <textarea name="" id="message-text"></textarea>
+    </div>
+
+    <p>Motivo do Contato </p>
+    
+    <div>
+        <!-- para associar, o for e id precisam ser iguais -->
+        <!-- para associar os botões radius, eles precisam ter o mesmo name -->
+        <label for="contact-professional">Profissional</label>
+        <input type="radio" id="contact-professional" name="radius-contact">
+
+        <label for="contact-personal" name="">Pessoal</label>
+        <input type="radio" name="radius-contact" id="contact-personal">
+        
+
+
+    </div>
+
+    <button type="submit">Enviar</button>
+</form>
+
+</body>
+</html>

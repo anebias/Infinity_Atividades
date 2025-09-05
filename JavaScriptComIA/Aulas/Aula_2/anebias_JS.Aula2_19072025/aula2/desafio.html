@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Desafio</title>
+</head>
+
+<body>
+    <h1>Desafio: Calculadora de IMC</h1>
+
+    <label for="peso">Digite seu peso (kg):</label>
+    <input type="number" name="peso" id="peso" step="0.1"><br>
+
+    <label for="altura">Digite sua altura (m):</label>
+    <input type="number" name="altura" id="altura" step="0.01"><br>
+
+    <p id="resultado"></p>
+
+    <button onclick="calcularIMC()">Clique aqui para calcular seu IMC</button>
+
+    <script>
+        // Crie a função calcularIMC() que deve:
+        // 1. Capturar os valores inseridos pelo usuário nos campos de peso e altura.
+        // 2. Calcular o IMC com a fórmula IMC = peso / (altura * altura).
+        // 3. Criar uma variável para armazenar o resultado.
+        // 4. Se o IMC for:
+        //    - Menor que 18.5, exibir "Abaixo do peso".
+        //    - Entre 18.5 e 24.9, exibir "Peso normal".
+        //    - Entre 25 e 29.9, exibir "Sobrepeso".
+        //    - Entre 30 e 39.9, exibir "Obesidade".
+        //    - Maior ou igual a 40, exibir "Obesidade mórbida".
+        // 5. Exibir a classificação do IMC dentro da tag <p> com id="resultado".
+        function calcularIMC() {
+            let peso = parseFloat(document.getElementById("peso").value)
+            let altura = parseFloat(document.getElementById("altura").value)
+            let imc = peso / (altura * altura)
+
+            resultado = ''
+
+            if (imc < 18.5) {
+                resultado = "Abaixo do peso"
+            } else if (imc <= 24.9) {
+                resultado = "Peso normal"
+            } else if (imc <= 29.9 ) {
+                resultado = "Sobrepeso"
+            } else if (imc <= 39.9) {
+                resultado = "Obesidade"
+            } else {
+                resultado = "Obesidade mórbida"
+            }
+
+            document.getElementById('resultado').innerText = resultado
+
+        }
+    </script>
+</body>
+
+</html>
+
+
+

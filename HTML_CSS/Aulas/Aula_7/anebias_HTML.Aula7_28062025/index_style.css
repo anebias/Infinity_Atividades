@@ -1,0 +1,49 @@
+* {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 16px;
+    color: rgb(49, 46, 46);
+    background-color:antiquewhite;
+    margin: 20px;
+    padding: 20px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+h1{
+    font-size: 96px;
+}
+
+#fotoequipe{
+    width: 800px;
+    border-radius: 15px;
+}
+
+div{
+    display: flex;
+    flex-direction: row;
+    border-radius: 15px;
+}
+
+img{
+    width: 200px;
+    border-radius: 15px;
+}
+
+button{
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(97, 26, 37);
+    color:antiquewhite ;
+}

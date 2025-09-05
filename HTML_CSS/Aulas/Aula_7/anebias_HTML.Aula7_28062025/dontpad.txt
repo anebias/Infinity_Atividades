@@ -1,0 +1,59 @@
+dontpad : dfs7072806
+
+github das aulas: github.com/thiagooshiro
+
+LINK PROJETO: https://excalidraw.com/#json=JaJtq02NC2MeiJGZ0NRKw,mqr49BdunW55gUhG5w9TQw
+
+
+Código base animação:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader Triangular</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            background-color: #3498db;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* Triângulo equilátero */
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader"></div>
+</body>
+</html>
+
+
+Exercício da página da "Dona Clara":
+
+Você recebeu essa mensagem simpática da Dona Clara, com um pedido para fazer uma página para ela, leia a mensagem com atenção e elabore
+a página o mais pŕoximo possível do que Dona Clara gostaria que sua página fosse -
+
+"Oi querido! Eu tava pensando aqui… será que dá pra fazer uma dessas páginas que vão descendo, sabe? Tipo com umas partes diferentes. 
+Primeiro aparece o nome “Delícias da Clara”, bem grandão. Depois, queria mostrar umas fotos dos bolos que eu faço — pode por umas três, acho. 
+E mais pra baixo, alguma coisinha falando de mim, tipo “quem faz”, né? 
+Ah, e seria bom se tivesse um botão pra pessoa já pedir pelo WhatsApp ou coisa assim… será que dá? Não precisa ser nada chique, só arrumadinho e fofo. 💖🍰"
+

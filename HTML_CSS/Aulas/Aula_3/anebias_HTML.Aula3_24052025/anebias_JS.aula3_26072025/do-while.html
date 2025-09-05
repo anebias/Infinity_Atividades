@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do While</title>
+</head>
+<body>
+    
+
+    <script>
+        let soma = 0
+        let resposta = ''
+        do {
+            let valor = Number(prompt('Digite um número: '))
+            soma += valor
+            resposta = prompt ('Deseja continuar? [S/N]')
+        } while (resposta != 'N')
+
+        alert(`A soma dos números foi: ${soma}`)
+
+    </script>
+</body>
+</html>

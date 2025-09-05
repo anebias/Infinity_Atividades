@@ -1,0 +1,211 @@
+donptad: dfs7071207
+
+Plataformas para estudos:
+https://www.w3schools.com/
+https://developer.mozilla.org/pt-BR/
+
+TOKKEN DE PRESENÇA: 7633
+
+Repo de aulas:
+https://github.com/thiagooshiro/js-classes
+
+introdução a lógica de programação em Javascript... MEDO
+
+Abra o VSCode na pasta em que vai trabalhar
+Crie um arquivo chamado exercicios.js
+
+Nesse arquivo resolva o exercício proposto:
+ 
+// 1 - Declare quatro variáveis e exiba seus valore no terminal. - Uma variável do tipo "string" (textual), uma variável do tipo float (número real) , uma variável do tipo int (número inteiro ) e uma variável do tipo booelano. 
+
+Para declarar uma variável utilize a sintaxe:
+let nomeDaVariavel = 'valor'
+
+Para "imprimir" ou verificar os valores  no console utilize a expressão:
+console.log(nomeDaVariavel);
+
+
+exemplo prático HTML + JS:
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+</head>
+
+<body>
+    <h1>Ex Contador</h1>
+    <div>
+        <button id="decrementar" onclick="decrementar()">-</button>
+        <span id="contador">0</span>
+        <button id="incrementar" onclick="incrementar()">+</button>
+    </div>
+
+
+</body>
+
+<script>
+    // Ex1 - Implemente as funções necessárias:
+    // O botão "decrementar" ao ser clicado deverá diminuir o valor contido no span "contador" em -1
+    // O botão "incrementar", ao ser clicado, deverá incrementar o valor contido no span "contador" em +1
+    let spanzinho = document.getElementById('contador')
+    let contador = 0
+    function incrementar() {
+        contador = contador + 1
+        spanzinho.innerText = contador
+    }
+    function decrementar() {
+        contador -= 1
+        spanzinho.innerText = contador
+    }
+
+</script>
+
+</html>
+
+
+EXERCÍCIO FAKE LOGIN:
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Korut</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #fdfdfd;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #4a90e2;
+      outline: none;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      background-color: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #357ab7;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>Bem-vindo ao Korut!</h1>
+    <h2>Login:</h2>
+    <input id="email" type="text" placeholder="Digite seu e-mail" />
+    <input id="senha" type="password" placeholder="Digite sua senha" />
+    <button onclick="Login()">Entrar</button>
+    <span id="feedback"></span>
+  </div>
+</body>
+<script>
+    let inputEmail = document.getElementById('email');
+    let inputSenha = document.getElementById('senha');
+    let spanzinho = document.getElementById('feedback')
+
+    let senhaCorreta = '123456'
+    let emailCorreto = 'teste@email.com'
+
+    function Login() {
+        let email = inputEmail.value 
+        let senha = inputSenha.value
+        
+        if (email === emailCorreto && senha === senhaCorreta) {
+            spanzinho.style.color = 'green'
+            spanzinho.innerText = 'Login realizado com sucesso!'
+        } else {
+            spanzinho.style.color = 'red'
+            spanzinho.innerText = 'Senha ou e-mail incorretos!'
+        }
+    }
+
+</script>
+</html>
+
+exerciícios de variáveis:
+
+// 1 - Declare quatro variáveis e exiba seus valore no terminal.  
+let n1 = 70
+let n2 = 0.5
+let nome = 'Mariana'
+let frase = 'é monitora na Infinity'
+let chuva = false
+
+// 1.2 - Exiba os TIPOS das variáveis no terminal
+
+
+// 2 - Declarar duas variáveis do tipo STR e concatenar seus valores.
+
+
+
+// 3 - Somar o valor de duas variáveis (numéricas)
+
+// 4 - Subtrair o valor de duas variáveis (numéricas)
+
+
+// 5 - Multiplicar o valor de duas variáveis númericas
+
+
+
+// 6 - Dividir o valor de duas variáveis numéricas
+
+
+
+// 7 - Obter o resto da divisão realizada no exercício anterior.

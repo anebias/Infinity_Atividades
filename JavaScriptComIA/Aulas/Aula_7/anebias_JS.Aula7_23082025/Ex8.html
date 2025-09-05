@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 8</title>
+</head>
+<body>
+    <p>
+        // 8 - Dado o array de nomes, você deve filtrar (filter) todos os nomes que contém "joão" (ignore se é maiusculo ou minusculo), e depois crie um novo array onde todos os nomes devem estar em maiúsculo (map).
+const nomes = [
+    "Davi",
+    "Guilherme",
+    "João Pedro",
+    "João Guilherme",
+    "Maria",
+    "Carlos JOÃO",
+    "joão",
+    "jOÃo Victor",
+    "Victor",
+    "Fernanda",
+    "Lara",
+    "Thays"
+]
+    </p>
+
+    <script>
+        // 8 - Dado o array de nomes, você deve filtrar (filter) todos os nomes que contém "joão" (ignore se é maiusculo ou minusculo), e depois crie um novo array onde todos os nomes devem estar em maiúsculo (map).
+        const nomes = [
+            "Davi",
+            "Guilherme",
+            "João Pedro",
+            "João Guilherme",
+            "Maria",
+            "Carlos JOÃO",
+            "joão",
+            "jOÃo Victor",
+            "Victor",
+            "Fernanda",
+            "Lara",
+            "Thays"
+        ];
+
+        const nomesComJoao = nomes.filter(nome => nome.toLowerCase().includes("joão"));
+        const nomesComJoaoMaiusculo = nomesComJoao.map(nome => nome.toUpperCase());
+        console.log(nomesComJoaoMaiusculo);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,556 @@
+https://docs.google.com/document/d/1-Vp6dw18JyC-x2IrT9zsW1pij1kcNlVDIXaWR7W8ChY/edit?tab=t.h2fpqpbtvmw2
+
+Projeto turma sexta
+https://dontpad.com/619-04-07
+
+https://github.com/Gabriel-Classes/Projeto_Ecommerce_114
+
+=Material do paracasa da História da Eletricidade
+https://docs.google.com/document/d/1h2dhJmb1UtAT-a3zaO_xmRTivItcPIvQjr8N1_JtLVo/edit?tab=t.h2fpqpbtvmw2
+
+Projeto Play Station
+https://docs.google.com/document/d/1lwRcB6P8_dQ_uMphYLNTfI_bwxSaT7YfpGtqAUCmJMg/edit?tab=t.h2fpqpbtvmw2
+
+
+Instruções do projeto
+
+# 🧩 Instruções para Estilizar uma Página com CSS Simples
+
+Estas instruções guiam você a criar o estilo visual da sua página usando apenas **recursos básicos de CSS**. Siga cada etapa com atenção, usando sua criatividade e praticando com códigos próprios.
+
+---
+
+## 🎯 Objetivo
+
+Estilizar uma página HTML usando **recursos simples do CSS**, como cores, tamanhos, margens, bordas, fontes, posicionamento básico e organização visual.
+
+---
+
+## 🔧 Etapas e Instruções
+
+### 1. Prepare sua Estrutura HTML
+
+- Use tags semânticas como `<header>`, `<main>`, `<section>`, `<footer>`.
+- Adicione elementos como `<h1>`, `<p>`, `<a>`, `<ul>`, `<img>`, etc.
+- Utilize `class` e `id` em alguns elementos para poder estilizar com CSS.
+
+### 2. Crie e Vincule o CSS
+
+- Crie um arquivo chamado `style.css`.
+- Vincule ao HTML usando:
+
+```html
+<link rel="stylesheet" href="style.css">
+```
+
+### 3. Estilize o Body
+
+- Defina uma `background-color` suave.
+- Escolha uma `font-family` simples (ex: Arial, sans-serif).
+- Defina uma cor de `font` confortável para leitura.
+- Remova margens padrão com `margin: 0`.
+- Use `font-size` base entre 14px e 16px.
+
+### 4. Cabeçalho (`<header>`)
+
+- Aplique cor de fundo diferente.
+- Use `padding` para espaçamento interno.
+- Centralize texto com `text-align: center` se necessário.
+- Pode usar `border-bottom` ou `box-shadow` para separação.
+
+### 5. Títulos e Parágrafos
+
+- Defina tamanhos diferentes para `<h1>`, `<h2>`, etc.
+- Use `margin-bottom` para espaçamento entre parágrafos.
+- Escolha cores diferentes entre títulos e texto comum.
+
+### 6. Links e Listas
+
+- Remova sublinhado com `text-decoration: none`.
+- Use cor diferenciada para links e `:hover` com efeito visual.
+- Para listas (`<ul>`, `<ol>`), ajuste `margin` e `padding`.
+
+### 7. Seções e Blocos
+
+- Aplique `border` e `background-color` para diferenciar seções.
+- Use `padding` e `margin` para espaçamentos internos e externos.
+- Defina larguras com `width` ou `max-width`.
+
+### 8. Rodapé (`<footer>`)
+
+- Cor de fundo escura ou discreta.
+- Texto centralizado e menor.
+- Use `padding` e `border-top` para separação.
+
+### 9. Imagens
+
+- Use `width` ou `max-width` para controlar tamanho.
+- Aplique `border-radius` para cantos arredondados.
+- Use `margin` para espaçamento.
+
+### 10. Layout Geral
+
+- Teste a página em diferentes larguras de tela.
+- Ajuste espaçamentos, cores e alinhamentos conforme necessário.
+
+---
+
+## 🚫 Evite (por enquanto):
+
+- Flexbox ou Grid.
+- Media queries, pseudo-elementos (`::before`, `::after`) e animações.
+- Códigos prontos: escreva você mesmo para aprender.
+
+---
+
+## 🧠 Desafio Opcional
+
+Estilize um botão com:
+
+- `background-color` personalizada.
+- Texto branco (`color: #fff`).
+- Efeito `:hover` com mudança de cor.
+- `padding` e `border-radius`.
+
+---
+
+# 🎨 Paleta de Cores: Confiança e Seriedade para E-commerce
+
+Esta paleta foi pensada para transmitir **confiança**, **seriedade** e **profissionalismo**, ideais para e-commerces que desejam passar segurança ao usuário.
+
+## 🌈 Paleta Recomendada
+
+| Elemento            | Cor sugerida                | Código HEX  | Uso sugerido                        |
+|---------------------|-----------------------------|-------------|-------------------------------------|
+| **Primária**        | Azul-marinho profundo       | `#1F2A44`   | Cabeçalhos, fundo do header/footer |
+| **Secundária**      | Cinza-azulado               | `#4B5D72`   | Bordas, áreas secundárias          |
+| **Destaque**        | Verde-escuro neutro         | `#2E7D60`   | Botões, links de ação              |
+| **Fundo principal** | Cinza claro levemente quente| `#F2F2F2`   | Plano de fundo                     |
+| **Texto principal** | Grafite escuro              | `#333333`   | Parágrafos, títulos                |
+| **Texto secundário**| Cinza médio                 | `#777777`   | Rodapé, observações, ícones        |
+| **Erro/Aviso**      | Vermelho vinho              | `#8B2F39`   | Mensagens de erro                  |
+
+## 🛠️ Sugestões de Uso
+
+- Use o **azul-marinho** como cor de base (navbar, botões importantes, títulos).
+- Use o **cinza-azulado** para realces sutis ou blocos informativos.
+- O **verde-escuro** pode indicar ações seguras (como “comprar” ou “confirmar”).
+- O **fundo claro** evita cansaço visual e dá contraste ao conteúdo.
+- O **grafite escuro** no texto principal facilita a leitura, sem ser 100% preto.
+- O **vermelho vinho** deve ser usado com moderação, apenas para alertas e mensagens de erro.
+
+## ✅ Resultado Esperado
+
+Uma interface que transmite:
+
+- **Confiança**
+- **Estabilidade**
+- **Credibilidade**
+- **Leitura confortável**
+- **Foco em ações claras**
+
+
+*********** ESTUDAR ***************
+https://dontpad.com/619-04-07
+
+index.html
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loja Virtual</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    
+    <header>
+      <div class="logo-cabecalho">
+        <h1>Minha Loja Virtual</h1>
+      </div>
+      <div class="barra-pesquisa">
+        <input type="text" placeholder="Pesquisar itens..." />
+        <button>Buscar</button>
+      </div>
+      <button class="botao-adicionar-produto" onclick="abrirFormulario()">
+        Adicionar Produto
+      </button>
+    </header>
+
+    <main class="grade-itens">
+      
+    </main>
+
+    <!-- Modal de Cadastro de Produto -->
+    <div id="modalCadastroProduto" class="modal">
+      <div class="conteudo-modal">
+        <span class="botao-fechar" onclick="fecharFormulario()">&times;</span>
+        <h2>Adicionar Produto</h2>
+          <label for="nomeProduto">Nome do Produto:</label>
+          <input type="text" id="nomeProduto" name="nomeProduto" required />
+
+          <label for="precoProduto">Preço:</label>
+          <input type="text" id="precoProduto" name="precoProduto" required />
+
+          <label for="imagemProduto">URL da Imagem:</label>
+          <input type="url" id="imagemProduto" name="imagemProduto" required />
+
+          <button type="submit">Cadastrar</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+================================================
+
+styles.css
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; 
+  color: #333;
+}
+
+
+header {
+  background-color: #ffcc00; 
+  padding: 20px;
+  border-bottom: 1px solid #e6b800; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo-cabecalho h1 {
+  font-size: 24px;
+  color: #ffffff; 
+}
+
+.barra-pesquisa input {
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.barra-pesquisa button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #004f93; 
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.barra-pesquisa button:hover {
+  background-color: #003366; 
+}
+
+.botao-adicionar-produto {
+  padding: 10px 20px;
+  background-color: #004f93; 
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.botao-adicionar-produto:hover {
+  background-color: #003366;
+}
+
+
+.grade-itens {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+.cartao-item {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+}
+
+.cartao-item img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.cartao-item h3 {
+  font-size: 18px;
+  color: #333;
+  margin-top: 15px;
+}
+
+.cartao-item .preco-item {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e60000; 
+  margin-top: 10px;
+}
+
+.botao-comprar {
+  padding: 10px 20px;
+  background-color: #ffcc00; 
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botao-comprar:hover {
+  background-color: #e6b800; 
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.312); 
+}
+
+.conteudo-modal {
+  background-color: #ffffff;
+  margin: 15% auto;
+  padding: 30px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.conteudo-modal h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.conteudo-modal label {
+  display: block;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.conteudo-modal input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.conteudo-modal button {
+  padding: 10px 20px;
+  background-color: #004f93;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.conteudo-modal button:hover {
+  background-color: #003366;
+}
+
+
+.botao-fechar {
+  color: #aaa;
+  font-size: 30px;
+  font-weight: bold;
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.botao-fechar:hover,
+.botao-fechar:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+=================================
+script.js
+
+// Função para abrir o formulário
+function abrirFormulario() {
+  document.querySelector("#modalCadastroProduto").style.display = "block";
+}
+
+// Função para fechar o formulário
+function fecharFormulario() {
+  document.querySelector("#modalCadastroProduto").style.display = "none";
+}
+
+// Fechar o modal se o usuário clicar fora da caixa de conteúdo
+window.onclick = function (evento) {
+  if (evento.target == document.querySelector("#modalCadastroProduto")) {
+    fecharFormulario();
+  }
+};
+================
+json
+
+[
+  {
+    "nome": "nome 1",
+    "preco": 90,
+    "Imagem": "https://m.media-amazon.com/images/I/41oDp+WGmDL.jpg",
+    "id": "1"
+  },
+  {
+    "nome": "Playstation 5",
+    "preco": "3500",
+    "Imagem": "https://t62533.vteximg.com.br/arquivos/ids/945259-1000-1000/1_Console-PlayStation5-Marvels-Spider-Man-2_caixa-frente.jpg?v=638574564316030000",
+    "id": "4"
+  },
+  {
+    "nome": "Playstation 5",
+    "preco": "3500",
+    "Imagem": "https://t62533.vteximg.com.br/arquivos/ids/945259-1000-1000/1_Console-PlayStation5-Marvels-Spider-Man-2_caixa-frente.jpg?v=638574564316030000",
+    "id": "5"
+  },
+  {
+    "nome": "Playstation 5",
+    "preco": "3500",
+    "Imagem": "https://t62533.vteximg.com.br/arquivos/ids/945259-1000-1000/1_Console-PlayStation5-Marvels-Spider-Man-2_caixa-frente.jpg?v=638574564316030000",
+    "id": "6"
+  },
+  {
+    "nome": "Playstation 5",
+    "preco": "3500",
+    "Imagem": "https://t62533.vteximg.com.br/arquivos/ids/945259-1000-1000/1_Console-PlayStation5-Marvels-Spider-Man-2_caixa-frente.jpg?v=638574564316030000",
+    "id": "7"
+  },
+  {
+    "nome": "Marea",
+    "preco": "15000",
+    "Imagem": "https://s3.sa-east-1.amazonaws.com/revista.mobiauto/Fiat/Marea/fiat_marea_weekend_3.jpg",
+    "id": "9"
+  },
+  {
+    "nome": "Barco",
+    "preco": "30000",
+    "Imagem": "https://naveguetemporada.com/wp-content/uploads/2022/12/Traineira-50-Capitao-Garcia-9-54.jpg",
+    "id": "10"
+  },
+  {
+    "nome": "Caneca",
+    "preco": "25",
+    "Imagem": "https://acdn-us.mitiendanube.com/stores/565/857/products/caneca-flork-escolhas-f2146f6d9044f3b7cd16978194210318-1024-1024.webp",
+    "id": "11"
+  }
+]
+
+===================================================================================
+Atividade tentar estruturar todo o html com a nossa API
+
+dica de ouro ---> método avançado de array
+
+<section class="cartao-item">
+        <img src="" alt="Item 1" />
+        <h3></h3>
+        <p class="preco-item">R$ XX,XX</p>
+        <button class="botao-comprar">Comprar</button>
+</section>
+  
+
+// Função para abrir o formulário
+function abrirFormulario() {
+  document.querySelector("#modalCadastroProduto").style.display = "block";
+}
+
+// Função para fechar o formulário
+function fecharFormulario() {
+  document.querySelector("#modalCadastroProduto").style.display = "none";
+}
+
+// Fechar o modal se o usuário clicar fora da caixa de conteúdo
+window.onclick = function (evento) {
+  if (evento.target == document.querySelector("#modalCadastroProduto")) {
+    fecharFormulario();
+  }
+};
+
+// Aqui faremos a função de carregarProdutos 
+async function carregarProdutos(){
+  // selecionem o elemento com a classe grade-iten
+  const gradeItens = document.querySelector(".grade-itens")
+
+  // selecionando a url que iremos consumir 
+  const url = "https://68685579d5933161d70b68dc.mockapi.io/api/produtos"
+  // 2 etapa TRAZER os dados para nosso projeto 
+  const resposta = await fetch(url)
+  // 3 Etapa separar somente o json desta resposta 
+  const dados = await resposta.json()
+  // 4 etapa 
+  dados.forEach(produto=>{
+    gradeItens.innerHTML +=`
+      <section class="cartao-item">
+      <img src="${produto.Imagem}" alt="Item 1" />
+      <h3>${produto.nome}</h3>
+      <p class="preco-item">R$ ${produto.preco}</p>
+      <button class="botao-comprar">Comprar</button>
+      </section>
+      `
+    })
+  }
+carregarProdutos()
+  
+async function adicionarProduto() {
+  // selecionar as informações do produto
+  const nomeProduto = document.querySelector("#nomeProduto").value
+  const precoProduto = document.querySelector("#precoProduto").value
+  const imagemProduto = document.querySelector("#imagemProduto").value
+  
+  const url = "https://68685579d5933161d70b68dc.mockapi.io/api/produtos"
+  // objeto javascript, funciona no javascript
+  let objetoJs = {
+    nome:nomeProduto,
+    preco:precoProduto,
+    imagemm:imagemProduto 
+  }
+  // Convertendo para objeto de notação(web só entende assim)
+  let objetoJSON = JSON.stringify(objetoJs)
+
+  const resposta = await fetch(url,{
+    method:"POST",
+    headers:{
+      
+      "Content-Type":"application/json"
+    },
+    body:objetoJSON
+    
+  })
+  console.log(resposta.status)
+  if (resposta.status == 201){
+    alert("Recurso criado com sucesso!")
+  }else{
+    alert("Erro ao adicionar este novo recurso")
+
+  }
+  
+  
+}

@@ -1,0 +1,83 @@
+
+body {
+    background-color: orange;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Tahoma, sans-serif;
+    color: darkred;
+    background-color: chocolate;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.section {
+    display: flex;
+    flex-flow: row;
+    background-color: slateblue;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 30;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(63, 15, 142);
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: antiquewhite;
+    font-size: large;
+}
+
+.example-flex {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    border: 1px solid black;
+    flex-wrap: wrap;
+}
+
+.example-flex p {
+    margin: 10px;
+    background-color: rgb(43, 164, 13);
+    text-align: center;
+    border-radius: 10px;
+    width: 30px;
+}
+
+.example-column {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.example-column p {
+    margin: 20px;
+    background-color: rgb(43, 164, 13);
+    text-align: center;
+    border-radius: 16px;
+    padding: 10px;
+    width: 20px;
+}
+
+.example-wrap{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.example-wrap p {
+    margin: 6px;
+    background-color: rgb(43, 164, 13);
+    text-align: center;
+    border-radius: 10px;
+    padding: 9px;
+    width: 30px;
+}

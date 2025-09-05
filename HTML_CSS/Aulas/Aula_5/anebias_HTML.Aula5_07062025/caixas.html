@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exemplos de Display e Hidden</title>
+  <style>
+    .bloco {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+    }
+
+    .vermelho { background-color: red; }
+    .verde    { background-color: green; }
+    .azul     { background-color: blue; }
+  </style>
+</head>
+<body>
+
+  <h2>Display: inline</h2>
+  <div style="display: inline;">
+    <div class="bloco vermelho"></div>
+  </div>
+  <div style="display: inline;">
+    <div class="bloco verde"></div>
+  </div>
+  <div style="display: inline;">
+    <div id="blocoInlineAzul" class="bloco azul"></div>
+  </div>
+
+  <h2>Display: block</h2>
+  <div style="display: block;">
+    <div class="bloco vermelho"></div>
+  </div>
+  <div style="display: block;">
+    <div class="bloco verde"></div>
+  </div>
+  <div style="display: block;">
+    <div class="bloco azul"></div>
+  </div>
+
+  <h2>Display: inline-block</h2>
+  <div style="display: inline-block;">
+    <div class="bloco vermelho"></div>
+  </div>
+  <div style="display: inline-block;">
+    <div class="bloco verde"></div>
+  </div>
+  <div style="display: inline-block;">
+    <div class="bloco azul"></div>
+  </div>
+
+  <h2>Brincando com <code>hidden</code></h2>
+  <button onclick="toggleHidden()">Mostrar/Ocultar bloco azul (inline)</button>
+
+  <script src="">
+    function toggleHidden() {
+      const bloco = document.getElementById('blocoInlineAzul');
+      bloco.hidden = !bloco.hidden;
+    }
+  </script>
+
+</body>
+</html>

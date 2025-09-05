@@ -1,0 +1,34 @@
+
+div {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 20px;
+}
+
+.cabecalho {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 10px;
+    place-items: center;
+}
+
+h3 {
+    font-size: 50px;
+}
+.image{
+    width: 250px;
+    height: 200px;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+    .image {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .image {
+      grid-template-columns: 1fr; 
+    }
+  }

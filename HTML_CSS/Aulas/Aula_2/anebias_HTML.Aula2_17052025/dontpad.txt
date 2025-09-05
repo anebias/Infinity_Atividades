@@ -1,0 +1,60 @@
+repositório de aulas:
+https://github.com/thiagooshiro/HTML-Classes
+
+Comando para pegar o repositório:
+git clone https://github.com/thiagooshiro/HTML-Classes.git
+(lembrando que é necessário ter o git instalado)
+
+
+- Exercício 1  
+
+- Utilizando o VSCode navegue até sua pasta no PC (Caso não encontre, crie uma nova pasta)
+- Crie um novo documento HTML (Ex: exercicio01.html)
+- Estruture o HTML base com o atalho ! (e aperte "enter" em seguida)
+
+No HTML estruture:
+- Um subtítulo (h2 ou h3) com o texto: "Habilidades que desejo aprender: "
+- Uma lista não-ordenada (ul) com até 5 elementos (li) de habilidades que desejam aprender
+- Um subtítulo (h2 ou h3) com o texto: "Habilidades que já possuo: "
+- Uma lista ORDENADA (ol) com até 5 elementos (li) de habilidades que já possuo.  
+
+EXERCÍCIO 2:
+
+CRIE UM NOVO DOCUMENTO HTM COM O NOME: tabelas.html
+Neste documento crie:
+- Um elemento <h2> que terá como texto: "Mercado" 
+- Um elemento <table> com a propriedade "border=1"; 
+- Dentro do elemento table:
+- Um cabeçalho da tabela: <thead>
+	Crie uma linha (tr):
+		Crie três divisórias de tabela (td) com as seguintes informações:
+		 Nome, Categoria e Preço (cada uma em um td diferente)
+
+- Um corpo da tabela: <tbody>
+	Crie uma linha (tr)
+	Crie tres <td> com as seguintes informações:
+	Nome do produto, tipo do produto e preço.
+
+
+Exercício Perfil Pessoal:
+
+Exercício: Criando uma Página de Perfil Pessoal com HTML
+
+Crie uma página simples em HTML representando o perfil de uma pessoa (pode ser você ou um personagem fictício). Use a estrutura abaixo como guia:
+
+    Uma imagem de perfil usando a tag <img>.
+
+    Informações básicas:
+
+       - nome
+
+       - idade
+
+        - profissão
+        (Use tags como <h2>, <p>, <div>, etc.)
+
+    Uma pequena biografia (um parágrafo com o texto da bio).
+
+    Uma lista não ordenada (<ul>) com tecnologias que a pessoa domina ou pretende dominar.
+
+    Uma lista ordenada (<ol>) com habilidades socioemocionais que a pessoa já aprendeu.
