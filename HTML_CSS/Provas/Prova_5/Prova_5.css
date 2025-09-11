@@ -1,0 +1,22 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.boxExterna {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.boxInterna {
+    background-color: bisque;
+    border: red 1px solid;
+    border-radius: 5px;
+    padding: 2px;
+    margin: 2px;
+}
