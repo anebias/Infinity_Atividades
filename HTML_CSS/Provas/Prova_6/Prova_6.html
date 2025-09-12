@@ -1,0 +1,53 @@
+<!-- 
+[H&CIA-A06]
+Estrutura HTML:
+Crie um formulário simples com dois campos: "Nome de Usuário" e "Senha".Adicione dois botões: "Enviar" e "Limpar".
+
+Estilos Responsivos com Media Queries:
+- Use Media Queries para garantir que o formulário se ajuste bem em diferentes tamanhos de tela (móvel, tablet, desktop).
+- Em telas menores, o formulário deve ocupar toda a largura da tela, enquanto em telas maiores deve ser centralizado com uma largura fixa.
+
+Uso de Pseudo-elementos:
+- Use o pseudo-elemento ::before para adicionar ícones decorativos antes dos campos "Nome de Usuário" e "Senha".
+- Use o pseudo-elemento ::after para adicionar um efeito visual nos botões quando o mouse passar sobre eles (hover).
+
+Estilização Adicional:
+- Aplique bordas arredondadas aos campos e botões.
+- Utilize sombras sutis para dar profundidade ao formulário. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 6</title>
+    <link rel="stylesheet" href="Prova_6.css">
+</head>
+
+<body>
+    <form action="submit">
+        <div class="campos" id="campo-nome">
+            <label for="nome">Nome de Usuário: </label>
+            <input type="text"  id="nome" placeholder="Informe o seu nome">
+
+        </div>
+
+        <div class="campos" id="campo-senha" >
+
+            <label for="senha">Senha: </label>
+            <input type="password" id="senha" placeholder="Informe a sua senha">
+
+        </div>
+
+        <div class="botoes">
+            <button type="">Enviar</button>
+    
+            <button type="">Limpar</button>
+        </div>
+    </form>
+    
+
+</body>
+
+</html>
