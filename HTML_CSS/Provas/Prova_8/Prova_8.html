@@ -1,0 +1,118 @@
+<!-- [H&CIA-A08]
+Desenvolva uma página de portfólio pessoal utilizando HTML, CSS, e, se desejado, JavaScript para interatividade. A página deve apresentar suas informações pessoais, habilidades, projetos, e formas de contato.
+
+Estrutura HTML:
+- Incluir uma seção de introdução com uma breve biografia e uma imagem de perfil.
+- Criar seções dedicadas para listar suas habilidades, projetos anteriores, e experiências profissionais.
+- Adicionar uma seção de contato com links para suas redes sociais e um formulário de contato.
+
+Estilização com CSS:
+- Utilize Flexbox ou Grid para organizar o layout da página.
+- Aplique estilos personalizados para destacar seções importantes, como projetos e habilidades.
+- Implemente Media Queries para garantir que o portfólio seja responsivo e adaptável a diferentes tamanhos de tela. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <link rel="stylesheet" href="Prova_8.css">
+</head>
+
+<body>
+
+    <section class="info-pessoais">
+        <h1>Alessandra Mara Nébias</h1>
+        <img src="./foto perfil.png" alt="foto" height="50">
+
+        <div class="sobre">
+            <h2>👋 Sobre mim...</h2>
+            <p>Sou matemática por formação, bancária por profissão e estudante de tecnologia por paixão</p>
+        </div>
+
+        <div class="formacao">
+            <h2>Formação Acadêmica</h2>
+            <ul>
+                <li>Graduação em Licenciatura Matemática (UFMG)</li>
+                <li>Mestrado em Matemática - Sistemas Dinâmicos Diferenciais (UFMG)</li>
+                <li>Pós Graduação em Gerenciamento de Projetos (Favani)
+                </li>
+                <li>MBA em Business Intelligence & Analytics (USP, em curso)</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section class="habilidades">
+
+        <div class="skills">
+            <h2>Soft Skills</h2>
+            <ul>
+                <li>Pensamento analítico e estruturado</li>
+                <li>Gestão de pessoas</li>
+                <li>Empatia</li>
+                <li>Resiliência </li>
+                <li>Foco</li>
+            </ul>
+        </div>
+
+        <div class="cursos">
+                <h2>Cursos e Aprimoramentos</h2>
+                <ul>
+                    <li>Curso Livre Coaching</li>
+                    <li>Cursos Livres de Tecnologia</li>
+                    <li>Programação Full Stack (em curso)</li>
+                </ul>
+        </div>
+
+    </section>
+
+    <section class="projetos">
+        <div class="projetos">
+            <h2>Projetos</h2>
+            <p>Carregando...</p>
+        </div>
+
+        <div class="experiencia">
+        <h2>Experiência Profissional</h2>
+            <ul>
+                <li>Economiária, atuando com gestão de clientes, pessoas, unidades, processos, produtos e pessoas</li>
+                <li>Professora Universitária para cursos como Engenharia, Administração, Ciências Atuariais, Matemática e
+                    outros</li>
+                <li>Professora dos Ensinos Médio e Fundamental</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="contato">
+        <div class="links">
+            <h2>Links</h2>
+            <ul>
+                <li><a href="https://github.com/anebias" target="_blank">Meu Perfil GITHUB</a></li>
+
+                <li><a href="https://www.linkedin.com/in/alessandra-n%C3%A9bias-785b9311a/">LinkedIn</a></li>
+            </ul>
+        </div>
+
+        <form action="">
+            <div>
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+
+                <input type="text" name="telefone" id="telefone" placeholder="Telefone">
+            </div>
+
+            <div>
+                <textarea name="motivo" id="motivo" placeholder="Motivo do Contato"></textarea>
+            </div>
+
+            <button type="submit">Enviar</button>
+
+        </form>
+        
+    </section>
+
+</body>
+
+</html>

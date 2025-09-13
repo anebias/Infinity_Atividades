@@ -1,0 +1,305 @@
+:root {
+    --font-size-h1-peq: 24px;
+    --font-size-h1-med: 28px;
+    --font-size-h1-gde: 32px;
+
+    --font-size-h2-peq: 18px;
+    --font-size-h2-med: 22px;
+    --font-size-h2-gde: 26px;
+
+    --font-size-p-peq: 14px;
+    --font-size-p-med: 16px;
+    --font-size-p-gde: 18px;
+
+    --padding-peq: 10px;
+    --padding-med: 15px;
+    --padding-gde: 20px;
+
+    --margin-peq: 10px;
+    --margin-med: 15px;
+    --margin-gde: 20px;
+
+    --color-peq: rgb(217, 218, 211);
+    --color-med: white;
+    --color-gde: rgb(186, 223, 248);
+
+    --background-peq: rgb(32, 30, 13);
+    --background-med: rgb(107, 10, 10);
+    --background-gde: rgb(2, 67, 141);
+
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+}
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2 {
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+ul {
+    padding-left: 20px;
+    margin: 10px 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.info-pessoais {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.info-pessoais h1 {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--card-border);
+    margin-bottom: 20px;
+}
+
+.info-pessoais img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    justify-self: center;
+}
+
+.sobre {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+.formacao {
+    grid-column: 1 / -1;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    margin-top: 20px;
+}
+
+.habilidades {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.skills,
+.cursos {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+.projetos-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.projetos-section>div {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+
+.contato {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.links {
+    text-align: center;
+}
+
+.links ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 0;
+    list-style: none;
+}
+
+.links a {
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.15);
+    transition: all 0.3s;
+    display: inline-block;
+    border: 1px solid var(--card-border);
+}
+
+.links a:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+form {
+    display: grid;
+    justify-items: center;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+form>div {
+    width: 100%;
+    display: grid;
+    gap: 15px;
+}
+
+form>div:first-child {
+    grid-template-columns: 1fr 1fr;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--card-border);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: inherit;
+    font-size: 16px;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+    grid-column: 1 / -1;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: inherit;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 16px;
+    border: 1px solid var(--card-border);
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    body {
+        background-color: var(--background-peq);
+        color: var(--color-peq);
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: var(--font-size-h1-peq);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2-peq);
+    }
+
+    p,
+    li {
+        font-size: var(--font-size-p-peq);
+    }
+
+    .info-pessoais {
+        grid-template-columns: 1fr;
+    }
+
+    .info-pessoais img {
+        max-width: 180px;
+    }
+
+    .habilidades {
+        grid-template-columns: 1fr;
+    }
+
+    .links ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    form div:first-child {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    body {
+        background-color: var(--background-med);
+        color: var(--color-med);
+    }
+
+    h1 {
+        font-size: var(--font-size-h1-med);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2-med);
+    }
+
+    p,
+    li {
+        font-size: var(--font-size-p-med);
+    }
+}
+
+@media (min-width: 1025px) {
+    body {
+        background-color: var(--background-gde);
+        color: var(--color-gde);
+    }
+
+    h1 {
+        font-size: var(--font-size-h1-gde);
+    }
+
+    h2 {
+        font-size: var(--font-size-h2-gde);
+    }
+
+    p,
+    li {
+        font-size: var(--font-size-p-gde);
+    }
+}
