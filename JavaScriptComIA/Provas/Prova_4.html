@@ -1,0 +1,64 @@
+<!-- [JSIA-A04]  Crie um programa em JavaScript que permita ao usuário gerenciar uma lista de compras utilizando arrays. O programa deve permitir a adição de itens, a remoção de itens e a exibição de todos os itens da lista.
+Requisitos do Projeto:
+* Adicionar Itens:
+ - Utilize o método push() para permitir que o usuário adicione novos itens à lista de compras.
+* Remover Itens:
+ - Permita que o usuário remova um item específico utilizando o método splice().
+ - O programa deve solicitar o índice do item a ser removido.
+* Exibir Lista:
+ - Use um loop for...of para percorrer e exibir os itens da lista. Cada item deve ser mostrado com seu respectivo índice.
+* Atualizar Itens:
+ - Permita que o usuário atualize um item da lista ao fornecer o índice e o novo valor. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 4 - Prova JSIA - Arrays</title>
+</head>
+
+<body>
+
+    <script>
+        let listaCompras = [];
+        let opcao = '';
+        let item = '';
+
+        while (true) {
+            opcao = prompt('Digite uma das opções para lista de compras: \n 1. Incluir item, \n 2. Excluir item, \n 3. Exibir lista,\n 4. Atualizar item, \n Qualquer outra tecla para sair')
+
+            if (opcao !== "1" && opcao !== "2" && opcao !== "3" && opcao !== "4") { break } else {
+                switch (opcao) {
+                    case "1":
+                        item = prompt('Informe o item a ser incluído na lista');
+                        listaCompras.push(item);
+                        console.log(`Item incluído: ${listaCompras.indexOf(item)}: ${item}`);
+                        break;
+                    case "2":
+                        item = Number(prompt('Informe o índice do item para exclusão'));
+                        listaCompras.splice(item, 1);
+                        console.log(`Item removido}`);
+                        break;
+                    case "3":
+                        console.log('*** Lista de Compras ***')
+                        for (item of listaCompras) {
+                            console.log(`${listaCompras.indexOf(item)}: ${item}`);
+                        }
+                        break;
+                    case "4":
+                        item = Number(prompt('Informe o índice do item a ser atualizado'));
+                        let novoItem = prompt('Informe a nova descrição do item');
+                        listaCompras[item] = novoItem;
+                        console.log(`Item atualizado: ${listaCompras.indexOf(item)}: ${item}`);
+                        break;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
