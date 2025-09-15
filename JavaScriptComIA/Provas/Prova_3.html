@@ -1,0 +1,46 @@
+<!-- [JSIA-A03]  Crie um programa em JavaScript que combine o uso de while (true), for, e for...of para realizar operações iterativas. O programa deve solicitar entradas do usuário, processar os dados e exibir resultados em diferentes formatos.
+Requisitos do Projeto:
+* Coleta de Dados com while (true):
+ - Solicite ao usuário uma sequência de nomes (ou qualquer outro tipo de dado) usando prompt().
+ - O loop deve continuar até que o usuário insira uma palavra específica como "sair". Use break para encerrar o loop.
+* Processamento com for:
+ - Após coletar os dados, use um loop for para exibir os dados com índices. Exemplo: 1: Nome1
+* Exibição com for...of: 
+ - Use um loop for...of para exibir cada nome individualmente com uma mensagem personalizada, como "Bem-vindo(a), Nome!". -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 3 - Prova JSIA - Laços de Repetição</title>
+</head>
+
+<body>
+
+    <script>
+
+        let listaNomes = [];
+        let nome = '';
+        while (true) {
+            nome = prompt('Informe um nome ou digite sair').toUpperCase();
+            if (nome === "SAIR") {
+                break;
+            } else {
+                listaNomes.push(nome);
+            };
+        };
+
+        for (let i = 0; i < listaNomes.length; i++) {
+            console.log(`${i + 1}: ${listaNomes[i]}`);
+        };
+
+        for (let nome of listaNomes) {
+            console.log(`BEM VINDO(A), ${nome}!`);
+        };
+
+    </script>
+</body>
+
+</html>
