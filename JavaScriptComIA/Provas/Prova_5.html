@@ -1,0 +1,66 @@
+<!-- [JSIA-A05]  Crie um programa em que permita ao usuário gerenciar uma lista de tarefas usando arrays e loops. O programa deve oferecer as opções de adicionar, remover, listar e concluir tarefas, enquanto manipula o array de tarefas e utiliza loops para percorrê-lo.
+Requisitos do Projeto:
+* Adicionar Tarefas:
+ - Solicite ao usuário o nome de uma tarefa e adicione-a ao final do array usando o método push().
+* Listar Tarefas:
+ - Use um loop for ou for...of para percorrer o array de tarefas e exibi-las com seus índices.
+* Remover Tarefas:
+ - Solicite ao usuário o índice da tarefa que deseja remover e utilize o método splice() para removê-la do array.
+* Concluir Tarefas (Opcional):
+- Peça ao usuário o índice de uma tarefa e marque-a como concluída, modificando a string para algo como "✅ Lavar a louça".
+* Interação Contínua:
+ - Utilize um loop while para continuar solicitando ações do usuário (adicionar, listar, remover, concluir) até que ele escolha sair. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 5 - Prova JSIA - Revisão</title>
+</head>
+
+<body>
+
+    <script>
+
+        let listaTarefas = [];
+        let opcao = '';
+        let tarefa = '';
+
+        while (true) {
+            opcao = prompt('Digite uma das opções para lista de tarefas: \n 1. Incluir tarefa, \n 2. Excluir tarefa, \n 3. Exibir lista de tarefas,\n 4. Concluir tarefa, \n Qualquer outra tecla para sair')
+
+            if (opcao !== "1" && opcao !== "2" && opcao !== "3" && opcao !== "4") { break } else {
+                switch (opcao) {
+                    case "1":
+                        tarefa = prompt('Informe a tarefa a ser incluída na lista');
+                        listaTarefas.push(tarefa);
+                        console.log(`tarefa incluída: ${listaTarefas.indexOf(tarefa)}: ${tarefa}`);
+                        break;
+                    case "2":
+                        tarefa = Number(prompt('Informe o índice da tarefa para exclusão'));
+                        listaTarefas.splice(tarefa, 1);
+                        console.log(`tarefa removida}`);
+                        break;
+                    case "3":
+                        console.log('*** Lista de Tarefas ***')
+                        for (tarefa of listaTarefas) {
+                            console.log(`${listaTarefas.indexOf(tarefa)}: ${tarefa}`);
+                        }
+                        break;
+                    case "4":
+                        tarefa = Number(prompt('Informe o índice da tarefa a ser concluída'));
+
+                        listaTarefas[tarefa] = "(OK)" + listaTarefas[tarefa];
+                        console.log(`tarefa atualizada: ${listaTarefas.indexOf(tarefa)}: ${tarefa}`);
+                        break;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
