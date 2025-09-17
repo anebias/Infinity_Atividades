@@ -1,0 +1,91 @@
+<!-- [JSIA-A06] Crie um programa que utiliza funções anônimas, arrow functions e funções de callback para gerenciar e processar uma lista de tarefas.
+Requisitos do Projeto:
+* Criação de Funções Anônimas:
+ - Use uma função anônima para adicionar tarefas a uma lista. A função deve ser atribuída a uma variável e permitir adicionar uma nova tarefa ao array de tarefas.
+* Uso de Arrow Functions:
+ - Implemente uma arrow function para listar todas as tarefas, exibindo cada tarefa com seu índice no console.
+* Funções de Callback:
+ - Crie uma função que receba outra função como callback. Essa função deve permitir executar diferentes operações com a lista de tarefas, como:
+ - Remover uma tarefa.
+ - Atualizar uma tarefa.
+ - Concluir uma tarefa.
+* Interação com o Usuário:
+ - Utilize métodos como prompt() para receber ações do usuário e exiba os resultados no console usando console.log().  -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 6 - Prova JSIA - Funções</title>
+</head>
+
+<body>
+
+    <script>
+
+        let listaTarefas = [];
+        let minhaOpcao = '';
+
+        let incluirTarefa = function () {
+            tarefa = prompt('Informe a tarefa a ser incluída na lista');
+            listaTarefas.push(tarefa);
+            console.log(`tarefa incluída: ${listaTarefas.indexOf(tarefa)}: ${tarefa}`);
+        };
+
+        let listarTarefas = () => {
+            console.log('*** Lista de Tarefas ***')
+            for (i = 0; i < listaTarefas.length; i++) {
+                console.log(`${i}: ${listaTarefas[i]}`);
+            }
+        };
+
+        function excluirTarefa() {
+            tarefa = Number(prompt('Informe o índice da tarefa para exclusão'));
+            listaTarefas.splice(tarefa, 1);
+            console.log(`tarefa removida}`);
+        };
+
+        function concluirTarefa() {
+            tarefa = Number(prompt('Informe o índice da tarefa a ser concluída'));
+            listaTarefas[tarefa] = "(OK)" + listaTarefas[tarefa];
+            console.log(`tarefa concluída: ${listaTarefas.indexOf(tarefa)}: ${tarefa}`);
+        }
+
+        function menuTarefas() {
+            console.log('Menu \n 1. Incluir tarefa \n 2. Remover tarefa \n 3. Listar tarefas \n 4. Concluir tarefa \n Qualquer outra tecla para sair');
+        };
+
+        function opcao(callback) {
+            callback();
+            return prompt('Digite a sua opção');
+        }
+
+        while (true) {
+
+            minhaOpcao = opcao(menuTarefas);
+
+            if (minhaOpcao !== "1" && minhaOpcao !== "2" && minhaOpcao !== "3" && minhaOpcao !== "4") { break } else {
+                switch (minhaOpcao) {
+                    case "1":
+                        incluirTarefa();
+                        break;
+                    case "2":
+                        excluirTarefa();
+                        break;
+                    case "3":
+                        listarTarefas();
+                        break;
+                    case "4":
+                        concluirTarefa();
+                        break;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
