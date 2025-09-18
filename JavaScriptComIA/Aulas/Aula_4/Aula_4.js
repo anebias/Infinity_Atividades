@@ -99,3 +99,44 @@
 // 6 - Inverta a ordem dos elementos no array cores.
 // 7 -Exiba os arrays cores e novasCores, e a string resultante no console.
 
+// let cores = ['Vermelho','Verde','Azul'];
+// console.log(cores);
+
+// cores.push('Amarelo','Roxo');
+// console.log(cores);
+
+// cores.splice(1,1,'Laranja','Marrom');
+// console.log(cores);
+
+// let novasCores = cores.slice(0,2);
+// console.log(novasCores);
+
+// let string = cores.join(', ');
+
+// cores = cores.reverse();
+// console.log(cores);
+// console.log(novasCores);
+// console.log(string);
+
+// Atividade 04
+// Crie um script que contenha um array de números e utilize o loop for para percorrê-lo. Para cada número no array, verifique se ele é par ou ímpar e exiba uma mensagem no console indicando o resultado.
+
+// let numeros = [-2, -4, 29, 28, -27, 17, 12, 2, 26, 2, 17, 28, -42, 14, 27, -11, 40, 18, 36, -8];
+
+// for (let i = 0 ; i < numeros.length ; i++) {
+//     if (numeros[i] % 2 === 0) {
+//         console.log(`o número ${numeros[i]} é par`);
+//     } else {
+//         console.log(`o número ${numeros[i]} é ímpar`)
+//     };
+// };
+
+// Atividade 05
+// Crie um script que contenha um array de nomes e utilize o loop for...of para percorrê-lo. Para cada nome no array, exiba uma mensagem de boas-vindas personalizada no console.
+
+// let nomes = ["Lucas", "Mariana", "Rafael", "Beatriz", "João", "Camila", "Felipe", "Ana", "Gustavo", "Larissa"];
+
+// for (let nome of nomes){
+//     console.log(`Seja bem vindo(a) ${nome}!`);
+// };
+
