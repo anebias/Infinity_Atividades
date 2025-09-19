@@ -13,7 +13,11 @@
 
 // Exiba novamente os valores de nome e idade no console.
 
-/**************** FAZER **************/
+// var nome = 'Alessandra';
+// let idade = 51;
+// const cidade = 'Belo Horizonte';
+
+// console.log('Nome:', nome, ", Idade:", idade, ', Cidade:', cidade);
 
 // Atividade 02
 // Crie um arquivo JavaScript e siga os passos abaixo para praticar a manipulação de variáveis e a realização de operações básicas.
@@ -30,7 +34,21 @@
 
 // Use console.log() para exibir os resultados das operações e as informações das constantes nome e cidade.
 
-/**************** FAZER **************/
+// let num1 = 5;
+// let num2 = 7;
+// const nome = 'Alessandra';
+// const cidade = 'Belo Horizonte';
+// let soma = num1 + num2;
+// let subtracao = num1 - num2;
+// let multiplicacao = num1 * num2;
+// let divisao = num1 / num2;
+
+// console.log(`Nome`,nome);
+// console.log(`Cidade`,cidade);
+// console.log(`O resultado da soma é ${soma}`);
+// console.log(`O resultado da subtração é ${subtracao}`);
+// console.log(`O resultado da multiplicação é ${multiplicacao}`);
+// console.log(`O resultado da divisão é ${divisao}`);
 
 // Atividade 03
 // Crie um programa em que utilize uma estrutura condicional para resolver um dos seguinte problema:
@@ -44,7 +62,23 @@
 // Determinando o Status de Exibição do Filme:
 // - Escreva uma condicional para verificar se um filme está em exibição ou se a exibição já terminou, considerando o horário atual e o horário de término do filme.
 
-/**************** FAZER **************/
+// const idadeMaximaDesconto = 12;
+// const horarioAbertura = 10;
+// const horarioFechamento = 21;
+
+// let idade = 0;
+// let horarioAtual = 0;
+
+// if (idade <= idadeMaximaDesconto){
+//     console.log(`Ingresso com desconto`);
+// } else {
+//     console.log(`Ingresso sem desconto (idade > ${idadeMaximaDesconto})`)};
+
+// if (horarioAtual >= horarioAbertura && horarioAtual <= horarioFechamento) {
+//     console.log('Bilheteria aberta');
+// } else {
+//     console.log('Bilheteria fechada')
+// };
 
 // Atividade 04
 // Crie um arquivo JavaScript e siga os passos abaixo:
@@ -56,7 +90,7 @@
 // - Se a idade estiver entre 18 e 65 (inclusive), exiba: "Você é um adulto."
 // - Se a idade for maior que 65, exiba: "Você é idoso."
 
-/**************** FAZER **************/
+// *** Reposta no arquivo Aula_5.html ***
 
 // Atividade 05
 // Crie um programa que receba um número n e gere um triângulo numérico invertido no console usando laços de repetição.
@@ -74,7 +108,19 @@
 
 // O triângulo deve começar com n números na primeira linha,diminuindo um número a cada linha até chegar a 1.
 
-/**************** FAZER **************/
+// const numero = 5;
+// let range = []
+
+// for (let j = numero ; j > 0 ; j --) {
+    
+//     range = [];
+
+//     for (let i = 1 ; i <= j ; i++) {
+//     range.push(i);
+//     }
+
+//     console.log(range.join(' '));
+// };
 
 // Atividade 06
 // Crie um arquivo JavaScript e siga os passos abaixo para praticar o uso de loops.
@@ -85,7 +131,23 @@
 
 // - Usando um loop for, crie uma variável chamada soma que acumule a soma dos números de 1 a 5 e exiba o resultado no final.
 
-/**************** FAZER **************/
+// for (let i = 1 ; i <= 10 ; i++){
+//     console.log(i)
+// }
+
+// let j = 2
+// while (j <= 20) {
+//     console.log(j);
+//     j += 2;
+// }
+
+// let soma = 0;
+
+// for (let k = 1 ; k <= 5 ; k++) {
+//     soma += k;
+// }
+
+// console.log('Soma de 1 a 5 =',soma);
 
 // Atividade 07
 // Crie um programa que faça o seguinte:
@@ -102,5 +164,24 @@
 // Exiba no console o array original, o array de números
 // pares, o array de números ao quadrado e a soma final.
 
-/**************** FAZER **************/
+const numeros = [49, 83, 54, 19, 63, 95, 57, 32, 73, 56, 36, 71, 84, 11, 59, 65, 88, 36, 46, 77];
 
+const pares = numeros.filter((numero) => {
+    return numero %2 === 0;
+});
+
+console.log(pares);
+
+quadrados = pares.map(( numero ) => { return numero * numero })
+
+console.log(quadrados);
+
+let soma = quadrados.reduce((acumulador, valorAtual) => { 
+    return acumulador + valorAtual },0);
+
+console.log('soma dos quadrados:', soma);
+
+console.log('range original:', numeros);
+console.log('filtro pares:', pares);
+console.log('quadrado dos pares',quadrados);
+console.log('soma dos quadrados:', soma);
