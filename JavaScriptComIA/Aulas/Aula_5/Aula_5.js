@@ -164,24 +164,24 @@
 // Exiba no console o array original, o array de números
 // pares, o array de números ao quadrado e a soma final.
 
-const numeros = [49, 83, 54, 19, 63, 95, 57, 32, 73, 56, 36, 71, 84, 11, 59, 65, 88, 36, 46, 77];
+// const numeros = [49, 83, 54, 19, 63, 95, 57, 32, 73, 56, 36, 71, 84, 11, 59, 65, 88, 36, 46, 77];
 
-const pares = numeros.filter((numero) => {
-    return numero %2 === 0;
-});
+// const pares = numeros.filter((numero) => {
+//     return numero %2 === 0;
+// });
 
-console.log(pares);
+// console.log(pares);
 
-quadrados = pares.map(( numero ) => { return numero * numero })
+// quadrados = pares.map(( numero ) => { return numero * numero })
 
-console.log(quadrados);
+// console.log(quadrados);
 
-let soma = quadrados.reduce((acumulador, valorAtual) => { 
-    return acumulador + valorAtual },0);
+// let soma = quadrados.reduce((acumulador, valorAtual) => { 
+//     return acumulador + valorAtual },0);
 
-console.log('soma dos quadrados:', soma);
+// console.log('soma dos quadrados:', soma);
 
-console.log('range original:', numeros);
-console.log('filtro pares:', pares);
-console.log('quadrado dos pares',quadrados);
-console.log('soma dos quadrados:', soma);
+// console.log('range original:', numeros);
+// console.log('filtro pares:', pares);
+// console.log('quadrado dos pares',quadrados);
+// console.log('soma dos quadrados:', soma);
