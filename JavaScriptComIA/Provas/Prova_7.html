@@ -1,0 +1,116 @@
+<!-- [JSIA-A07]  Crie um programa em JavaScript que gerencie uma lista de nomes utilizando diversos métodos auxiliares de arrays para realizar operações como adicionar, filtrar, encontrar e transformar os dados.
+
+Requisitos do Projeto:
+* Adicionar Nomes:
+ - Permita ao usuário adicionar nomes à lista utilizando o método push().
+ - Exiba a lista atualizada no console.
+
+* Filtrar Nomes:
+- Use o método filter() para criar uma nova lista contendo apenas os nomes que começam com uma letra específica fornecida pelo usuário.
+ - Exiba os nomes filtrados no console.
+
+* Buscar um Nome Específico:
+- Use o método find() para localizar o primeiro nome na lista que corresponde exatamente a um valor fornecido pelo usuário.
+ - Exiba o resultado no console ou uma mensagem informando que o nome não foi encontrado.
+
+* Transformar Nomes:
+- Utilize o método map() para transformar todos os nomes da lista em letras maiúsculas.
+ - Exiba a nova lista no console.
+
+* Verificar Condições:
+ - Use o método every() para verificar se todos os nomes têm mais de três caracteres.
+ - Exiba a resposta (true ou false) no console.
+
+* Interação Contínua: 
+ - Implemente um loop while para permitir que o usuário escolha realizar várias operações consecutivas (adicionar, filtrar, buscar, transformar ou verificar). -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 7 - Prova JSIA - métodos avançados de ARRAYS</title>
+</head>
+
+<body>
+
+    <script>
+
+        let listaNomes = [];
+        let minhaOpcao = '';
+
+        function adicionarNome() {
+            const nome = prompt('Informe o nome para adicionar à lsita:');
+            listaNomes.push(nome);
+            console.log(listaNomes);
+        };
+
+        function filtrarNomePelaLetra() {
+            const letra = prompt('Informe a letra para filtrar nomes:');
+            const listaFiltrada = listaNomes.filter((nome) => {
+                return nome[0] === letra;
+            })
+            console.log(listaFiltrada.join(', '));
+        };
+
+        function buscarNomeExato() {
+            const nomeProcurado = prompt('Informe o nome procurado:');
+            const nomeLocalizado = listaNomes.find((nomeLista) => {
+                return nomeLista === nomeProcurado;
+            });
+
+            console.log(nomeLocalizado ? `Nome ${nomeProcurado} encontrado` : `Nome ${nomeProcurado} não encontrado`);
+        };
+
+        function transformarMaiuscula() {
+            const listaNomesUpper = listaNomes.map(nome => nome.toUpperCase())
+            console.log(listaNomesUpper);
+        }
+
+        function temMaisTresCaracteres() {
+            const resultado = listaNomes.every((nome) => {
+                return nome.length >= 3;
+            })
+            console.log(resultado);
+        };
+
+        function menu() {
+            console.log('Menu de opções para lista de nomes \n 1. Adicionar nome na lista \n 2. Filtrar nome pela inicial \n 3. Filtrar nome exato \n 4. Transformar lista de nomes UpperCase \n 5. Verificar se todos os nomes têm pelo menos 3 letras \n Qualquer outra tecla para sair');
+        };
+
+        function opcao(callback) {
+            callback();
+            return prompt('Digite a sua opção');
+        }
+
+        while (true) {
+
+            minhaOpcao = opcao(menu);
+
+            if (minhaOpcao !== "1" && minhaOpcao !== "2" && minhaOpcao !== "3" && minhaOpcao !== "4" && minhaOpcao !== "5") { break } else {
+                switch (minhaOpcao) {
+                    case "1":
+                        adicionarNome();
+                        break;
+                    case "2":
+                        filtrarNomePelaLetra();
+                        break;
+                    case "3":
+                        buscarNomeExato();
+                        break;
+                    case "4":
+                        transformarMaiuscula();
+                        break;
+                    case "5":
+                        temMaisTresCaracteres();
+                        break;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
