@@ -1,0 +1,84 @@
+<!-- [JSIA-A09] Crie um pequeno programa em JavaScript que simule um sistema simples de notas escolares. Seu código deve:
+- Declarar um objeto aluno com as seguintes propriedades:
+    * nome (string)
+    * idade (number)
+    * notas (array de 3 números)
+- Possuir um método calcularMedia() que retorna a média das notas;
+- Utilizar desestruturação para acessar nome e idade;
+- Usar o spread operator para adicionar uma nova nota ao array original;
+- Criar uma função chamada verificarSituacao que:
+- Receba a média como parâmetro
+- Verifique se o aluno está aprovado (média ≥ 7) ou reprovado
+- Retorne uma mensagem adequada
+- Utilizar um loop para exibir todas as notas no console.
+- Exibir no console:
+    * Nome e idade do aluno
+    * Todas as notas
+    * A média final
+    * A situação (aprovado ou reprovado) -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova JSIA - Revisão 2</title>
+</head>
+
+<body>
+
+    <script>
+
+        class Aluno {
+            constructor(nome, idade, notas) {
+                this.nome = nome;
+                this.idade = idade;
+                this.notas = this.novasNotas(notas);
+            };
+
+            novasNotas(notas) { return [...notas, 7] };
+
+            calcularMedia(notas) {
+
+                const soma = this.notas.reduce((acc, nota) => { return acc + nota }, 0);
+
+                const media = soma / this.notas.length;
+
+                return media
+            }
+        };
+
+
+        function verificarSituacao(media) {
+            return media >= 7 ? "Aprovado" : "Reprovado"
+        };
+
+        const imprimirNotas = (notas) => {
+            listaNotas = '';
+            for (nota of notas) {
+                listaNotas = notas.join(', ');
+                return listaNotas;
+            }
+        };
+
+        function mensagemConsole(aluno) {
+            const { nome, idade } = aluno;
+            const { notas } = aluno;
+            console.log('**********');
+            console.log(`Aluno: ${nome}, idade: ${idade}`);
+            console.log(`Notas: ${imprimirNotas(notas)}`);
+            console.log(`Média:${aluno.calcularMedia().toFixed(2)}`);
+            console.log(`Situação: ${verificarSituacao(aluno.calcularMedia())}`);
+        }
+
+        const aluno1 = new Aluno('Maria Luiza', 19, [10, 9.8, 9.9]);
+        mensagemConsole(aluno1);
+
+        const aluno2 = new Aluno('Gustavo', 12, [6, 7.8, 5.4]);
+        mensagemConsole(aluno2);
+
+    </script>
+</body>
+
+</html>
