@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 - Manipulação do DOM</title>
+</head>
+<body>
+    
+    <!-- Atividade 2 -->
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi tempore et optio doloribus iste ut at sint necessitatibus minus minima excepturi repellendus inventore voluptate, libero id, suscipit voluptatum quae a.</p>
+
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui facilis quas mollitia officia rerum non est vitae, fugit placeat quis similique eaque atque dolor delectus saepe quidem odit iure! Quis.</p>
+
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae atque minima accusamus, delectus assumenda repellendus ad laboriosam asperiores vel architecto. Consequuntur soluta voluptate, ex repudiandae sunt adipisci ipsa autem quia!</p>
+
+     <script>
+        let tagsP = document.getElementsByTagName('p');
+
+        for(paragrafo of tagsP){
+            console.log(paragrafo);
+            paragrafo.textContent = "Texto Alterado";
+        };
+
+     </script>
+
+</body>
+</html>

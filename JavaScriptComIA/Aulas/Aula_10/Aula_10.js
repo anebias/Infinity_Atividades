@@ -6,7 +6,7 @@
 // - No arquivo JavaScript, utilize o seletor getElementsByTagName() para selecionar todos os parágrafos.
 // - Altere o conteúdo dos parágrafos usando um loop.
 
-/**************** FAZER **************/
+// Solução em Aula_10_Atividade_2.html
 
 // Atividade 03
 // Crie uma página HTML que contenha três divs, cada uma com a classe "box". Dentro de cada div, coloque um parágrafo. Use o seletores do JavaScript para selecionar todas as divs com a classe "box" e altere o fundo de cada div para uma cor diferente.
@@ -16,7 +16,7 @@
 // - No arquivo JavaScript , use o seletor querySelectorAll() para selecionar todas as divs com a classe "box".
 // - Altere a cor de fundo de cada div.
 
-/**************** FAZER **************/
+// Solução em Aula_10_Atividade_3.html e Aula_10_Atividade_3.js
 
 // Atividade 04
 // Crie uma página HTML com uma imagem e um link. Utilize JavaScript para alterar os atributos desses elementos de forma dinâmica quando um botão for clicado.
@@ -30,7 +30,7 @@
 // - Use setAttribute() para alterar o src da imagem para uma nova URL.
 // - Use setAttribute() para alterar o href do link para um novo endereço.
 
-/**************** FAZER **************/
+// Solução em Aula_10_Atividade_4.html e Aula_10_Atividade_4.js
 
 // Atividade 05
 // Crie uma página HTML com um botão que adicione novos parágrafos e outro botão que remova o último parágrafo adicionado. Utilize appendChild() para adicionar e removeChild() para remover elementos dinamicamente.
@@ -45,6 +45,6 @@
 // Quando o botão "Remover Parágrafo" for clicado:
 // - Use removeChild() para remover o último parágrafo adicionado.
 
-/**************** FAZER **************/
+// Solução em Aula_10_Atividade_5.html e Aula_10_Atividade_5.js
 
 

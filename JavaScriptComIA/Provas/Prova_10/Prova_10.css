@@ -1,0 +1,26 @@
+h1{
+            font-size: 48px;
+            color: brown;
+            text-align: center;
+}
+button {
+    width: auto;
+    height: auto;
+    margin-left: 20px;
+    border-radius: 5px;
+    padding: 2px 10px;
+}
+.buttonExcluir{
+    background-color: brown;
+    color: whitesmoke;
+}
+li{
+    padding: 5px;
+}
+div{
+    margin-top: 20px;
+}
+.concluido {
+    text-decoration: line-through;
+    color: red;
+}

@@ -1,0 +1,52 @@
+<!-- [JSIA-A10] Crie uma aplicação simples de Organizador de Tarefas utilizando JavaScript para praticar a utilização de Eventos DOM e seus conceitos. O projeto deve permitir ao usuário adicionar, remover e marcar tarefas como concluídas através de métodos, seletores e manipulação de elementos. 
+
+Requisitos do Projeto:
+a) Estrutura HTML Inicial:
+- Crie uma área onde o usuário possa inserir uma tarefa.
+- Adicione um botão "Adicionar Tarefa" que, ao ser clicado, insira a tarefa na lista de tarefas.
+- Exiba a lista de tarefas em uma lista (ordenada ou não ordenada).
+b) Adicionando Tarefas:
+- Ao clicar no botão "Adicionar Tarefa", o texto da tarefa inserido pelo usuário deve ser adicionado como um novo item na lista de tarefas.
+c) Marcar Tarefas como Concluídas:
+- Permita que o usuário marque uma tarefa como concluída ao clicar sobre ela.
+- Utilize a propriedade classList para adicionar uma classe CSS à tarefa (por exemplo, .concluída). Isso pode alterar o estilo da tarefa (exemplo: riscar o texto).
+d) Remover Tarefas:
+- Adicione um botão "Remover" ao lado de cada tarefa, ou uma caixa de seleção que permita remover múltiplas tarefas.
+- Ao clicar no botão "Remover", a tarefa deve ser removida da lista.
+- Utilize o método removeChild() para remover o item da lista.
+e) Eventos DOM:
+- Use o método addEventListener() para detectar os eventos de clique para adicionar, remover e marcar as tarefas como concluídas. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="Prova_10.css">
+
+</head>
+<body>
+    
+    <header>
+        <h1>Lista de Tarefas</h1>
+    </header>
+
+    <main>
+        <label for="inputTarefa">Tarefa</label>
+        <input type="text" name="inputTarefa" id="inputTarefa" placeholder="Digite uma tarefa">
+
+        <button id="adicionarTarefa" onclick="adicionarTarefa()">Adicionar Tarefa</button>
+
+        <hr>
+
+        <div id="container">
+            <ul id="ulList"></ul>
+        </div>
+
+    </main>
+
+    <script src="./Prova_10.js"></script>
+</body>
+</html>
