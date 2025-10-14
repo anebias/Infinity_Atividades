@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11</title>
+    
+    <style>
+        div{
+            font-size: xx-large;
+            color: brown;
+            align-items: center;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <a href="./Aula_11.js" id="link">Clique Aqui !</a>
+
+    <script>
+
+        const aLink = document.getElementById('link');
+        console.log(aLink);
+
+        aLink.addEventListener('click',(event)=>{
+            event.preventDefault();
+            console.log('Evento prevenido');
+            document.body.innerHTML = `<div>
+            <p> Evento prevenido </p></div>
+            `
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11</title>
+
+
+    <style>
+        .cartaoAdd {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            padding: 10%;
+            margin: 5%;
+            background-color: rgb(158, 155, 155);
+        }
+
+        .cartao {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            align-items: center;
+            padding: 10%;
+            margin: 5%;
+            border: 2px slategrey solid;
+            border-radius: 10px;
+            width: 70%;
+        }
+
+        textarea {
+            width: 80%;
+            min-height: 80px;
+        }
+
+        input {
+            width: 80%;
+        }
+         button {
+            padding: 10px;
+            margin: 10px;
+         }
+    </style>
+
+</head>
+
+<body>
+    <div class="cartaoAdd">
+        <input type="text" id="titulo" placeholder="Título">
+        <br>
+        <textarea name="" id="descricao" placeholder="Descrição"></textarea>
+        <br>
+        <button id="botaoAdicionar">Adicionar</button>
+    </div>
+
+    <hr>
+
+    <section id="container"></section>
+
+    <script>
+        function handleCreateCard() {
+            let divCard = document.createElement('div');
+            divCard.classList.add('cartao');
+
+            let h3Card = document.createElement('h3');
+            const titulo = document.getElementById('titulo').value;
+            h3Card.textContent = titulo;
+
+            let pCard = document.createElement('p');
+            const descricao = document.getElementById('descricao').value;
+            pCard.textContent = descricao;
+
+            if (titulo === '' || descricao === ''){return};
+
+            divCard.appendChild(h3Card);
+            divCard.appendChild(pCard);
+
+            console.log('divCard: ', divCard);
+
+            container.appendChild(divCard);
+        };
+
+        const button = document.getElementById('botaoAdicionar');
+        button.addEventListener('click', handleCreateCard);
+
+        let container = document.getElementById('container');
+
+    </script>
+
+</body>
+
+</html>

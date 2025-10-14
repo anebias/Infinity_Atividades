@@ -11,7 +11,7 @@
 // Requisitos:
 // Utilize o método addEventListener() para associar o evento de clique ao botão. A função associada ao clique deve exibir o alerta.
 
-/**************** FAZER **************/
+// Resolvido em Aula_11_Atividade_1.html
 
 // Atividade 02
 // Nesta atividade, você vai criar um botão que permite adicionar itens a uma lista (<ul>) dinamicamente sempre que for clicado.
@@ -21,7 +21,7 @@
 // - No JavaScript, use o método createElement() para criar novos itens da lista (<li>) e adicione-os à lista quando o botão for clicado.
 // - Utilize um campo de texto (<input>) para permitir que o usuário digite o conteúdo do novo item da lista.
 
-/**************** FAZER **************/
+// Resolvido em Aula_11_Atividade_2.html
 
 // Atividade 03
 // Nesta atividade, você vai criar um botão que adiciona cartões de tarefas em uma seção da página. Cada cartão terá um título e uma descrição, que são fornecidos pelo usuário através de campos
@@ -30,9 +30,9 @@
 // Passo a Passo:
 // - Crie dois campos de texto (<input> e <textarea>) para o título e a descrição da tarefa, além de um botão para adicionar os cartões.
 // - No JavaScript, use o createElement() para criar um novo <div> que representará o cartão, contendo um título (<h3>) e um parágrafo (<p>).
-- Adicione os cartões à página sempre que o botão for clicado.
+// - Adicione os cartões à página sempre que o botão for clicado.
 
-/**************** FAZER **************/
+// Resolvido em Aula_11_Atividade_3.html
 
 // Atividade 04
 // Passo a Passo
@@ -40,7 +40,7 @@
 // - Utilize o evento mousemove para coletar as coordenadas do cursor quando ele se mover sobre essa área.
 // - Exiba as coordenadas em tempo real em um parágrafo ou div na página.
 
-/**************** FAZER **************/
+// Resolvido em Aula_11_Atividade_4.html
 
 // Atividade 05
 // Passo a Passo
@@ -49,7 +49,7 @@
 // - Implemente preventDefault() para impedir o envio do formulário.
 // - Exiba o valor inserido no campo de texto na página.
 
-/**************** FAZER **************/
+// Resolvido em Aula_11_Atividade_5.html
 
 // Atividade 06
 // Passo a Passo
@@ -58,5 +58,5 @@
 // - Utilize preventDefault() para impedir a navegação.
 // - Exiba uma mensagem personalizada na página quando o link for clicado.
 
-/**************** FAZER **************/
+// Resolvido em Aula_11_Atividade_6.html
 

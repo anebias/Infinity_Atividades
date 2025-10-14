@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11</title>
+    
+</head>
+<body>
+    
+    <input type="text" id="meuInput" placeholder="Informe o item da lista">
+    <button id="meuBotao">Incluir</button>
+    <hr> <br>
+    <ul id="minhaLista"></ul>
+
+    <script>
+
+        function handleCriarItem(){
+            const ulList = document.getElementById('minhaLista');
+            const itemList = document.getElementById('meuInput').value;
+
+            if (itemList === ''){return};
+
+            const li = document.createElement('li');
+            li.textContent = itemList;
+            ulList.appendChild(li);
+        };
+
+        const button = document.getElementById('meuBotao');
+        button.addEventListener('click',handleCriarItem);
+    </script>
+</body>
+</html>

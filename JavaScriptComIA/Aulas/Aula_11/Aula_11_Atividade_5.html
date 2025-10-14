@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11</title>
+    
+</head>
+<body>
+    
+    <form action="" id="formulario" type="submit">
+        <input type="text" id="inputForm">
+        <button id="buttonForm">Enviar</button>
+    </form>
+
+    <div id="container"></div>
+
+    <script>
+        const form = document.getElementById('formulario');
+        form.addEventListener('submit',enviarForm);
+
+        function enviarForm(event){
+            event.preventDefault();
+
+            if (form.inputForm.value === ''){return};
+
+            const pDiv = document.createElement('p');
+            pDiv.textContent = form.inputForm.value;
+
+
+            const div = document.getElementById('container');
+            div.appendChild(pDiv);
+        };
+    </script>
+</body>
+</html>

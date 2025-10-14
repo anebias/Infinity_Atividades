@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 11</title>
+
+</head>
+
+<body>
+
+    <button id="meuBotao">Clique Aqui</button>
+
+    <script>
+        const botao = document.getElementById('meuBotao');
+        // sem eventListener (onclick)
+        // botao.onclick = function () { alert('fui clicado'); };
+
+        // com eventListener (somente click)
+        botao.addEventListener('click', () => alert('fui clicado!!'));
+
+    </script>
+</body>
+
+</html>
