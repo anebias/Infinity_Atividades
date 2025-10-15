@@ -1,0 +1,76 @@
+<!-- 
+[JSIA-A11] Desenvolva uma aplicação web simples utilizando Eventos DOM, atribuição de eventos e o método preventDefault() para gerenciar a interação com um formulário. O projeto permitirá que o usuário preencha e envie informações sem recarregar a página, validando os dados antes do seu envio.
+
+
+
+Requisitos do Projeto:
+a) Um formulário com os seguintes elementos:
+- Um campo de texto para o nome de usuário e senha.
+- Um campo para telefone.
+- Um campo para data de nascimento.
+- Um campo de e-mail.
+- Um botão para envio.
+
+b) Atribuir Eventos ao Formulário:
+- Use o método addEventListener() para detectar o evento de envio do formulário (submit).
+
+c) Prevenindo Comportamento Padrão:
+- No evento de envio, utilize preventDefault() para impedir que a página seja recarregada ao enviar o formulário.
+
+d) Validação Simples:
+- Verifique se os campos não estão vazios.
+- Caso um campo esteja vazio, exiba uma mensagem de erro no console e não permita o envio.
+- Utilize o "type" correspondente para cada tipo de dado a ser inserido.
+
+e) Adicionando Informações Dinamicamente:
+- Caso os dados sejam válidos, crie um novo elemento HTML com os dados preenchidos.
+- Use o método createElement() para criar os elementos dinamicamente e appendChild() para adicioná-los à lista.
+
+f) Botão de Reset:
+- Adicione um botão "Limpar Lista" que, ao ser clicado, remova todos os elementos adicionados à lista.
+- Use o método innerHTML = "" para limpar a lista. 
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 11 - Manipulação do DOM II</title>
+    <link rel="stylesheet" href="Prova_11.css">
+</head>
+
+<body>
+
+    <main>
+
+        <div id="divFormulario">
+            <form action="" type="submit" id="formulario">
+                <input type="text" name="nome" id="nome" placeholder="Informe o nome do usuário">
+
+                <input type="password" name="senha" id="senha" placeholder="Informa a sua senha">
+
+                <input type="tel" name="telefone" id="telefone" placeholder="Informe o telefone">
+
+                <input type="date" name="nascimento" id="nascimento" placeholder="Informe a Data de Nascimento">
+
+                <input type="email" name="email" id="email" placeholder="Informe o E-mail">
+
+                <button>Enviar</button>
+            </form>
+            <button id="reset">Limpar Lista</button>
+        </div>
+
+        <hr>
+
+        <div id="container">
+            <ol id="olContainer"></ol>
+        </div>
+    </main>
+
+    <script src="Prova_11.js"></script>
+
+</body>
+
+</html>

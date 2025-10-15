@@ -1,0 +1,22 @@
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    padding: 20px;
+    border: 10px;
+    border-radius: 10px;
+    gap: 4px;
+}
+
+li{
+    padding: 10px;
+    margin: 5px;
+    gap: 5px;
+}
