@@ -1,0 +1,206 @@
+https://dontpad.com/dfs7072709
+
+Token: 2217
+
+https://www.frontendmentor.io/challenges
+-------------------------------------------------------------------------------------------------
+sorteio1.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sorteio </title>
+</head>
+<body>
+    <h1> Sorteio </h1>
+
+    <input type="text" id="participante" placeholder="Nome do Participante">
+    <button id="btn-adicionar"> Adicionar </button>
+
+    <hr>
+    
+    <h2> Participantes </h2>
+    <ul id="participantes"></ul>
+
+    <script>
+        function handleAdicionar() {
+            // 1. Buscar o Nome do Participante
+            const participante = document.querySelector('#participante').value
+
+            // 2. Criar o Elemento de Lista com o Participante
+            const liParticipante = document.createElement('li') // <li></li>
+            liParticipante.textContent = participante // <li>${participante}</li>
+            
+            // 3. Adicionar esse elemento a Lista
+            const ulParticipantes = document.querySelector('#participantes')
+            ulParticipantes.appendChild(liParticipante)
+        }
+
+        const button = document.getElementById('btn-adicionar')
+        button.addEventListener('click', handleAdicionar)
+    </script>
+</body>
+</html>
+
+
+----------------------------------------------------------------------------------------------------
+sorteio2.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sorteio </title>
+</head>
+<body>
+    <h1> Sorteio </h1>
+	
+    <form id="participante">
+        <input type="text" id="nome" name="nome" placeholder="Nome do Participante"> <br>  
+        <input type="email" id="email" name="email" placeholder="Email do Participante"> <br>
+        
+        <button type="submit"> Adicionar </button>
+    </form>
+
+    <hr>
+    
+    <h2> Participantes </h2>
+    <ul id="participantes"></ul>
+
+    <script>
+        const formParticipante = document.getElementById('participante')
+
+        function handleAdicionar(event) {
+            // Previnir o Comportamento Padrão do Submit (Recarregar a Página)
+            event.preventDefault() 
+
+            // 1. Buscar o Nome do Participante
+            const participante = {
+                nome: formParticipante.nome.value, // form.<input-id>.value
+                email: formParticipante.email.value
+            }
+
+            // 2. Criar o Elemento de Lista com o Participante
+            const liParticipante = document.createElement('li') // <li></li>
+            liParticipante.textContent = `${participante.nome} - ${participante.email}` // <li>${participante}</li>
+            
+
+            // 3. Adicionar esse elemento a Lista
+            const ulParticipantes = document.querySelector('#participantes')
+            ulParticipantes.appendChild(liParticipante)
+
+            formParticipante.reset()
+            formParticipante.nome.focus()
+        }
+
+        formParticipante.addEventListener('submit', handleAdicionar)
+    </script>
+</body>
+</html>
+
+---------------------------------------------------------------------------
+sorteio3.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sorteio </title>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .highlight {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1> Sorteio </h1>
+
+    <form id="participante">
+        <input type="text" id="nome" name="nome" placeholder="Nome do Participante"> <br>  
+        <input type="email" id="email" name="email" placeholder="Email do Participante"> <br>
+        
+        <button type="submit"> Adicionar </button>
+    </form>
+
+    <button id="sortear"> Sortear </button>
+    <p id="resultado" class="hidden">
+        O participante <span class="nome highlight"></span> foi sorteado.
+        Entre em contato pelo email: <span class="email highlight"></span>
+    </p>
+
+    <hr>
+    
+    <h2> Participantes </h2>
+    <ul id="participantes">
+    </ul>
+
+    <script>
+        const participantes = []
+
+        // Adicionar Participante
+        const formParticipante = document.getElementById('participante')
+
+        function handleAdicionar(event) {
+            // Previnir o Comportamento Padrão do Submit (Recarregar a Página)
+            event.preventDefault() 
+
+            // 1. Buscar o Nome do Participante
+            const participante = {
+                nome: formParticipante.nome.value, // form.<input-id>.value
+                email: formParticipante.email.value
+            }
+            participantes.push(participante)
+            console.log(participantes)
+
+            // 2. Criar o Elemento de Lista com o Participante
+            const liParticipante = document.createElement('li') // <li></li>
+            liParticipante.textContent = `${participante.nome} - ${participante.email}` // <li>${participante}</li>
+            
+
+            // 3. Adicionar esse elemento a Lista
+            const ulParticipantes = document.querySelector('#participantes')
+            ulParticipantes.appendChild(liParticipante)
+
+            formParticipante.reset()
+            formParticipante.nome.focus()
+        }
+
+        formParticipante.addEventListener('submit', handleAdicionar)
+
+        // Sortear
+        function handleSortear() {
+            // Math.random() * (<fim> - <inicio>) + <inicio>
+            const indexSorteado = Math.floor(Math.random() * participantes.length)
+            const participanteSorteado = participantes[indexSorteado]
+
+            const pResultado = document.querySelector('#resultado')
+            pResultado.classList.remove('hidden')
+
+            const spanNome = pResultado.querySelector('.nome')
+            spanNome.textContent = participanteSorteado.nome
+
+            const spanEmail = pResultado.querySelector('.email')
+            spanEmail.textContent = participanteSorteado.email
+
+            // pResultado.innerHTML = `
+            //     O participante <span class="highlight">${participanteSorteado.nome}</span> foi sorteado! Entre em contato pelo email: <span class="highlight">${participanteSorteado.email}</span>
+            // `
+        }    
+
+        const buttonSortear = document.getElementById('sortear')
+        buttonSortear.addEventListener('click', handleSortear)
+    </script>
+</body>
+</html>

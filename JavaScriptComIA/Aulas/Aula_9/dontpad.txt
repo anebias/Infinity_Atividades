@@ -1,0 +1,223 @@
+https://dontpad.com/dfs7070609
+
+Sejam bem vindos a aula 09 de javascript.
+
+Material:
+https://drive.google.com/file/d/1A9BXbDy_pqczI9JPxKbbJEl4hrewiNzv/view
+
+Repositorio:
+https://github.com/Davi-Classes/JAVASCRIPT2025-DFS707
+
+-----------------------------------------------------------------------------------------------------------
+Ex01. Faça um programa que peça dois numeros em uma página HTML e mostre a soma deles em um alert.
+
+Ex02. Faça um programa que peça o peso e a altura de uma pessoa em um HTML, calcule o seu IMC e mostre-o em um alert.
+
+Ex03. Faça um programa que peça dois numeros em uma página HTML, calcule o produto entre eles (multiplicação) e mostre o resultado dentro de uma <div>.
+
+Ex04. Faça um programa que peça o nome e o telefone de uma pessoa, depois mostre essas informações dentro de um paragrafo (<p>).
+
+Ex05. Faça um programa que deve mostrar na tela um contador:
+- O valor da contagem deve começar em 0
+- Deve ter um botão "incrementar" que irá somar 1 no contador
+- Deve outro botão "decrementar" que irá subtrair 1 do contador
+-------------------------------------------------------------------------------------
+funcoes1.js
+
+// Funções (Revisão)
+// Uma função é uma ação onde nós definimos entrada, processamento e saída
+
+// Assinatura da Função
+// function <nomeFunção>(<parametros>...) {
+//      <codigo da funcao>
+// }
+
+/**
+ * Mostra uma saudação no console para uma pessoa
+ * @param {string} nome - Nome da pessoa
+ * @param {string} sobrenome - Sobrenome da pessoa (Opcional)
+ * @returns {void}
+ */
+function mostrarSaudacao(nome, sobrenome = '') {
+    console.log(`Olá ${nome} ${sobrenome}`)
+}
+
+mostrarSaudacao('Alessandra')
+mostrarSaudacao('Usuário', 'Infinity')
+
+-------------------------------------------------------------------------------------
+funcoes2.js
+
+// Retornos de Função
+
+// Ao retornar um valor em uma função, esse valor vai substituir o local da chamada da função.
+function calcularImc(peso, altura) {
+  const imc = peso / (altura * altura);
+  return imc;
+}
+
+// Armazenando o retorno da função em uma variavel
+const variavel = calcularImc(75, 1.71);
+console.log(variavel);
+
+// Passando o retorno da função como parametro para outra função
+console.log(calcularImc(85, 1.67));
+
+--------------------------------------------------------------------------------
+form1.html
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saudacao</title>
+  </head>
+  <body>
+    <h1>Boas Vindas</h1>
+
+    <div>
+      <label for="nome"> Nome </label> <br />
+      <input type="text" id="nome" />
+    </div>
+
+    <button onclick="handleEnviar()">Enviar</button>
+
+    <script>
+      function handleEnviar() {
+        const nome = document.getElementById('nome').value
+        alert(`Seja bem vindo ${nome}`)
+      }
+    </script>
+  </body>
+</html>
+
+==================================================================
+SOLUÇÃO EXERCICIOS
+
+ex01.html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soma</title>
+  </head>
+  <body>
+    <h1>Soma de Dois Numeros</h1>
+
+    <div>
+      <label for="numero1"> Numero 1 </label> <br />
+      <input type="number" id="numero1" />
+    </div>
+
+    <div>
+      <label for="numero2"> Numero 2 </label> <br />
+      <input type="number" id="numero2" />
+    </div>
+
+    <button onclick="handleCalcular()">Calcular</button>
+
+    <script>
+      function handleCalcular() {
+        const numero1 = Number(document.getElementById("numero1").value);
+        const numero2 = Number(document.getElementById("numero2").value);
+
+        const soma = numero1 + numero2;
+
+        alert(`A soma dos numeros é ${soma}`)
+      }
+    </script>
+  </body>
+</html>
+
+--------------------------------------------------------------------------------
+ex02.html
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculo de IMC</title>
+  </head>
+  <body>
+    <h1>Calcule seu IMC</h1>
+
+    <div>
+      <label for="peso"> Peso </label> <br />
+      <input type="number" id="peso" />
+    </div>
+
+    <div>
+      <label for="altura"> Altura </label> <br />
+      <input type="number" id="altura" />
+    </div>
+
+    <button onclick="handleCalcularImc()">Calcular</button>
+
+    <p id="resultado"></p>
+
+    <script>
+      function calcularImc(peso, altura) {
+        return peso / (altura * altura)
+      }
+      
+      function handleCalcularImc() {
+        const peso = Number(document.getElementById("peso").value);
+        const altura = Number(document.getElementById("altura").value);
+
+        const imc = calcularImc(peso, altura);
+
+        const pResultado = document.getElementById("resultado");
+        pResultado.innerText = `IMC: ${imc.toFixed(2)}`
+      }
+    </script>
+  </body>
+</html>
+
+------------------------------------------------------------------------------------------------------------------------
+ex03.html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplicação</title>
+  </head>
+  <body>
+    <h1>Calcule o produto entre 2 numeros</h1>
+
+    <div>
+      <label for="numero1"> Numero 1 </label> <br />
+      <input type="number" id="numero1" />
+    </div>
+
+    <div>
+      <label for="numero2"> Numero 2 </label> <br />
+      <input type="number" id="numero2" />
+    </div>
+
+    <button onclick="handleCalcular()">Calcular</button>
+
+    <div id="resultado"></div>
+
+    <script>
+      const multiplicar = (x, y) => x * y;
+
+      function handleCalcular() {
+        const numero1 = Number(document.getElementById("numero1").value);
+        const numero2 = Number(document.getElementById("numero2").value);
+
+        const produto = multiplicar(numero1, numero2)
+
+        const divResultado = document.getElementById('resultado')
+        divResultado.innerText = `O produto entre eles é ${produto}`
+      }
+    </script>
+  </body>
+</html>

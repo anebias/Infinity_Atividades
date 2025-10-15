@@ -1,0 +1,233 @@
+https://dontpad.com/dfs7072607
+
+DFS707 - Aula 03 - Javascript
+
+Material da Aula
+https://drive.google.com/file/d/1N2Gge_g3XN7eKjXN_TluaTwOdWk8uUY3/view
+
+
+-------------------------------------------------------------------------------------------------------------
+Ex01. Faça um programa que mostre uma contagem de 10 até 1 utilizando o while
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ex01</title>
+  </head>
+  <body>
+    <script>
+      // Ex01. Faça um programa que mostre uma contagem de 10 até 1 utilizando o while
+      // 1. Crie um contador começando em 10
+      // 2. Utilize o while para mostrar o valor e decrementar
+      // 3. Mostre o final da contagem.
+      let contador = 10
+
+      while (contador > 0) {
+        document.writeln(contador);
+        contador--;
+      }
+
+      document.writeln("Fim da Contagem")
+      
+    </script>
+  </body>
+</html>
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+Ex02 Faça um programa que peça um numero para o usuário através de um input, e depois mostre uma contagem dentro de um "p" (paragrafo)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex02</title>
+</head>
+<body>
+    <h1> Contador </h1>
+    <input type="number" id="numero">
+    <button onclick="contador()">Contar</button>
+
+    <p id="contagem"></p>
+
+    <script>
+        // Ex02. Faça um programa que peça um numero para o usuário através de um input, e depois mostre uma contagem de 1 até o numero informado pelo usuário dentro de um "p" (paragrafo)
+        // 1. Busque o numero digitado pelo usuário
+        // 2. Busque o paragrafo de "contagem"
+        // 3. Utilize o while para mostrar a contagem (concatenada) na tela
+        function contador() {
+            // Entradas
+            let contagem = 1
+            const valorFinal = Number(document.getElementById('numero').value)
+
+            // Processameto e a Saída.
+            const pContagem = document.getElementById('contagem')
+            pContagem.textContent = ''
+
+            while (contagem <= valorFinal) {
+                pContagem.textContent += contagem.toString() + ' ';
+                contagem++;
+            }
+        }
+    </script>
+</body>
+</html>
+
+-----------------------------------------------------------------------------------------------------------------------------------
+Ex03 Utilizando o "do while" e o "prompt", faça um programa que peça uma quantidade indeterminada de numeros, pare quando o usuário digitar um numero negativo ao final mostre a soma de todos os numeros.
+
+------------------------------------------------------------------------------------------------------------------------------
+while1.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>While 1</title>
+  </head>
+  <body>
+    <script>
+      // Estruturas de Repetição (While)
+
+      let contador = 0;
+      
+      // Enquanto o contador for menor que 10...
+      while (contador < 10) {
+        document.writeln(contador);
+        contador++; // Incremento de +1
+      }
+
+      document.writeln("Fim da contagem.");
+    </script>
+  </body>
+</html>
+------------------------------------------------------------------------------------------------------------
+while2.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops Infinitos</title>
+</head>
+<body>
+    <script>
+        let contador = 0
+        while (true) {
+            console.log(contador)
+            contador++;
+        }
+    </script>
+</body>
+</html>
+
+------------------------------------------------------------------------------------------------------------
+do-while.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do While</title>
+</head>
+<body>
+    <script>
+        // Do While
+        let soma = 0
+        let resposta = ''
+
+        do {
+            let valor = Number(prompt('Digite um numero: '))
+            soma += valor;
+
+            resposta = prompt('Deseja continuar? [S/N]')
+        } while (resposta != 'N')
+
+        alert(`A soma dos numeros foi: ${soma}`)
+    </script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------------
+revisao.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <h1>Calculadora de IMC</h1>
+
+    <div>
+      <label for="peso"> Peso </label> <br />
+      <input type="number" id="peso" />
+    </div>
+    <div>
+      <label for="altura"> Altura </label> <br />
+      <input type="number" id="altura" />
+    </div>
+
+    <button onclick="calcularIMC()">Calcular</button>
+E</title
+    <br />
+
+    <p id="imc"></p>
+    <p id="resultado"></p>
+
+    <script>
+      // Crie a função calcularIMC() que deve:
+      // 1. Capturar os valores inseridos pelo usuário nos campos de peso e altura.
+      // 2. Calcular o IMC com a fórmula IMC = peso / (altura * altura).
+      // 3. Criar uma variável para armazenar o resultado.
+      // 4. Se o IMC for:
+      //    - Menor que 18.5, exibir "Abaixo do peso".
+      //    - Entre 18.5 e 24.9, exibir "Peso normal".
+      //    - Entre 25 e 29.9, exibir "Sobrepeso".
+      //    - Entre 30 e 39.9, exibir "Obesidade".
+      //    - Maior ou igual a 40, exibir "Obesidade mórbida".
+      // 5. Exibir a classificação do IMC dentro da tag <p> com id="resultado".
+      function calcularIMC() {
+        // Entrada
+        const peso = Number(document.getElementById("peso").value);
+        const altura = Number(document.getElementById("altura").value);
+
+        // Processamento
+        let classificacao;
+        const imc = peso / (altura * altura);
+
+        if (imc < 18.5) {
+          classificacao = "Abaixo do peso";
+        } else if (imc < 25) {
+          classificacao = "Peso normal";
+        } else if (imc < 30) {
+          classificacao = "Sobrepeso";
+        } else if (imc < 40) {
+          classificacao = "Obesidade";
+        } else {
+          classificacao = "Obesidade mórbida";
+        }
+
+        // Saída
+        const pImc = document.getElementById("imc");
+        pImc.innerText = `IMC: ${imc.toFixed(2)}`;
+
+        const pResultado = document.getElementById("resultado");
+        pResultado.innerText = classificacao;
+      }
+    </script>
+  </body>
+</html>
+

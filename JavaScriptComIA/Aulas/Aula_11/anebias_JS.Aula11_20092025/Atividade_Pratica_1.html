@@ -1,0 +1,39 @@
+<!-- Atividade 01
+Crie uma página HTML que contenha um botão com o texto "Clique Aqui". Ao clicar nesse botão,
+um alerta deve ser exibido com a mensagem: "Botão clicado!".
+
+Para isso, siga os passos:
+Crie a estrutura básica da página HTML, incluindo um botão com o id="meuBotao".
+
+No arquivo JavaScript (ou dentro de uma tag <script>), adicione um event listener ao botão
+para escutar o evento de clique.
+
+Quando o botão for clicado, exiba um alerta com a mensagem "Botão clicado!".
+
+Requisitos:
+Utilize o método addEventListener() para associar o evento de clique ao botão.
+
+A função associada ao clique deve exibir o alerta. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Prática 1</title>
+</head>
+<body>
+    
+    <button id="meuBotao">Clique Aqui</button>
+
+    <script>
+        const botao = document.getElementById('meuBotao');
+
+        botao.addEventListener('click', function (){
+            alert('Botão clicado !');
+        });
+
+    </script>
+
+</body>
+</html>

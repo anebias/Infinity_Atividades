@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="exemplo_style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Cadastre seu Carro</h1>
+
+    <input type="text" id="marca"> <br>
+    <input type="text" id="modelo" placeholder="Modelo do Carro"> <br>
+    <button onclick="handleCadastrarCarro()">Cadastrar</button>
+
+    <script>
+        function handleCadastrarCarro(){
+            // const inputMarca = document.getElementById('marca').value
+            // const inputModelo = document.getElementById('modelo').value
+            // console.log(inputMarca, inputModelo)
+
+            const carro = {
+                marca: document.getElementById('marca').value,
+                modelo: document.getElementById('modelo').value
+            }
+
+            console.log(carro)
+        }
+    
+        </script>
+
+</body>
+</html>

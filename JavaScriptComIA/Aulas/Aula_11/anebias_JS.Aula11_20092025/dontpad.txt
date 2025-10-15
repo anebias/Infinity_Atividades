@@ -1,0 +1,105 @@
+https://dontpad.com/dfs7072009
+
+Bom dia!!
+
+
+token = 9051
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+      <button id="btn">Clica</button>
+    <ul id="lista" ></ul>
+
+    <script>
+        const buton = document.getElementById('btn')
+     
+
+
+        buton.addEventListener('click', function(){
+            const lista = document.getElementById('lista')
+    
+    
+    
+            const novoItem = document.createElement('li')
+            novoItem.textContent = 'Caio'  
+            lista.appendChild(novoItem)
+        })
+
+
+    </script>
+  </body>
+</html>
+
+=================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="input" placeholder="Digite seu nome aí" />
+    <button id="btn">Clica</button>
+    <ul id="lista"></ul>
+
+    <script>
+      const buton = document.getElementById("btn");
+
+        const input = document.getElementById('input')
+
+      buton.addEventListener("click", function () {
+        const lista = document.getElementById("lista");
+
+        const novoItem = document.createElement("li");
+        novoItem.textContent = input.value;
+        lista.appendChild(novoItem);
+        input.value = ""
+        input.focus()
+
+        
+      });
+    </script>
+
+============================================================
+
+        document.getElementById('btn').addEventListener('click', function(event){
+            console.log('Tipo evento: ', event.type)
+            console.log('Elemento alvo: ', event.target)
+        })
+
+
+================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://infinityschool.eadplataforma.app/lesson/detail/338/7539" id="link" >opa</a>
+    
+
+    <script>
+        document.getElementById("link").addEventListener('click', function(event){
+            event.preventDefault();
+            alert('Gosto de bolo')
+        })
+
+
+      
+    </script>
+  </body>
+</html>

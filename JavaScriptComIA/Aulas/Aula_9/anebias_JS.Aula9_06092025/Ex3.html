@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercício 3</title>
+  </head>
+  <body>
+    <h1>Produto de Dois Números</h1>
+
+    <div>
+      <label for="numero1">Número 1</label>
+      <input type="number" name="numero1" id="numero1" />
+    </div>
+
+    <div>
+      <label for="numero2">Número 2</label>
+      <input type="number" name="numero2" id="numero2" />
+    </div>
+
+    <button onclick="handleCalcularProduto()">Calcular Produto</button>
+
+    <div>
+      <p for="resultado" id="resultado"></p>
+    </div>
+    
+    <script>
+      // Ex03. Faça um programa que peça dois numeros em uma página HTML, calcule o produto entre eles (multiplicação) e mostre o resultado dentro de uma <div>.
+        function handleCalcularProduto(){
+            
+            const numero1 = Number(document.getElementById('numero1').value)
+            const numero2 = Number(document.getElementById('numero2').value)
+            const resultado = numero1 * numero2
+
+            const labelResultado = document.getElementById('resultado')
+            labelResultado.textContent = resultado
+        }
+
+    </script>
+  </body>
+</html>

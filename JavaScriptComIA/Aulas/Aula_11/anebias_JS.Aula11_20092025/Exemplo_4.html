@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Aula 11</title>
+</head>
+<body>
+
+    <button id="meuBotao"">Clique aqui</button>
+
+    <script>
+        
+        // Com o addEventListener é possível adicionar na mesma variável (elemento html)vários eventos sequenciais.
+
+        const button = document.getElementById('meuBotao');
+        
+        button.addEventListener(
+            'click', 
+            function () {
+                alert('Botão clicado!');
+            }
+        );
+
+        button.addEventListener(
+            'click', 
+            function () {
+                alert('Botão clicado :-)!');
+            }
+        );
+
+    </script>
+</body>
+</html>

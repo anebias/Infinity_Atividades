@@ -1,0 +1,152 @@
+https://dontpad.com/dfs7073008
+
+Extensão para "rodar" o código: code run
+
+Tokken: 7904
+
+Repositório Aula de Hoje:
+https://github.com/Davi-Classes/JAVASCRIPT2025-DFS707/tree/main/Aula%2007
+
+---------------------------------------------------------------------------------------------------------
+Ex01. Crie um objeto "Carro" que deve conter as propriedades "marca", "modelo", "ano" e "cor"
+
+a) Mostre no console a marca e o modelo do carro
+b) Mostre no console a cor do carro
+c) Altere o valor da cor do carro (e mostre novamente)
+d) Adicione uma nova propriedade chamada "km" que terá a kilometragem do carro
+
+
+------------------------------------------------------------------------------------------
+elementos.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Cadastre seu Carro </h1>
+    <input type="text" id="marca"> <br>
+    <input type="text" id="modelo" placeholder="Modelo do carro"> <br>
+    <button> Cadastrar </button>
+
+    <script>
+        // Objetos - Elementos HTML
+        // Ao utilizar o document.getElementBy* o javascript
+        // trás um objeto que representa o elemento em tela.
+        const input = document.getElementById('marca')
+        
+        // Alterar os valores do elemento via Javascript
+        // input.value = 'Honda'
+        input.placeholder = 'Marca do carro' // Definindo o Placeholder pelo Javascript
+
+        // Alterar os estilos CSS pelo Javascript
+        // input.style.background = 'red'
+        input.style.fontFamily = 'Serif' // Alterando a Fonte
+        input.style.fontSize = '20px' // Alterando o Tamanho da Font
+    </script>
+</body>
+</html>
+
+---------------------------------------------------------------------------------------------------------
+objetos.js
+
+// Objetos
+// Um objeto javascript é uma estrutura onde podemos armazenar
+// dados através de um conjunto de "chave" e "valor"
+const meuObjeto = {
+    // chave: valor
+    chave: 'valor' // item
+}
+
+// Representanções Através de Objetos
+// const nome = 'Davi'
+// const altura = 1.71
+// const idade = 21
+// const temCnh = false
+
+const pessoa = {
+    nome: 'Davi',
+    altura: 1.71,
+    idade: 21,
+    temCnh: false
+}
+
+// Mostrando Objeto:
+console.log(pessoa)
+
+// Acessando um Atributo Específico.
+console.log(pessoa.nome)
+console.log(pessoa['altura'])
+
+// Criar ou Alterar um Item
+// pessoa.profissao = 'Desenvolvedor'
+pessoa['profissao'] = 'Desenvolvedor'
+console.log(pessoa)
+
+---------------------------------------------------------------------------------------------------------
+Revisão CALLBACKS
+
+// Callbacks
+// Uma callback é uma função que está sendo passada como parametro
+// para ser executada por outra função
+
+
+const nomes = ['Davi', 'Larissa', 'Arthur', 'Cauã']
+
+// Passando uma Função Pre-Definida como Callback
+// function mostraNomeMaiusculo(nome) {
+//     console.log(nome.toUpperCase())
+// }
+
+// nomes.forEach(mostraNomeMaiusculo)
+
+// Passando uma Arrow Function
+nomes.forEach((nome) => console.log(nome.toUpperCase()))
+
+
+---------------------------------------------------------------------------------------------------------
+Revisão MÉTODOS AVANÇADOS DE ARRAY
+
+// Array Inicial
+const numeros = [1, 5, 6, 7, 8]
+console.log(numeros)
+
+// Map
+
+// Criar um novo array onde todos os elementos são multiplicados por 2
+const numerosX2 = numeros.map((numero) => numero * 2)
+
+// console.log(numerosX2)
+
+// Filter
+const numerosFiltrados = numeros.filter((numero) => (numero <= 5))
+// console.log(numerosFiltrados)
+
+// Reduce
+// Acumulador (acc)
+// Corrente (cur)
+// [1, 5, 6, 7, 8]
+
+/**
+ * 1ª Volta
+ * Acc: 0 | Current: 1
+ * Resultado: 0 + 1 = 1
+ * 
+ * 2ª Volta
+ * Acc: 1 | Current: 5
+ * Resultado: 1 + 5 = 6
+ * 
+ * 3ª Volta
+ * Acc: 6 | Current: 6
+ * Resultado: 6 + 6 = 12
+ */
+const soma = numeros.reduce((acc, cur) => acc + cur, 0)
+const maior = numeros.reduce((acc, cur) => Math.max(acc, cur))
+console.log('A soma é', soma)
+console.log('Maior:', maior)
+
+--------------------------------------------------------------------------------------------------------- 	 

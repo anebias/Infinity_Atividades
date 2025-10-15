@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Gerenciamento de Produtos </title>
+
+    <style>
+        table {
+            width: 50%;
+        }
+
+        table, tr, td, th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .input {
+            display: flex;
+            max-width: 300px;
+            flex-direction: column;
+            margin-bottom: 8px;
+        }
+    </style>
+
+  </head>
+  <body>
+    <h1>Gerenciamento de Produtos</h1>
+
+    <form id="produtos-form">
+      <div class="input">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" />
+      </div>
+      <div class="input">
+        <label for="categoria">Categoria</label>
+        <select name="categoria" id="categoria">
+          <option value="Eletrônico">Eletrônico</option>
+          <option value="Roupas">Roupas</option>
+          <option value="Limpeza">Limpeza</option>
+          <option value="Higiene">Higiene</option>
+          <option value="Frutas">Frutas</option>
+          <option value="Vegetais">Vegetais</option>
+        </select>
+      </div>
+      <div class="input">
+        <label for="preco">Preço</label>
+        <input type="number" id="preco" name="preco" step="0.01" />
+      </div>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <hr />
+    <h2>Produtos</h2>
+
+    <table id="produtos-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Produto Exemplo 1</td>
+          <td>Roupas</td>
+          <td>R$ 30,00</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <script>
+        function handleCadastrarProduto(event) {
+            // 1. Previne o Comportamento Padrão
+            event.preventDefault();
+            alert('funcionou...')
+            // 2. Busca o Formulario
+            let form = event.target; // o formulário foi o elemento html que disparou o evento (elemento target);
+            
+            // 3. Pega os valores dos inputs
+            <!-- Uma maneira de buscar os valores... 
+                let produto = {
+                nome: document.getElementById('nome').value,
+                categoria: document.getElementById('categoria').value,
+                preco: document.getElementById('preco').value
+            }
+             -->
+
+            const produto = {
+                nome: form.nome.value,
+                categoria: form.categoria.value,
+                preco: Number(form.preco.value)
+            }
+            
+            // 4. Cria uma linha "tr"
+            const trProduto = document.createElement('tr');
+
+            // 5. Cria as celulas "td" e adiciona na linha
+            const tdNome = document.createElement('td');
+            const tdCategoria = document.createElement('td');
+            const tdPreco = document.createElement('td');
+
+            trProduto.appendChild(tdProduto);
+            trProduto.appendChild(tdCategoria);
+            trProduto.appendChild(tdPreco);
+
+            tableData.appendChild(trProduto);
+
+            // 6. Busca a tag "tbody" e adiciona a linha
+            <!-- Não recomendado para evitar ataques de injeção de script malicioso 
+                const tableData = document.querySelector('#produtos-table tbody');
+            tableData.innerHTML += 
+            <tr> 
+                <td> produto.nome </td>
+                <td> produto.categoria </td>
+                <td> produto.preco </td>
+            </tr> 
+            -->
+
+            form.reset();
+
+        }
+        
+        // Busca o Formulário "form"
+        let formProduto = document.getElementById('produtos-form');
+        // Adiciona o evento de Submit
+        formProduto.addEventListener('submit',handleCadastrarProduto);
+        
+        // Exemplo: form.addEventListener('submit', handleCadastrarProduto)
+    </script>
+  </body>
+</html>

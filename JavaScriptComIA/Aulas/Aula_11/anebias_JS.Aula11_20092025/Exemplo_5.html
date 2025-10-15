@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Aula 11</title>
+</head>
+<body>
+
+    <button id="meuBotao"">Clique aqui - Botão 1</button>
+    <button id="meuBotao2" onclick="alert('Botão 2 clicado !')">Clique aqui - Botão 2</button>
+    <button id="meuBotao3"">Clique aqui - Botão 3</button>
+
+    <script>
+        
+        const button = document.getElementById('meuBotao');
+        
+        button.addEventListener(
+            'click', 
+            function () {
+                alert('Botão clicado!');
+            }
+        );
+
+    </script>
+
+    <script src="Exemplo_5.js"></script>
+
+</body>
+</html>

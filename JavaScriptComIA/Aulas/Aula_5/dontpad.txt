@@ -1,0 +1,459 @@
+https://dontpad.com/dfs7070908
+
+repo de aulas:
+https://github.com/thiagooshiro/js-classes
+
+email: oshirothiago@gmail.com
+tel: 31987962204
+
+
+Aula 5 -  Revisão
+
+//Declaração de variáveis
+
+// Revisão
+
+
+//Declaração de variáveis:
+
+var nome = 'Thiago' // string
+
+let idade = 35 // number (int)
+
+const altura = 1.69 // number (float)
+
+let vivo = true // booleano
+
+//Evitem usar "var" não é mais usual.
+
+//Tipos avançados de variáveis:nome
+
+let frutas = ['banana', 'maçã', 'morango'] //array
+
+//objeto:
+let estudante = { 
+    'nome': 'Amanda',
+    'matricula': 15016,
+    'data_nascimento': '20/08/1996',
+    'status': 'active',
+    'materias': ['matemática', 'história', 'biologia']
+}  
+
+// Acessando propriedades de objetos
+console.log(estudante.nome)  //sintaxe com ponto
+console.log(estudante['nome']) //sintaxe com colchete
+
+
+//Estruturas condicionais...
+
+idade = 18
+
+// Sintaxe básica:
+if (idade >= 18) {
+    console.log('pode tirar carteira')
+} else {
+    console.log('Não pode tirar carteira')
+}
+
+// Quando temos mais de três condições precisamos encadear dois if/else
+let numero = 3
+
+if (numero > 0) {
+    console.log('É positivo')
+} else if (numero < 0) {
+    console.log('É negativo')
+} else {
+    console.log('É igual a zero')
+}
+
+
+//Laços de Repetição: 
+
+//While:
+let contador = 0
+while(contador < 10){
+    console.log(contador)
+    contador += 1
+}
+
+//for:
+
+let alguem = ['eu', 'você', 'tu', 'ele', 'nós']
+for(let i = 0; i < alguem.length; i+= 1){
+    console.log(alguem[i])
+}
+
+const times = ['Flamengo', 'Cruzeiro', 'Atlético', 'Botafogo']
+for(let time of times) {
+    console.log(time)
+}
+
+const palavra = 'paralelepipedo' 
+
+for (indice in palavra) {
+    console.log(indice) // cada indice da palavra paralelepiedo (ou seja, de 0 a 13)
+}
+
+
+EXERCÍCIOS 1: FUNDAMENTOS: 
+
+
+// 1  - Crie um algoritmo que exiba na tela (terminal) a mensagem "Olá Mundo".
+
+
+// 2  - Crie um algoritmo que exiba na tela (terminal) seu nome. Por exemplo: "Olá, João Paulo."
+
+
+// 3  - Crie um algoritmo que exiba na tela (terminal) sua idade. Por exemplo: 17.
+
+
+// 4  - Crie um algoritmo que exiba na tela (terminal) (em linhas separadas) seu nome e sua idade.
+
+
+// 5  - Crie um algoritmo que exiba na tela (terminal) (na mesma linha) seu nome e sua idade.
+
+
+// 6  - Crie um algoritmo que exiba na tela (terminal) a soma de dois números inteiros.
+
+
+// 7  - Crie um algoritmo que exiba na tela (terminal) a subtração de dois números inteiros.
+
+
+// 8  - Crie um algoritmo que exiba na tela (terminal) a multiplicação de dois números inteiros.
+
+
+// 9  - Crie um algoritmo que exiba na tela (terminal) a divisão de dois números inteiros.
+
+
+// 10 - Crie um algoritmo que exiba na tela (terminal) o resto da divisão de dois números inteiros.
+
+
+
+EXERCÍCIOS 2: CONDICIONAIS:
+
+
+
+// Condicionais:
+
+
+// 01 - Crie um algoritmo em que o usuário informe dois números (n1 e n2). Após, exiba na tela (terminal) qual deles é o maior.
+
+
+// 02 - Crie um algoritmo em que o usuário informe dois números (n1 e n2). Após, exiba na tela (terminal) qual deles é o menor.
+
+
+// 03 - Crie um algoritmo em que o usuário informe três números (n1, n2 e n3). Após, exiba na tela (terminal) qual deles é o maior
+
+
+// 06 - Crie um algoritmo em que o usuário informe três números (n1, n2 e n3). Após, exiba na tela (terminal) a ordem decrescente desses números.
+
+
+// 07 - Crie um algoritmo em que o usuário informe sua idade. Após, exiba na tela (terminal) se o usuário é ou não maior de idade.
+
+
+// 08 - Crie um algoritmo em que o usuário informe seu gênero, sua altura e seu pese. Após, calcule e exiba na tela (terminal) o IMC do usuário.
+
+
+// 09 - Crie um algoritmo em que o usuário informe um número qualquer. Após, informe se esse número é par ou ímpar.
+
+
+// 10 - Crie um algoritmo em que o usuário informe um número qualquer. Após, informe se esse número é múltiplo de 2.
+
+
+// 11 - Crie um algoritmo em que o usuário informe um número qualquer. Após, informe se esse número é múltiplo de 3.
+
+
+// 12 - Crie um algoritmo em que o usuário informe um número qualquer. Após, informe se esse número é múltiplo de 5.
+
+
+// Desafio: No dia 31/10/2022, aconteceu um crime na cidade de Jacareí (SP). Durante as investigações, o detetive Confúcio definiu cinco perguntas fundamentais
+// para a elucidação do caso, sendo:
+//
+//   1. Telefonou para a vítima?
+//   2. Esteve no local do crime?
+//   3. Mora próximo do local do crime?
+//   4. Devia favores/dinheiro à vítima?
+//   5. Já trabalhou com a vítima?
+//
+// Para ajudar o detetive Confúcio na investigação, crie um algoritmo que faça as perguntas anteriores ao usuário e classifique se ele teve ou não participação
+// no crime, considerando que: se a pessoa responder positivamente a 2 (duas) questões, ela deve ser classificada como "Suspeita". Se a pessoa responder
+// positivamente entre 3 (três) e 4 (quatro) questões, classique como "Cúmplice". Caso todas as respostas sejam positivas, classifique o usuário como "Assassino".
+// Caso contrário, ou seja, nenhuma das condições anteriores sejam atendidas, o usuário será classificado como "Inocente".
+
+
+- VERSÃO HTML PARA DESAFIO DO DETETIVE CONFÚCIO:
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Investigação do Detetive Confúcio</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  h1 { margin-bottom: 10px; }
+  form p { margin: 5px 0; }
+  .resultado { margin-top: 20px; font-weight: bold; font-size: 1.2em; }
+  .suspeita { color: orange; }
+  .cumpl { color: blue; }
+  .assassino { color: red; }
+  .inocente { color: green; }
+</style>
+</head>
+<body>
+  <h1>Interrogatório do Detetive Confúcio</h1>
+  
+  <form id="formCrime">
+    <p>1. Telefonou para a vítima? 
+      <select id="q1">
+        <option value="nao">Não</option>
+        <option value="sim">Sim</option>
+      </select>
+    </p>
+    <p>2. Esteve no local do crime?
+      <select id="q2">
+        <option value="nao">Não</option>
+        <option value="sim">Sim</option>
+      </select>
+    </p>
+    <p>3. Mora próximo do local do crime?
+      <select id="q3">
+        <option value="nao">Não</option>
+        <option value="sim">Sim</option>
+      </select>
+    </p>
+    <p>4. Devia favores/dinheiro à vítima?
+      <select id="q4">
+        <option value="nao">Não</option>
+        <option value="sim">Sim</option>
+      </select>
+    </p>
+    <p>5. Já trabalhou com a vítima?
+      <select id="q5">
+        <option value="nao">Não</option>
+        <option value="sim">Sim</option>
+      </select>
+    </p>
+    <button type="submit">Verificar</button>
+  </form>
+
+  <div id="resultado" class="resultado"></div>
+
+<script>
+// ======== CAPTURA DE ELEMENTOS DO DOM ========
+const formCrime = document.getElementById('formCrime');
+const resultadoDiv = document.getElementById('resultado');
+
+// ======== EVENTO DO FORM ========
+formCrime.addEventListener('submit', function(e) {
+  e.preventDefault();
+  verificar();
+});
+
+// ======== FUNÇÃO PARA O ALUNO IMPLEMENTAR ========
+function verificar() {
+    const resposta1 = document.getElementById('q1').value;
+    const resposta2 = document.getElementById('q2').value;
+    const resposta3 = document.getElementById('q3').value;
+    const resposta4 = document.getElementById('q4').value;
+    const resposta5 = document.getElementById('q5').value;
+
+  // Aqui o aluno acessa as respostas com:
+  // resposta1.value, resposta2.value, etc.
+  
+  // Passos que o aluno deve seguir:
+  // 1. Contar quantos "sim" existem
+  // 2. Usar condições para classificar
+  // 3. Atribua à variável "classificação" o resultado da sua lógica;
+
+
+  let classificacao = "";
+
+  resultadoDiv.textContent = classificacao;
+  resultadoDiv.className = "resultado";
+
+  if (classificacao === "Suspeita") {
+    resultadoDiv.classList.add("suspeita");
+  } else if (classificacao === "Cúmplice") {
+    resultadoDiv.classList.add("cumpl");
+  } else if (classificacao === "Assassino") {
+    resultadoDiv.classList.add("assassino");
+  } else if (classificacao === "Inocente") {
+    resultadoDiv.classList.add("inocente");
+  }
+} 
+</script>
+</body>
+</html>
+
+
+
+
+
+EXERCÍCIOS 3: LAÇOS DE REPETIÇÃO (WHILE):
+
+
+// Laços de Repetição  While:
+
+// 1 - Crie um algoritmo que receba um número e imprima no terminal todos os valores em ordem crescente até o valor do número informado.
+// Ex: n = 5, a saída no terminal devera ser:
+// 1
+// 2
+// 3
+// 4
+// 5
+
+
+
+// 2 - Crie um algoritmo que receba um número e imprima no terminal todos os valores em ordem decrescente até o valor do número informado.
+// Ex: n = 6, a saída no terminal devera ser:
+// 6
+// 5
+// 4
+// 3
+// 2
+// 1
+
+
+
+// 5 - Crie um algoritmo aque receba um número de usuário e informe a soma de todos os números anteriores ao valor informado:
+// Ex: 3 , o resultado devera ser: 1 + 2 + 3 = 6 , então no terminal deverá ser exibido o número 6.
+
+
+// 7 - Crie um algoritmo que ao receber um número calcule a tabuada deste número até 10 e exiba cada uma das multiplicações no terminal
+// Ex: numero = 3
+// 3 x 1 = 3
+// 3 x 2 = 6
+// 3 x 3 = 9
+// 3 x 4 = 12
+// 3 x 5 = 15
+// 3 x 6 = 18
+// 3 x 7 = 21
+// 3 x 8 = 24
+// 3 x 9 = 27
+// 3 x 10 = 30
+
+
+EXERCÍCIOS 4: LAÇOS DE REPETIÇÃO: FOR
+
+// Listas:
+
+// 1: Crie um algoritmo que, ao declararmos uma lista com o nome de três amigos, imprima:
+// o nome do primeiro amigo
+// o nome do segundo amigo
+// o nome do terceiro amigo
+
+
+// 2: Dada a seguinte lista:
+// animais = ["foca", "golfinho", "leão", "tartaruga"]
+// Crie um algoritmo que imprima o primero e o último item da lista.
+
+
+// 3: Crie uma lista que contenha um valor do tipo string, um valor do tipo real,
+// um valor do tipo inteiro e um valor do tipo booleano
+// imprima cada um desses valores separadamente.add()
+
+// 4: Crie um algorimo que lê uma lista contendo as notas bimestrais de um estudante e imprime 
+// a média das notas desse estudante.
+
+
+// 5: Dada a seguinte lista:
+// produtos = ["aveia", "maçã", "uva", "abobora", "leite", "pão", "sabonete", "desodorante", "amaciante", "chuveiro"]
+// Crie um algoritmo que ao receber essa lista imprima os itens que iniciam com a letra "a"
+
+// 6: Observe as seguintes listas: 
+let nomes = ['Bruna', 'Gabriel', 'Marcos', 'Jéssica', 'Fernando']
+let sobrenomes = ['Oliveira', 'Santos', 'Marques', 'Castro', 'Silva']
+
+//Crie um algirtmo que combine o valor do nome com o sobrenome formando o nome completo.
+// O programa deve iterar sobre as listas fornecidas e juntar os valores correspondentes.
+
+
+// 7: Observe as seguintes listas:
+const clientes = ["João", "Daniel", "Larissa", "Mariana", "Julia", "Luana", "Gustavo", "Luiz"]
+const produtos = ["molho de tomate", "cenoura", "macarrão", "salame", "lâmpada", "água sanitária", "refrigerante", "suco"]
+// Essas duas listas mostram quem comprou um determinado produto, por exemlpo, "João" comprou "molho de tomate" e assim por  diante.
+// Crie um algoritmo que imprima a seguinte mensagem para cada cliente:
+// "O cliente {nome do cliente} comprou {produto}"
+
+// 8: Crie um programa que realiza um filtro na lista abaixo, verificando se a palavra inicia ou termina com o carácter escolhido.
+let produtosDoMercado = ["aveia", "maçã", "uva", "abobora", "leite", "pão", "sabonete", "desodorante", "amaciante", "chuveiro"]
+
+// 9: Crie um algoritmo que lê uma lista de palavras e inverte as palavras, sem alterar a ordem da lista original. 
+// Ex: lista = ['Mariana', 'Luiz', 'João', 'Amanda']
+// output esperado: ['Anairam', 'Ziul', 'Oãoj', 'Adnama']
+
+
+// 10: Crie uma lista com números inteiros e calcule:
+// - O maior número
+// - O menor número
+// - A soma de todos os números
+
+
+// 11: Crie um algoritmo que receba uma lista de números e crie uma nova lista contendo apenas os números pares.
+
+
+// 12: Crie uma lista com vários números repetidos e crie um algoritmo que retorne apenas os números sem repetição.
+
+
+// 13: Crie um algoritmo que leia duas listas de mesmo tamanho e gere uma terceira lista com a soma dos valores de cada índice.
+
+
+// 14: Crie um programa que receba uma lista de nomes e retorne todos os nomes que tenham mais de 5 caracteres.
+
+
+// 15: Crie um algoritmo que receba uma lista de preços e calcule um desconto de 10% para todos os valores, gerando uma nova lista com os preços atualizados.
+
+
+// 16: Crie uma lista com várias palavras e um algoritmo que retorne apenas as palavras que contêm a letra "e" (maiúscula ou minúscula).
+
+
+// 17: Crie um algoritmo que leia uma lista de números e informe quantos números são positivos, quantos são negativos e quantos são zero.
+
+
+// 18: Crie um algoritmo que receba uma lista de números e calcule a média, mas desconsidere o maior e o menor valor da lista.
+
+
+// 19: Crie uma lista com nomes e outra com idades correspondentes.
+// O algoritmo deve imprimir apenas as pessoas que são maiores de idade.
+
+
+// 20: Desafio - Jogo de Pedra Papel Tesoura:
+// O usuário deve poder escolher entre 3 opções: "pedra", "papel" ou "tesoura"
+// A máquina deve escolher aleatoriamente entre as opções "pedra", "papel" ou "tesoura"
+// O algoritmo deve fazer a comparação para descobrir quem foi o vencedor da partida.
+// Lembrando:
+// Pedra vence tesoura;
+// Tesoura vence papel;
+// Papel vence pedra;
+
+//O programa deve possibiltar que o usuário jogue novas partidas se desejar.
+// Obs: Existem caminhos bastante distintos para resolver esse desafio.
+
+
+// 21 Desafio 2 - Uma interface de agendamento de viagens recebe as seguintes informações como demonstrado no exemplo abaixo:
+// info = ["Lucas", "28", "Chile", true, "30/07/2026"]
+// Faça as seguintes verificações: 
+// A primeira informação não contém carater númérico.
+// A segunda informação é um número. (não necessariamente do tipo number)
+// A terceira informação é composta por apenas uma palavra
+// A quarta informação é um valor booleano
+// A quinta informação não pode ser uma data que já passou.
+// Caso todos os testes sejam positivos exiba a mensagem: "Viagem processada! Aguarde para impressão do ticket"
+// Caso contrário imprima a mensagem: "Informações inválidas, repita o cadastro"
+// Imagine que os usuários vão sempre entrar com as informações nos mais diveros formatos, teste cada um dos casos abaixo e elabore seus próprios casos:
+// ex1 = ["1223", "10", "Brasil", false, "20/04/2026"]
+// ex2 = ["Amanda", "24n", "França", True, "22/09/2025"]
+// ex3 = ["Vitória", "33", "Marrocos", "true", "25/12/2025"]
+// ex4 = ["Romero", "63", "Argentina", false, "17/03/2022" ]
+// ex5 = ["matheus", "21", "Londres", true, "12/06/2024"]
+// ex6 = ["JuLia", "31", "São Mateus", true, "23/04/2026"]
+// ex7 = ["Venâncio", "50", "China", true, "22?05/2025"]
+// ex8 = ["Maria", 23, "India", False, "07/12/2024"]
+// ex9 = ["Pedro", "42", "Br4sil", true, "05/05/2024"]
+// ex10 = ["Tom", 33, "Servolo", false, "02/05/1998"]
+
+
+
+
+
+

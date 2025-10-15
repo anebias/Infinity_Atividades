@@ -1,0 +1,155 @@
+https://dontpad.com/dfs7071608
+
+Desafios aula passada, resolução do Arthur:
+
+https://github.com/AarthurCesar/Desafio_InfinitySchool
+
+Repo de aulas:
+https://github.com/thiagooshiro/js-classes.git
+
+
+DRIVE EXERCÍCIOS:
+https://drive.google.com/drive/folders/1xXlXpaHXz2mVyvc4XztVouP0H3S5Ocqk?usp=sharing
+
+
+AULA 6 - Funções
+
+
+Sintaxe básica:
+//1 Estrutura básica de funções:
+
+// A palavra-chave em JavaScript para declarar uma função é "function" seguida pelo nome da função:
+
+function boasVindas(nome) {
+    let mensagem = `Seja bem vindo ${nome}`
+    console.log(mensagem)
+    return mensagem;
+}
+
+// Qualquer palavra que venha dentro dos parênteses da função quando esta é declarada é chamada de parâmetro da função. Nesse caso, temos o parâmetro "nome".
+
+// Parâmetros são como valores coringas; o valor de um parâmetro deverá ser informado quando a função for executada. Para executarmos nossa função, basta "chamar" seu nome e colocar parênteses em seguida, informando dentro dos parênteses qual valor do parâmetro "nome":
+
+boasVindas('Mariana');  // Aqui o valor do parâmetro nome é a string "Mariana"
+boasVindas(42); // Aqui o valor do parâmetro nome é o número 42
+
+// "return" é a palavra reservada que define qual resposta a função oferece. Nessa execução, não poderemos visualizar isso porque não estamos utilizando o método console.log()
+
+// Mas se executarmos as funções dessa forma, poderemos ver:
+
+console.log(boasVindas('Mariana')); 
+
+let resultado = boasVindas(42);
+console.log(resultado);
+
+// As duas formas são válidas para trabalhar com o retorno da função. A primeira executa a função "dentro" do console.log(). Depois que essa função mais interna é resolvida, o console.log é executado e nos dá a mensagem no terminal: "Seja bem-vindo Mariana".
+
+// A segunda execução armazena o retorno da função na variável resultado e exibe o valor de resultado através do método console.log na linha 23.
+
+
+2 - ARROW FUNCTIONS:
+
+
+// Exemplo 3 - Arrow Function:
+
+// Existe outra forma de declararmos uma função em JavaScript, declarando-a como uma "arrow function";
+
+const myFunction = (parametro1, parametro2) => {
+    let a = parametro1;
+    let b = parametro2;
+    return [a, b]; // É possível manipular o retorno da função para devolver a informação no formato que desejarmos. Neste caso, a função retorna um array composto por a e b.
+}
+
+console.log(myFunction(3, 4));
+
+// A estrutura da arrow function consiste da palavra reservada "const" seguida do nome da variável, sinal de igualdade, parênteses (e dentro dos parênteses vão os parâmetros), outro sinal de igual e o sinal de > (maior que), seguidos finalmente pelas chaves.
+
+// As duas funções a seguir são idênticas com exceção do nome da função (que não pode ser repetido):
+
+const essaFuncao = (msg) => {
+    return msg;
+}
+
+function outraFuncao(msg) {
+    return msg;
+}
+
+console.log(essaFuncao('Helou Word'))
+
+// Arrow functions recebem esse nome por causa dessa estrutura "=>" que lembra uma flecha... 
+// Não é uma estrutura muito bonita, mas é importante saber e experimentar usar porque é amplamente utilizada.
+
+
+3 - FUNÇÕES ANONIMAS:
+
+//Funções "anônimas":
+
+//Existe uma tereceira forma de estruturar uma função, e uma delas é estrutura-la como uma função anonima;
+
+// Começamos por declarar uma variável do tipo "const" e depois atribuir para ela uma function, que em si não tem nome.
+// Existem outros exemplos de estrutura de funções anonimas, veremos eles nas aulas seguintes.
+
+const minhaFunction = function (numero) {
+    if (numero > 0) {
+        return 'Esse número é positivo'
+    } else {
+        return 'Esse número é negativo'
+    }
+}
+
+
+console.log(minhaFunction(24))
+
+
+EXERCÍCIOS DE FIXAÇÃO:
+
+// link https://drive.google.com/drive/folders/1xXlXpaHXz2mVyvc4XztVouP0H3S5Ocqk?usp=sharing
+
+//O conceito:
+
+//Funções são blocos de código que podem ser executado de forma modular.
+//Elas auxiliam a não repetirmos código e funcionam como caixa de ferramentas para problemas que às vezes encontramos de forma recorrente no código. Ex: Carrinho de compras
+
+
+//Nesses primeiros exercícios nem conversaremos sobre funções, o objetivo deles é "entender a dor" primeiro.
+
+
+// Exercícios:
+
+
+// Para melhor organização recomenda-se criarem arquivos separados para cada exercícios;
+// A nomeação padrão dos arquivos é: "Ex01" para o primeiro e assim por diante;
+
+// 1 - Crie um programa que exibe a mensagem "Olá, Bruno!"
+
+// 2 - Crie um programa que exiba a mensagem "Olá, Amanda!"
+
+// 3 - Crie um programa que exiba a mesma mensagem porém com o seu nome.
+
+
+const produtos = [
+    "Café",
+    "Arroz",
+    "Feijão",
+    "Azeite de Oliva",
+    "Pão",
+    "Leite",
+    "Queijo",
+    "Manteiga",
+    "Macarrão",
+    "Chocolate"
+];
+
+// 4 - Crie um programa que filtra a lista produtos pela letra "a"
+
+// 5 - Crie um programa que filtra a lista produtos pela letra "e"
+
+
+
+
+
+
+
+
+
+

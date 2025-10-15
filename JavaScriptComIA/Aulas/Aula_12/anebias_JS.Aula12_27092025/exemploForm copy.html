@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sorteio 1 </title>
+</head>
+<body>
+    <h1> Sorteio </h1>
+
+    <input type="text" id="participante" placeholder="Nome do Participante">
+    <button id="btn-adicionar"> Adicionar </button>
+
+    <hr>
+    
+    <h2> Participantes </h2>
+    <ul id="participantes"></ul>
+
+    <script>
+        const button = document.getElementById('btn-adicionar');
+
+        function handleAdicionar(){
+            // 1. pegar o nome do participante
+            const inputParticipante = document.querySelector('#participante').value;
+            
+            // 2. criar o elemento de lista li
+            // <li> </li>
+            const liParticipante = document.createElement('li');
+            // console.log(liParticipante);
+
+            // 3. adicionar o nome do participante no elemento de lista
+            // <li> ${participante} </li>
+            liParticipante.textContent = inputParticipante;
+            // console.log(liParticipante);
+
+            // 3. adicionar o elemento à lista
+            const ulParticipantes = document.querySelector('#participantes');
+            ulParticipantes.appendChild(liParticipante);
+            inputParticipante.value = "";
+
+        };
+
+        // ação executada através de definição de função:
+        button.addEventListener('click',handleAdicionar);
+        // ação executada através arrow function:
+        // button.addEventListener('click',()=>alert('fui chamado novamente'));
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudos Aula 11</title>
+</head>
+<body>
+
+    <div id="divVazia">
+
+    </div>
+
+    <p id="tagP">Bom dia</p>
+
+    <script>
+
+        const paragrafo = document.getElementById('tagP');
+
+        console.log(paragrafo);
+
+        const novoParagrafo = document.createElement('p');
+        novoParagrafo.textContent = "Este é um novo parágrafo";
+
+        document.body.appendChild(novoParagrafo);
+
+        const elementoDiv = document.getElementById('divVazia');
+        console.log(elementoDiv);
+
+        const conteudoP = document.createElement('p');
+        conteudoP.textContent = "Este é o texto do parágrafo inserido na DIV";
+        console.log(conteudoP);
+
+        elementoDiv.appendChild(conteudoP);
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,160 @@
+https://dontpad.com/dfs7071110
+
+Sejam Bem Vindos a Aula 14 do Modulo de Javascript
+TOKEN =6854
+
+Repositório da Turma:
+https://github.com/Davi-Classes/JAVASCRIPT2025-DFS707
+
+
+NODE: PERMITE EXECUTAR O JS NA MÁQUINA AO INVÉS DO NAVEGADOR
+INICIALIZAR UM PROJETO NODE: npm init -y
+EXPRESS: BIBLIOTECA PARA CRIAÇÃO DE API'S
+NO ARQUIVO package.json:
+    - alterar "main": "index.js", para "main": "server.js" (definir server.js como o arquivo principal).
+    - incluir "type": "module",
+
+------------------------------------------------------------------------------------------------------------
+index.html
+
+index.html
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciamento de Produtos</title>
+
+    <style>
+      table {
+        width: 50%;
+      }
+
+      table,
+      tr,
+      td,
+      th {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+
+      .input {
+        display: flex;
+        max-width: 300px;
+        flex-direction: column;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gerenciamento de Produtos</h1>
+
+    <form id="produtos-form">
+      <div class="input">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" />
+      </div>
+      <div class="input">
+        <label for="categoria">Categoria</label>
+        <select name="categoria" id="categoria">
+          <option value="Eletrônico">Eletrônico</option>
+          <option value="Roupas">Roupas</option>
+          <option value="Limpeza">Limpeza</option>
+          <option value="Higiene">Higiene</option>
+          <option value="Frutas">Frutas</option>
+          <option value="Vegetais">Vegetais</option>
+        </select>
+      </div>
+      <div class="input">
+        <label for="preco">Preço</label>
+        <input type="number" id="preco" name="preco" step="0.01" />
+      </div>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <hr />
+    <h2>Produtos</h2>
+
+    <table id="produtos-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Categoria</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Produto Exemplo 1</td>
+          <td>Roupas</td>
+          <td>R$ 30,00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      function handleCadastrarProduto(event) {
+        // 1. Previne o Comportamento Padrão
+        event.preventDefault();
+
+        // 2. Busca o Formulario
+        // const form = document.getElementById("produtos-form");
+        const form = event.target;
+
+        // 3. Pega os valores dos inputs
+        const produto = {
+          nome: form.nome.value,
+          categoria: form.categoria.value,
+          preco: Number(form.preco.value),
+        };
+
+        // 4. Busca a tag "tbody"
+        const tableData = document.querySelector("#produtos-table tbody");
+
+        // tableData.innerHTML += `
+        //     <tr>
+        //         <td>${produto.nome}</td>
+        //         <td>${produto.categoria}</td>
+        //         <td>${produto.preco.toLocaleString("pt-BR", {
+        //           style: "currency",
+        //           currency: "BRL",
+        //         })}</td>
+        //     </tr>
+        // `;
+
+        // 5. Cria uma linha "tr"
+        const trProduto = document.createElement("tr"); // <tr></tr>
+
+        // 6. Cria as celulas "td" e adiciona na linha
+        const tdNome = document.createElement("td"); // <td></td>
+        tdNome.textContent = produto.nome;
+        trProduto.appendChild(tdNome); // <tr> <td>{produto.nome}</td> </tr>
+
+        const tdCategoria = document.createElement("td");
+        tdCategoria.textContent = produto.categoria;
+        trProduto.appendChild(tdCategoria);
+
+        const tdPreco = document.createElement("td");
+        tdPreco.textContent = produto.preco.toLocaleString("pt-BR", {
+          style: "currency",
+          currency: "BRL",
+        });
+        trProduto.appendChild(tdPreco);
+ 
+        // 7. Adiciono a linha na tabela
+        tableData.appendChild(trProduto)
+
+        form.reset();
+      }
+
+      // Busca o Formulário "form"
+      const formProduto = document.getElementById("produtos-form");
+
+      // Adiciona o evento de Submit
+      // Exemplo: form.addEventListener('submit', handleCadastrarProduto)
+      formProduto.addEventListener("submit", handleCadastrarProduto);
+    </script>
+  </body>
+</html>

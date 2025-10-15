@@ -1,0 +1,41 @@
+<!-- Ex03 Utilizando o "do while" e o "prompt", faça um programa que peça uma quantidade indeterminada de numeros, pare quando o usuário digitar um numero negativo ao final mostre a soma de todos os numeros. -->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>While  - Exercício 3</title>
+</head>
+
+<body>
+
+    <label for="numero">Valor</label>
+    <input type="number" id="numero">
+
+    <p id="resultado"></p>
+
+    <button onclick="contar()">Contar</button>
+
+    <script>
+
+        function contar() {
+            let pExibir = document.getElementById("resultado")
+            const numero = Number(document.getElementById('numero').value)
+
+            let contador = 0; // variável de controle
+            let cadeiaCaracteres = ''
+         
+            
+            while (contador < numero) {
+                contador++;
+                cadeiaCaracteres += ' ' + contador;
+                pExibir.innerText = cadeiaCaracteres
+            }
+        }
+    </script>
+
+</body>
+
+</html>

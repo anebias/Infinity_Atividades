@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sorteio 2 </title>
+    <style>
+        
+        .hidden {
+            display: none;
+        }
+
+        span{
+            color: brown;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <h1> Sorteio  2</h1>
+
+    <!-- remover action="" e adicionar o event.preventDefault() para prevenir o comportamento padrão do formulário de recarregar a página -->
+    <form id="participante">
+        <input type="text"  id="nome" placeholder="Nome do Participante">
+        <input type="text"  id="email" placeholder="Email do Participante">
+        <input type="text" id="telefone" placeholder="Telefone do Participante">
+        
+        <button type="submit"> Adicionar </button>
+    </form>
+
+    <button id="sortear">Sortear</button>
+
+    <p id="resultado" class="hidden">
+        O participante <span class="nome hightlight"> </span> foi sorteado !
+        Entre em contato pelo email <span class="email hightlight"> </span>
+    </p>
+
+    <hr>
+    
+    <h2> Participantes </h2>
+    <ul id="participantes"></ul>
+
+    <script>
+        
+        const participantes = [];
+
+        const formParticipante = document.getElementById('participante');
+        console.log(formParticipante);
+
+        function handleAdicionar(event){
+            // alert('Evento submit ocorreu');
+
+            // prevenir o evento padrão do formulário (recarregar a página)
+            event.preventDefault();
+
+            // 1. pegar os dados do participante dentro do formulário através do id
+            // const nomeParticipante = formParticipante.nome.value;
+            // const emailParticipante = formParticipante.email.value;
+            // const telefoneParticipante = formParticipante.telefone.value;
+            
+            // 1. pegar os dados do participante dentro do formulário como objeto
+            const participante = {
+                nome: formParticipante.nome.value,
+                email: formParticipante.email.value,
+                telefone: formParticipante.telefone.value
+            }
+
+            // alert(participante.nome + '' + participante.email + " " + participante.telefone);
+
+            // 2. criar o elemento de lista li
+            // <li> </li>
+            const liParticipante = document.createElement('li');
+            // console.log(liParticipante);
+
+            // 3. adicionar o nome do participante no elemento de lista
+            // <li> ${participante} </li>
+            liParticipante.textContent = `${participante.nome} - ${participante.email} - ${participante.telefone}`;
+            console.log(liParticipante);
+
+            // 4. adicionar o elemento à lista
+            const ulParticipantes = document.querySelector('#participantes');
+            ulParticipantes.appendChild(liParticipante);
+
+            // 5. adicionando o participante na lista de participantes
+            participantes.push(participante);
+            console.log(participantes);
+            
+            // 6. limpar o formulário após adicionar elemento na lista
+            formParticipante.reset();
+
+            // 7. focar no campo inicial
+            formParticipante.nome.focus();
+
+        };
+
+        // ação executada através de definição de função:
+        formParticipante.addEventListener('submit',handleAdicionar);
+        // ação executada através arrow function:
+        // button.addEventListener('click',()=>alert('fui chamado novamente'));
+
+        function handleSortear(){
+            
+            if(participantes.length === 0) {
+                return alert('Não existem participantes para o sorteio')
+            }
+
+            // Math.random() * ( <fim> - <inicio> ) + <inicio>
+            // Math.floor : parte inteira
+            const indexSorteado = Math.floor(Math.random() * ( participantes.length -1 ) )
+
+            const pResultado = document.getElementById('#resultado');
+            pResultado.classList.remove('hidden');
+
+            const participante = participantes[indexSorteado]
+
+            // resultado inserido com innerHTML dentro do parágrafo vazio
+            // pResultado.innerHTML = ` O participante <span class='hightlight'> ${participanteSorteado.nome} </span> foi sorteado ! 
+            //                             Entre em contato pelo email <span class='hightlight'> ${participanteSorteado.email} </span>`
+
+
+            const spanNome = pResultado.querySelector('.nome')
+            spanNome.textContent = participanteSorteado.nome
+
+            const spanEmail = pResultado.querySelector('.email')
+            spanEmail.textContent = participanteSorteado.email
+
+         };
+        
+        const buttonSortear = document.getElementById('sortear');
+        buttonSortear.addEventListener('click',handleSortear);
+
+    </script>
+
+</body>
+</html>

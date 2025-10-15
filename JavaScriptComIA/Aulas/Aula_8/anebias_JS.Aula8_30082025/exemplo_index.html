@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="exemplo_style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Cadastre seu Carro</h1>
+
+    <input type="text" id="marca"> <br>
+    <input type="text" id="modelo" placeholder="Modelo do Carro"> <br>
+    <button>Cadastrar</button>
+
+    <script>
+        const input = document.getElementById('marca')
+        console.log(input.placeholder)
+        input.placeholder = "Marca do Carro"
+        input.style.background = 'yellow'
+        input.style.fontSize = '36px'
+        input.style.textAlign = 'center'
+</script>
+
+</body>
+</html>

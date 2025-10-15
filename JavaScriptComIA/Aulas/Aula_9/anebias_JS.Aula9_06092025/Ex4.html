@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4</title>
+</head>
+<body>
+    
+    <button id="aumenta" onclick="handleAumentar()">+</button>
+    <p id="contador" >0</p>
+    <button id="diminui" onclick="handleDiminuir()">-</button>
+
+    <script>
+    // Ex04. Faça um programa que deve mostrar na tela um contador:
+    // - O valor da contagem deve começar em 0
+    // - Deve ter um botão "incrementar" que irá somar 1 no contador
+    // - Deve outro botão "decrementar" que irá subtrair 1 do contador
+
+        // function handleAumentar(){
+        //     const contador = Number(document.getElementById('contador').textContent)
+        //     const novoContador = document.getElementById('contador')
+        //     const novoValor = (contador + 1)
+        //     novoContador.textContent = novoValor
+        // }
+
+        // function handleDiminuir(){
+        //     const contador = Number(document.getElementById('contador').textContent)
+        //     const novoContador = document.getElementById('contador')
+        //     const novoValor = (contador - 1)
+        //     novoContador.textContent = novoValor
+        // }
+
+        function handleAumentar(){
+            const contador = document.getElementById('contador')
+            contador.textContent = Number(contador.textContent) + 1
+        }
+
+        function handleDiminuir(){
+            const contador = document.getElementById('contador')
+            contador.textContent = Number(contador.textContent) - 1
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,244 @@
+https://dontpad.com/dfs7071309
+
+Sejam Bem Vindos a Aula 10 de Javascript
+Token: 9181
+
+
+Repositório da Turma:
+https://github.com/Davi-Classes/JAVASCRIPT2025-DFS707
+
+
+----------------------------------------------------------------------------------------------------------------------
+ex01.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ex01 </title>
+</head>
+<body>
+    <!--
+    Ex01. Faça um programa que peça o nome do usuário 
+    e mostre uma mensagem de saudação em negrito. 
+    -->
+    <input type="text" id="nome" placeholder="Digite seu nome"> <br>
+    <button onclick="mostrarSaudacao()"> Mostrar </button>
+
+    <p id="mensagem"></p>
+
+    <script>
+        function mostrarSaudacao() {
+            // 1. Pegar o input
+            const inputNome = document.querySelector('#nome')
+
+            // 2. Pegar o nome
+            const nome = inputNome.value
+            
+            // 3. Pegar o paragrafo de mensagem
+            const pMensagem = document.querySelector('#mensagem')
+
+            // 4. Mostrar a mensagem
+            pMensagem.textContent = `Olá ${nome} seja bem vindo!`
+
+            // 5. Estilizar em Negrito (com tag ou com css)
+            pMensagem.style.fontWeight = '700'
+        }
+    </script>
+</body>
+</html>
+
+----------------------------------------------------------------------------------------------------------------------
+ex02.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex02</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    Ex02. Faça um programa que altere a cor 
+    da caixa para cada botão que o usuário clicar.
+
+    Se o usuário clicar na caixa, limpe as cores.
+    -->
+    
+    <div id="box" onclick="mudarCor()"></div>
+
+    <div>
+        <button onclick="mudarCor('red')"> Vermelho </button>
+        <button onclick="mudarCor('green')"> Verde </button>
+        <button onclick="mudarCor('blue')"> Azul </button>
+    </div>
+
+    <script>
+        function mudarCor(cor = '') {
+            console.log(cor)
+            // 1. Pegue a div da caixa
+            const caixa = document.getElementById('box')
+
+            // 2. Altere a cor (style.backgroundColor)
+            caixa.style.backgroundColor = cor
+        }
+    </script>
+</body>
+</html>
+----------------------------------------------------------------------------------------------------------------------------
+=======================================================================
+dom1.html	
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom 1</title>
+  </head>
+  <body>
+    <h1>Dados Pessoa</h1>
+
+    <div id="form">
+      <label for="nome"> Nome </label> <br />
+      <input type="text" name="nome" id="nome" /> <br />
+
+      <label for="telefone"> Telefone </label> <br />
+      <input type="tel" name="telefone" id="telefone" /> <br />
+
+      <button id="enviar">Enviar</button>
+    </div>
+
+    <p id="resultado"></p>
+
+    <script>
+      // Document Object Model (DOM)
+      // O DOM é uma representação do documento e das tags html no Javascript
+      // Ele possibilita que a gente manipule o HTML totalmente através do Javascript.
+
+      // O "document" é a raiz do DOM, ele tem todas as tags
+      console.log(document)
+
+      // "getElementById" busca um elemento pelo ID
+      const pResultado = document.getElementById('resultado')
+      console.log(pResultado)
+
+      // "querySelector" busca o primeiro elemento que bater com um Seletor CSS
+      const divForm = document.querySelector('#form')
+      console.log(divForm)
+
+      const h1Titulo = document.querySelector('h1')
+      console.log(h1Titulo)
+
+      // "querySelectorAll" busca todos os elementos que baterem com o Seletor CSS
+      const labels = document.querySelectorAll('label')
+      console.log(labels)
+    </script>
+  </body>
+</html>
+
+
+
+-------------------------------------------------------------------------------------------------------------------------
+dom2.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom 2</title>
+  </head>
+  <body>
+    <h1>Dados Pessoa</h1>
+
+    <div id="form">
+      <label for="nome"> Nome </label> <br />
+      <input type="text" name="nome" id="nome" /> <br />
+
+      <label for="telefone"> Telefone </label> <br />
+      <input type="tel" name="telefone" id="telefone" /> <br />
+
+      <button onclick="enviarDadosPessoa()">Enviar</button>
+    </div>
+
+    <div id="mensagem" style="display: none; gap: 8px; align-items: center;">
+        <p></p>
+        <img src="" width="24" height="24" alt="">
+    </div>
+    
+    <p id="resultado"></p>
+
+    <script>
+        const successImgUrl = 'https://img.icons8.com/ios11/512/40C057/ok.png'
+        const errorImgUrl = 'https://cdn-icons-png.flaticon.com/512/458/458594.png'
+
+        function enviarDadosPessoa() {
+            // Pegar o valor de um input:
+            // 1. Buscar o elemento HTML do input (com o DOM)
+            const inputNome = document.getElementById('nome')
+
+            // 2. Do elemento input pega o valor (com o ".value")
+            const nome = inputNome.value
+            
+            // Validando Formulário
+            const divMensagem = document.querySelector('#mensagem')
+            divMensagem.style.display = 'flex'
+
+            // Da minha div procura a tag <p>
+            const pMensagem = divMensagem.querySelector('p')
+            const imgMensagem = divMensagem.querySelector('img')
+
+            // Se estiver vazio, coloque um texto dentro do elemento HTML
+            if (!nome.trim()) {
+                // Colocando Somente texto
+                pMensagem.textContent = 'O campo nome é obrigatório.'
+                // pMensagem.innerText = 'O campo nome é obrigatório.'
+                
+                // Colocando Texto e HTML
+                // pMensagem.innerHTML = '<b> O campo nome é obrigatório. </b>'
+                
+                // Modificando Estilo.
+                pMensagem.style.color = 'red'
+                imgMensagem.src = errorImgUrl
+
+                return
+            }
+
+            console.log('Seguindo com o envio dos dados...')
+
+            pMensagem.textContent = 'Dados enviados com sucesso'
+            pMensagem.style.color = 'green'
+            imgMensagem.src = successImgUrl
+        }
+    </script>
+  </body>
+</html>
+
+-------------------------------------------------------------------------------------------------------------------------

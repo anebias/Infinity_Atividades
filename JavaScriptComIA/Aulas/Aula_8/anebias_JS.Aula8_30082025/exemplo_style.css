@@ -1,0 +1,21 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+}
+
+h1 {
+    color: brown;
+    background-color: antiquewhite;
+}
+
+input {
+    border-radius: 15px;
+    max-width: 300px;
+
+}
+
+button {
+    border-radius: 15px;
+    background-color: brown;
+    color: antiquewhite;
+}

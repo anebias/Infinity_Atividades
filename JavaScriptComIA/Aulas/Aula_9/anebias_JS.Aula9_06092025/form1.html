@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saudacao</title>
+  </head>
+  <body>
+    <h1>Boas Vindas</h1>
+
+    <div>
+      <label for="nome"> Nome </label> <br />
+      <input type="text" id="nome" />
+    </div>
+
+    <button onclick="handleEnviar()">Enviar</button>
+
+    <script>
+      // Ao criar função de interação do usuário, usar prefixo handle
+      function handleEnviar(){  
+        const nome = document.getElementById('nome').value
+        alert(`Seja bem vindo ${nome}`)
+      }
+
+    </script>
+    
+  </body>

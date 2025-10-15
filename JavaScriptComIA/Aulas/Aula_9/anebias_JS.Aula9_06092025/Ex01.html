@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soma</title>
+  </head>
+  <body>
+    <h1>Soma de Dois Números</h1>
+
+    <div>
+      <label for="num1">Número 1</label>
+      <input
+        type="number"
+        name="num1"
+        id="num1"
+        placeholder="Informe o primeiro número da soma"
+      />
+    </div>
+
+    <div>
+      <label for="num2">Número 2</label>
+      <input
+        type="number"
+        name="num2"
+        id="num2"
+        placeholder="Informe o segundo número da soma"
+      />
+    </div>
+
+    <button onclick="handleSoma()">Calcular</button>
+
+    <script>
+    // Ex01. Faça um programa que peça dois numeros em uma página HTML e mostre a soma deles em um alert.
+      function handleSoma() {
+        const num1 = Number(document.getElementById("num1").value);
+        const num2 = Number(document.getElementById("num2").value);
+
+        alert(`A soma dos números ${num1} e ${num2} é ${num1 + num2}`);
+      }
+    </script>
+  </body>
+</html>
