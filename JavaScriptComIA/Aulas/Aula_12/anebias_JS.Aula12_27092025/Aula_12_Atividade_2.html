@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12 - Atividade 2</title>
+</head>
+
+<body>
+
+    <input type="text" id="tarefa">
+    <button id="btnCadastra">Cadastrar</button>
+
+    <button id="btnRemove">Remover Tarefa</button>
+    <button id="btnClear">Remover Todas as Tarefas</button>
+
+    <script>
+        const btnCadastra = document.getElementById('btnCadastra');
+        const btnRemove = document.getElementById('btnRemove');
+        const btnClear = document.getElementById('btnClear');
+        const tarefa = document.getElementById('tarefa');
+
+
+        btnCadastra.addEventListener('click', () => {
+            const qde = localStorage.length;
+            console.log(qde);
+            numeroTarefa = String(qde + 1);
+            localStorage.setItem(numeroTarefa, tarefa.value);
+        });
+
+        btnRemove.addEventListener('click', () => {
+            localStorage.removeItem(tarefa.value);
+        });
+
+        btnClear.addEventListener('click', () => {
+            localStorage.clear();
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!-- Atividade 01
+Passo a Passo
+- Crie um campo de texto (<input>) e um botão (<button>) para inserir o nome do usuário.
+- Ao clicar no botão, armazene o nome no localStorage usando setItem().
+- Recupere o nome armazenado ao carregar a página usando getItem() e exiba-o na tela. -->
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12 - Atividade 1</title>
+</head>
+<body>
+    
+    <input type="text" name="nome" id="nome" placeholder="nome">
+    <button id="botao">Enviar</button>
+
+    <h1 id="usuario"></h1>
+
+    <script>
+
+        const button = document.getElementById('botao');
+        const nome = document.getElementById('nome');
+        const usuario = document.getElementById('usuario');
+
+        button.addEventListener('click',(event)=>{
+            localStorage.setItem('nome',nome.value);
+        })
+
+        usuario.textContent = localStorage.getItem('nome');
+        
+    </script>
+
+</body>
+</html>

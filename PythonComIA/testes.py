@@ -1,16 +1,24 @@
-inteiro = '2' #isdecimal, isdigit, isnumeric
-decimal = '2.4'
-negativo = '-1'
+# inteiro = '2' #isdecimal, isdigit, isnumeric
+# decimal = '2.4'
+# negativo = '-1'
 
-novo = decimal.replace('.','')
-print(novo.isnumeric())
-print(float(decimal))
-print(negativo.isdecimal())
+# novo = decimal.replace('.','')
+# print(novo.isnumeric())
+# print(float(decimal))
+# print(negativo.isdecimal())
 
-print(decimal.isdigit())
-print(negativo.isdigit())
+# print(decimal.isdigit())
+# print(negativo.isdigit())
 
-print(decimal.isnumeric())
-print(negativo.isnumeric())
+# print(decimal.isnumeric())
+# print(negativo.isnumeric())
 
-
+orders = [
+    {"status": "delivered"},
+    {"status": "delivered"},
+    {"status": "canceled"},
+    {"status": "canceled"},
+    {"status": "delivered"},
+]
+a = sum( 1 for o in orders if o['status'] == "delivered" )
+print(a)

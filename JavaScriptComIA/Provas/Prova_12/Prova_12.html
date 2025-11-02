@@ -1,0 +1,67 @@
+<!-- 
+ [JSIA-A12] Desenvolvimento de Gerenciador de Notas com Local Storage
+Crie uma aplicação de gerenciamento de notas simples utilizando o Local Storage. O programa deve permitir adicionar, listar e excluir notas, armazenando os dados de forma persistente no navegador.
+* Requisitos do Projeto:
+a) Interface HTML Inicial:
+- Crie um campo de texto para o título da nota.
+- Adicione um botão para adicionar nota.
+- Crie uma lista para exibir as notas armazenadas.
+b) Adição de Notas:
+- Ao clicar no botão "Adicionar Nota":
+- Leia o valor do campo de texto (título da nota).
+- Armazene a nota como um objeto no Local Storage. Cada nota deve ter um título único.
+- Atualize a lista de notas exibida na tela, mostrando o título e um botão "Remover".
+c) Listar Notas:
+- Utilize o Local Storage para recuperar as notas armazenadas.
+- Transforme os dados recuperados de volta para objetos.
+- Exiba as notas em uma lista, mostrando o título de cada nota e um botão "Remover" ao lado de cada uma.
+d) Remover Notas:
+- Ao clicar no botão "Remover", a nota correspondente do Local Storage.
+- Atualize a lista de notas exibida na tela, removendo a nota excluída.
+e) Armazenamento no Local Storage:
+- Salve as notas no Local Storage.
+- Carregue as notas.
+- Armazene objetos como strings no Local Storage.
+- Recupere os dados do Local Storage e transforme os de volta em objetos JavaScript. 
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Local Storage - Aula 12</title>
+    <link rel="stylesheet" href="Prova_12.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Gerenciador de Notas</h1>
+    </header>
+
+    <main>
+
+        <form action="" id="formNotas">
+            <input type="text" name="tituloNota" id="tituloNota" placeholder="Título da Nota">
+            <br>
+            <textarea name="conteudoNota" id="conteudoNota" placeholder="Conteúdo da Nota..."></textarea>
+            <br>
+            <button id="botaoAdicionar">Adicionar</button>
+        </form>
+
+        <hr>
+
+        <div id="container">
+            <h1>Notas Cadastradas</h1>
+            <ul name="listaNotas" id="listaNotas"></ul>
+        </div>
+
+    </main>
+
+    <script src="./Prova_12.js"></script>
+
+</body>
+
+</html>

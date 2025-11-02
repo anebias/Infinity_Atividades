@@ -1,0 +1,95 @@
+<!-- Atividade 02
+Crie uma função que valida os dados de um usuário. Essa função deve receber um objeto contendo nome e idade como parâmetros. Utilize try...catch para:
+- Validar o nome: Verificar se o nome possui pelo menos 3 caracteres.
+- Validar a idade: Verificar se a idade é um número positivo e maior que 18.
+Caso alguma validação falhe, lance uma exceção personalizada com uma mensagem clara.
+Utilize o finally para exibir uma mensagem indicando se os dados são válidos ou não. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 13 - Atividade 2</title>
+    <style>
+        div#container {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 15px;
+            border: solid slategray 1px;
+            padding: 50px;
+            margin: 10%;
+            gap: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+        }
+
+        h3 {
+            color: slategray;
+        }
+
+        form {
+            font-size: larger;
+            align-items: center;
+            text-align: center;
+            align-content: center;
+        }
+
+        input {
+            height: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        input#nome {
+            width: 80%;
+        }
+
+        input#idade {
+            width: 40%;
+        }
+
+        button {
+            width: 30%;
+            margin: 2% 0 10%;
+            height: 25px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Cadastro</h1>
+        <div>
+            <form action="" id="cadastro">
+                <input type="text" name="nome" id="nome" placeholder="Informe o seu nome">
+                <input type="text" name="idade" id="idade" placeholder="informe a sua idade">
+                <button id="btnValidar">Validar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const formCadastro = document.getElementById('cadastro');
+        const btnValidar = formCadastro.btnValidar;
+        btnValidar.AddEventListener('click', validarCadastro);
+
+        function validarCadastro(event) {
+            event.preventDefault();
+            const nomeUsuario = formCadastro.nome.value;
+            const idadeUsuario = formCadastro.idade.value;
+
+        };
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!-- 
+Atividade 05
+Passo a Passo
+- Crie um formulário com seletores para o tema (claro/escuro) e tamanho da fonte (pequeno, médio, grande). 
+- Ao clicar no botão "Salvar", armazene as preferências como um objeto no localStorage.
+- Recupere as preferências do usuário ao carregar a página e aplique-as ao conteúdo 
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12 - Atividade 5</title>
+    <style>
+        body {
+            --bgTemaClaro: white;
+            --bgTemaEscuro: black;
+            --colorTemaClaro: black;
+            --colorTemaEscuro: white;
+
+            --fontSizePequeno: 12px;
+            --fontSizeMedia: 16px;
+            --fontSizeGrande: 24px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Seletores</h1>
+
+    <form action="" id="preferencias">
+        <select name="tema" id="tema">
+            <option value="claro">Claro</option>
+            <option value="escuro">Escuro</option>
+        </select>
+
+        <select name="fonte" id="fonte">
+            <option value="pequeno">Pequena</option>
+            <option value="media">Média</option>
+            <option value="grande">Grande</option>
+        </select>
+
+        <button>Salvar</button>
+    </form>
+
+    <script>
+        const preferenciasUsuario = JSON.parse(localStorage.getItem('preferencias'));
+
+        const style = getComputedStyle(document.body);
+        const variaveis = {
+            tema: {
+                claro: style.getPropertyValue("--bgTemaClaro"),
+                escuro: style.getPropertyValue("--bgTemaEscuro"),
+            },
+            cor: {
+                claro: style.getPropertyValue("--colorTemaClaro"),
+                escuro: style.getPropertyValue("--colorTemaEscuro"),
+            },
+            fonte: {
+                pequeno: style.getPropertyValue("--fontSizePequeno"),
+                media: style.getPropertyValue("--fontSizeMedia"),
+                grande: style.getPropertyValue("--fontSizeGrande"),
+            }
+        };
+
+        function aplicarPreferencias(pref) {
+            let tema = "claro";
+            let fonte = "media";
+
+            if (pref && pref.tema) {
+                tema = pref.tema;
+            }
+
+            if (pref && pref.fontSize) {
+                fonte = pref.fontSize;
+            }
+
+            // 💡 Sintaxe mais moderna e enxuta (para estudar):
+            // const tema = pref?.tema || "claro";
+            // const fonte = pref?.fontSize || "media";
+
+            document.body.style.backgroundColor = variaveis.tema[tema];
+            document.body.style.color = variaveis.cor[tema];
+            document.body.style.fontSize = variaveis.fonte[fonte];
+        }
+
+        if (preferenciasUsuario) {
+            aplicarPreferencias(preferenciasUsuario);
+        }
+
+        const formPreferencias = document.getElementById('preferencias');
+
+        const btnEnviar = formPreferencias.getElementsByTagName('button')[0];
+
+        console.log(formPreferencias.fonte.value);
+
+        btnEnviar.addEventListener('click', (event) => {
+            event.preventDefault();
+            const preferencias = {
+                tema: formPreferencias.tema.value,
+                fontSize: formPreferencias.fonte.value
+            };
+
+            localStorage.setItem('preferencias', JSON.stringify(preferencias));
+
+            aplicarPreferencias(preferencias);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!-- Atividade 01
+Crie uma calculadora simples que realiza divisão. Implemente um mecanismo de tratamento de exceções utilizando try...catch para garantir que a calculadora não trave ao tentar dividir por zero. Utilize o finally para exibir uma mensagem indicando que a operação foi concluída, independentemente do resultado. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 13 - Atividade 1</title>
+    <style>
+        div#container {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 15px;
+            border: solid salmon 1px;
+            padding: 50px;
+            margin: 10%;
+            gap: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 0;
+        }
+
+        h4 {
+            color: slategray;
+        }
+
+        h3 {
+            color: brown;
+        }
+
+        form {
+            font-size: larger;
+            align-items: center;
+            text-align: center;
+            align-content: center;
+        }
+
+        input,
+        option {
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        select,
+        button {
+            width: 40px;
+            height: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Calculadora</h1>
+        <div>
+            <form action="" id="calculadora">
+                <input type="number" name="num1" id="num1">
+                <select name="operacao" id="operacao">
+                    <option value="adicao"> + </option>
+                    <option value="subtracao"> - </option>
+                    <option value="multiplicacao"> x </option>
+                    <option value="divisao"> / </option>
+                </select>
+                <input type="number" name="num2" id="num2">
+                <button type="submit" id="calcular">=</button>
+                <input type="text" id="resultado" disabled>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const formCalculadora = document.getElementById('calculadora');
+        const btnCalcular = formCalculadora.calcular;
+
+        btnCalcular.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const valor1 = formCalculadora.num1.value;
+            const valor2 = formCalculadora.num2.value;
+            const operacao = formCalculadora.operacao.value;
+            const message = document.createElement('h4');
+            const messageError = document.createElement('h3');
+            const resultado = formCalculadora.resultado;
+
+            try {
+                if (valor1 === '' || valor2 === '') {
+                    throw new Error('Números da operação não informados.');
+                }
+
+                const num1 = Number(valor1);
+                const num2 = Number(valor2);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    throw new Error('Números da operação não informados.');
+                }
+                if (num2 === 0 && operacao === "divisao") {
+                    throw new Error('Denominador não pode ser zero.');
+                }
+
+                switch (operacao) {
+                    case "adicao":
+                        resultado.value = num1 + num2;
+                        break;
+                    case "subtracao":
+                        resultado.value = num1 - num2;
+                        break;
+                    case "multiplicacao":
+                        resultado.value = num1 * num2;
+                        break;
+                    case "divisao":
+                        resultado.value = num1 / num2;
+                        break;
+                    default:
+                        break;
+                }
+
+            } catch (error) {
+                messageError.textContent = error.message;
+                formCalculadora.appendChild(messageError);
+            } finally {
+                message.textContent = "Operação realizada";
+                formCalculadora.appendChild(message);
+            }
+
+            setTimeout(() => {
+                message.remove();
+                messageError.remove();
+                formCalculadora.num1.value = "";
+                formCalculadora.num2.value = "";
+                formCalculadora.resultado.value = "";
+                formCalculadora.num1.focus();
+            }, 3000);
+
+        })
+
+    </script>
+</body>
+
+</html>

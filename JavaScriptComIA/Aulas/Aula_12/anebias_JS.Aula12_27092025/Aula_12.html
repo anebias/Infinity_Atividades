@@ -1,0 +1,40 @@
+<!-- // LOCAL STORAGE -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 12 - Local Storage</title>
+</head>
+<body>
+
+    <script>
+        // Adicionando dados
+        localStorage.setItem('nome','João');
+        localStorage.setItem('sobrenome','Silva Neto')
+        const nome = localStorage.getItem('nome');
+        const sobrenome = localStorage.getItem('sobrenome');
+        console.log(nome);
+        console.log(sobrenome);
+
+        // removendo dados:
+        localStorage.removeItem('sobrenome');
+
+        // Removendo todos os dados:
+        // adicionar... 
+        localStorage.setItem('sobrenome','Silva Neto')
+        localStorage.clear()
+
+        // CONVERTER OBJETOS EM STRINGS
+        const user = {nome: "Ana", idade: 25}
+        localStorage.setItem('usuario',JSON.stringify(user));
+
+        const userRecuperado = JSON.parse(localStorage.getItem('usuario'));
+        console.log(userRecuperado);
+
+    </script>
+
+</body>
+</html>
+
