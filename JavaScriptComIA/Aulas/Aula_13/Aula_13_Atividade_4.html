@@ -1,0 +1,73 @@
+<!-- Atividade 04
+Passo a Passo
+Crie uma função que divida dois números fornecidos pelo usuário.
+Lance um erro usando new Error se o divisor for zero, pois a divisão por zero é inválida.
+Capture o erro e exiba o nome e a mensagem do erro no console. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 13 - Atividade 4</title>
+    <style>
+        div {
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            border: 10%;
+            padding: 10% 35%;
+        }
+
+        input {
+            margin: 4px 0;
+        }
+
+        button {
+            background-color: aquamarine;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <input type="number" id="ipt-numerador" placeholder="Numerador">
+        <input type="number" id="ipt-denominador" placeholder="Denominador">
+        <button>Calcular</button>
+    </div>
+
+    <script>
+
+        const botao = document.getElementsByTagName('button')[0];
+
+        botao.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            let numerador = document.getElementById("ipt-numerador");
+            let denominador = document.getElementById("ipt-denominador");
+
+            try {
+                numerador = Number(numerador.textContent);
+                denominador = Number(denominador.textContent);
+
+                if (denominador === 0) {
+
+                    throw new Error("O denominador não pode ser nulo. Informe um valor diferente de zero.");
+
+                };
+
+            } catch (error) {
+                console.log(error.name);
+                console.log(error.message);
+            }
+            console.log('final botão')
+
+        })
+
+    </script>
+</body>
+
+</html>

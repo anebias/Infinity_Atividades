@@ -1,0 +1,55 @@
+<!-- Atividade 03
+Passo a Passo
+Crie um código que solicita ao usuário digitar sua idade.
+Lance um erro usando throw se a idade for inválida (não for um número ou for menor que 0).
+Capture o erro usando try-catch e exiba uma mensagem adequada. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 13 - Atividade 3</title>
+</head>
+
+<body>
+
+    <form action="" id="form">
+        <input type="text" name="" id="idade" placeholder="Digite a sua idade">
+        <button type="button" id="button">Enviar</button>
+    </form>
+
+</body>
+
+<script>
+    const form = document.getElementById("form");
+    const button = document.getElementById("button");
+    button.addEventListener('click', validar);
+    let message = ""
+
+    function validar(event) {
+        event.preventDefault();
+        const input = document.getElementById("idade");
+        const idade = Number(input.value);
+
+        try {
+            if (isNaN(idade)) {
+                throw new Error("Não foi informado um número.");
+            };
+            if (idade < 0) {
+                throw new Error("Idade não pode ser negativa.");
+            };
+
+            message = "Sucesso"
+        }
+        catch (error) {
+            console.log(error.name);
+            console.log(error.message);
+        } finally {
+            console.log(message)
+        }
+    } 
+</script>
+
+</html>

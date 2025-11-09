@@ -80,13 +80,35 @@ Utilize o finally para exibir uma mensagem indicando se os dados são válidos o
     <script>
         const formCadastro = document.getElementById('cadastro');
         const btnValidar = formCadastro.btnValidar;
-        btnValidar.AddEventListener('click', validarCadastro);
+        btnValidar.addEventListener('click', validarCadastro);
 
         function validarCadastro(event) {
             event.preventDefault();
             const nomeUsuario = formCadastro.nome.value;
             const idadeUsuario = formCadastro.idade.value;
+            let message = [];
+            let resultado = "Dados válidados com sucesso !"
 
+            try {
+                if (nomeUsuario.length < 3) {
+                    message.push("O nome do usuário precisa ter pelo menos 3 caracteres");
+                };
+                if (Number(idadeUsuario) <= 18) {
+                    message.push("A idade precisa ser maior que 18 anos");
+                };
+                if (message != "") {
+                    message.push("Dados inválidos: ");
+                    resultado = [message.at(-1), ...message.slice(0, -1)].join(", ");
+
+                    throw new Error(resultado);
+                };
+
+            } catch (error) {
+                console.error("Erro:", error.message)
+            } finally {
+                console.log(resultado);
+                console.log("Operação finalizada");
+            }
         };
 
     </script>
