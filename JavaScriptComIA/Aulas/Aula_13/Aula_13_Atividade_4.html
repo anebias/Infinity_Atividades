@@ -5,7 +5,7 @@ Lance um erro usando new Error se o divisor for zero, pois a divisão por zero �
 Capture o erro e exiba o nome e a mensagem do erro no console. -->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -28,6 +28,11 @@ Capture o erro e exiba o nome e a mensagem do erro no console. -->
             background-color: aquamarine;
             border-radius: 10px;
         }
+
+        h2 {
+            text-align: center;
+            color: yellowgreen;
+        }
     </style>
 </head>
 
@@ -38,6 +43,7 @@ Capture o erro e exiba o nome e a mensagem do erro no console. -->
         <input type="number" id="ipt-denominador" placeholder="Denominador">
         <button>Calcular</button>
     </div>
+    <h2></h2>
 
     <script>
 
@@ -46,12 +52,15 @@ Capture o erro e exiba o nome e a mensagem do erro no console. -->
         botao.addEventListener("click", (e) => {
             e.preventDefault();
 
-            let numerador = document.getElementById("ipt-numerador");
-            let denominador = document.getElementById("ipt-denominador");
+            let numerador = document.getElementById('ipt-numerador');
+            let denominador = document.getElementById('ipt-denominador');
 
             try {
-                numerador = Number(numerador.textContent);
-                denominador = Number(denominador.textContent);
+                numerador = Number(numerador.value);
+                denominador = Number(denominador.value);
+                let resultado = document.getElementsByTagName('h2');
+
+                resultado[0].textContent = (numerador / denominador).toFixed(2);
 
                 if (denominador === 0) {
 
@@ -63,8 +72,6 @@ Capture o erro e exiba o nome e a mensagem do erro no console. -->
                 console.log(error.name);
                 console.log(error.message);
             }
-            console.log('final botão')
-
         })
 
     </script>
