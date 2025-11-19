@@ -1,0 +1,86 @@
+<!-- [JSIA-A13] Desenvolvimento de Sistema de Cadastro de Usuários com Tratamento de Erros
+
+Crie um programa em JavaScript que simule um sistema de cadastro de usuários. O sistema deve validar os dados de entrada e tratar possíveis erros para garantir a integridade do sistema. O programa deve incluir validação dos dados e lançamento de erros personalizados com mensagens específicas. Utilize boas práticas no tratamento de erros.
+
+Requisitos do Projeto:
+
+a) Interface HTML Inicial:
+- Crie um formulário com campos Nome, Usuário, Senha, Email e Idade/ Data de nascimento.
+- Inclua um botão "Cadastrar" que será usado para enviar o formulário.
+
+b) Validação dos Dados:
+- Ao clicar no botão "Cadastrar", o programa deve verificar se todos os campos estão preenchidos, em formato válido, e se a idade inserida é maior ou igual a 18 anos.
+
+c) Lançamento de Erros:
+- Para cada erro de validação, lance um erro com uma mensagem específica correspondente ao campo:
+
+d) Tratamento de Erros:
+- Utilize um bloco try...catch para capturar os erros lançados durante a validação.
+- Exiba as mensagens de erro diretamente abaixo dos campos correspondentes, no formulário.
+
+e) Cadastro Bem-Sucedido:
+- Se todos os dados forem válidos, exiba uma mensagem de sucesso na tela, como: "Cadastro realizado com sucesso!". -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova 13 - Prova Tratamento de Erros e Modularização</title>
+    <link rel="stylesheet" href="Prova_13.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Sistema de Cadastro</h1>
+    </header>
+
+    <main>
+
+        <form id="formCadastro">
+
+            <div class="name">
+                <label for="name">Nome Completo: </label>
+                <input type="text" name="name" id="name" placeholder="Nome completo">
+            </div>
+
+            <div class="user">
+                <label for="user">Usuário: </label>
+                <input type="text" name="user" id="user" placeholder="Usuário">
+            </div>
+
+            <div class="password">
+                <label for="password">Senha: </label>
+                <input type="password" name="password" id="password" placeholder="Senha">
+            </div>
+
+            <div class="email">
+                <label for="email">E-mail: </label>
+                <input type="email" name="email" id="email" placeholder="E-mail">
+            </div>
+
+            <div class="age">
+                <label for="age">Idade: </label>
+                <input type="number" name="age" id="age" placeholder="Idade">
+            </div>
+
+            <div class="dateOfBirth">
+                <label for="dateOfBirth">Data de Nascimento: </label>
+                <input type="date" name="dateOfBirth" id="dateOfBirth">
+            </div>
+
+            <div class="btnCadastrar">
+                <button id="btnCadastrar">Cadastrar</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <h3>Todos os direitos reservados</h3>
+    </footer>
+    <script src="Prova_13.js"></script>
+</body>
+
+</html>
