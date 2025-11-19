@@ -1,0 +1,36 @@
+<!-- [JSIA-A14] Crie uma aplicação web simples que consuma dados de uma API pública utilizando HTTP e exiba essas informações no navegador. O projeto deve usar JSON para manipulação de dados e implementar boas práticas ao lidar com APIs.
+Requisitos do Projeto:
+- Estrutura HTML Básica:
+    - Um botão "Buscar".
+    - Uma área para exibir os resultados.
+- Realizando Requisições HTTP:
+    - Use o método fetch() para realizar uma requisição GET a uma API pública (como JSONPlaceholder ou qualquer outra de sua escolha). Exemplo de URL: https://jsonplaceholder.typicode.com/users.
+- Manipulação de Dados JSON:
+    - Após obter a resposta da API, use o método .json() para converter os dados recebidos em formato JSON.
+    - Exiba os dados processados no navegador (por exemplo, nome e e-mail dos usuários ou qualquer outra informação relevante).
+- Lidando com Erros:
+    - Implemente tratamento de erros usando try...catch para capturar falhas na requisição ou problemas com a API.
+    - Exiba mensagens amigáveis no navegador para erros, como "Erro ao buscar os dados" ou "API não está respondendo".
+- Exibição Dinâmica:
+    - Para cada item retornado pela API, crie elementos HTML dinamicamente utilizando o método createElement() e exiba os resultados dentro da . -->
+
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prova Consumo de API I</title>
+        <link rel="stylesheet" href="Prova_14.css">
+    </head>
+    <body>
+        
+        <button>Buscar</button>
+        <hr>
+        <div id="resultados">
+            <h2>Sem resultados</h2>
+        </div>
+
+        <script src="Prova_14.js"></script>
+
+    </body>
+    </html>
