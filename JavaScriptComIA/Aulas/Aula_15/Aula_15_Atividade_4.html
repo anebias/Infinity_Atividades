@@ -6,3 +6,146 @@
     - Agrupar os produtos por categoria em objetos ou arrays separados.
     - Exibir os dados transformados no console.
 (Bônus) Exibir os produtos em uma tabela HTML organizada por categoria. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 15 - Atividade 4</title>
+
+    <style>
+        main {
+            display: flex;
+            align-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        table {
+            border: solid salmon 2px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main>
+
+    </main>
+
+    <script>
+
+        function renderizarListaProdutosPorCategoria(lista) {
+            const listaProdutosPorCategoria = lista;
+            const main = document.querySelector('main');
+            const div = document.createElement('div');
+
+            const table = document.createElement('table');
+
+            const thead = document.createElement('thead');
+            const trHead = document.createElement('tr');
+            const thNome = document.createElement('th');
+            thNome.textContent = 'Nome';
+            const thPreco = document.createElement('th');
+            thPreco.textContent = 'Preço';
+
+            trHead.appendChild(thNome);
+            trHead.appendChild(thPreco);
+            thead.appendChild(trHead);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+
+            for (let [categoriaNome, produtos] of Object.entries(listaProdutosPorCategoria)) {
+
+                const trCategoria = document.createElement('tr');
+                const tdCategoria = document.createElement('td');
+                tdCategoria.textContent = categoriaNome;
+                tdCategoria.colSpan = 2;
+                tdCategoria.style.fontWeight = 'bold';
+                tdCategoria.style.backgroundColor = '#f0f0f0';
+                tdCategoria.style.padding = '10px';
+
+                trCategoria.appendChild(tdCategoria);
+                tbody.appendChild(trCategoria);
+
+                for (let produto of produtos) {
+                    const tr = document.createElement('tr');
+                    const tdNome = document.createElement('td');
+                    tdNome.textContent = produto.nome;
+                    const tdPreco = document.createElement('td');
+                    tdPreco.textContent = produto.preco;
+
+                    tr.appendChild(tdNome);
+                    tr.appendChild(tdPreco);
+                    tbody.appendChild(tr);
+                }
+
+                const trEspaco = document.createElement('tr');
+                const tdEspaco = document.createElement('td');
+                tdEspaco.colSpan = 2;
+                tdEspaco.style.height = '10px';
+                trEspaco.appendChild(tdEspaco);
+                tbody.appendChild(trEspaco);
+            }
+
+            table.appendChild(tbody);
+            div.appendChild(table);
+            main.appendChild(div);
+        };
+
+        fetch('https://fakestoreapi.com/products')
+            .then(response => {
+                if (response.status === 200) { return response };
+                if (response.status === 404) {
+                    message = "Página não encontrada"
+                    throw new Error(message);
+                } else {
+                    message = "Erro ao tentar acessar"
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const categorias = data.reduce((acc, produto) => {
+                    if (!acc.includes(produto.category)) {
+                        acc.push(produto.category);
+                    }
+                    return acc
+                }, [])
+                console.log(categorias)
+                console.log(data)
+
+                const listaProdutos = data.map((produto) =>
+                ({
+                    nome: produto.title,
+                    preco: `R$ ${produto.price.toFixed(2).replace('.', ',')}`,
+                    categoria: produto.category
+                })
+                )
+
+                let listaProdutosPorCategoria = {}
+
+                categorias.map(categoria => {
+
+                    listaProdutosPorCategoria[categoria] = [];
+
+                    for (let produto of listaProdutos) {
+                        if (produto.categoria === categoria) {
+                            listaProdutosPorCategoria[categoria].push(produto)
+                        }
+                    }
+                });
+
+                console.log('Lista de Produtos por Categoria: ', listaProdutosPorCategoria);
+
+                renderizarListaProdutosPorCategoria(listaProdutosPorCategoria)
+            })
+            .catch(error => console.error('Erro:', error.message));
+
+    </script>
+</body>
+
+</html>

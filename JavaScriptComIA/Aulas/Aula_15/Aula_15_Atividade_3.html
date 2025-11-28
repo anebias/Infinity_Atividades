@@ -5,3 +5,38 @@ resposta. O comportamento esperado é o seguinte:
     - Se o status for 404 (Not Found), exiba a mensagem: "Recurso não encontrado".
     - Para qualquer outro status de erro, exiba: "Erro ao carregar os dados".
     - Utilize o método fetch para realizar a requisição e verifique o status da resposta usando a propriedade response.ok. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 15 - Atividade 3</title>
+</head>
+
+<body>
+
+    <script>
+        let message = '';
+        fetch('https://jsonplaceholder.typicode.com/postss')
+            .then(response => {
+                if (response.status === 200) {
+                    return response
+                }
+                if (response.status === 404) {
+                    message = "Recurso não encontrado";
+                    throw new Error(message);
+                } else {
+                    message = "Erro ao carregar os dados";
+                    throw new Error(message);
+                }
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Erro:', error.message));
+
+    </script>
+</body>
+
+</html>

@@ -24,3 +24,366 @@ Você foi contratado para desenvolver um dashboard que exiba uma lista de produt
     - Popular a tabela com os dados formatados.
     - Exibir mensagens de erro caso a API retorne falhas.
 -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aula 15 - Atividade Pratique e Aprenda</title>
+    <style>
+        body {
+            margin: 25px 10px;
+            font-family: 'Lucida Sans', 'Verdana', Geneva, Tahoma, sans-serif;
+            font-size: 16px;
+            background-color: #000;
+            color: antiquewhite;
+        }
+
+        header,
+        main,
+        footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.1rem;
+            color: rgb(191, 233, 235);
+            margin: 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        button {
+            border: none;
+            background-color: rgb(191, 233, 235);
+            color: gray;
+            border-radius: 5px;
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+
+        button[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        thead th {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgb(191, 233, 235);
+        }
+
+        tbody td {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            width: 90%;
+        }
+
+        .message {
+            color: rgb(191, 233, 235);
+            margin-top: 12px;
+        }
+
+        footer p {
+            margin: 6px 0;
+            color: rgb(191, 233, 235);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Lista de Produtos</h1>
+
+        <div class="controls">
+            <button id="btnAnterior">Página Anterior</button>
+            <button id="btnProxima">Próxima Página</button>
+            <button id="btnFiltro">Filtrar Produtos em Estoque</button>
+            <label style="color:rgb(191,233,235); margin-left:6px;">
+                Itens por página:
+                <select id="selectQuantidade">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select>
+            </label>
+        </div>
+    </header>
+
+    <main>
+        <h2 id="status">Carregando...</h2>
+
+        <table id="tabelaProdutos" aria-live="polite" style="display:none;">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="center">
+            <p id="erro" class="message"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p id="infoFooter"></p>
+    </footer>
+
+    <script>
+        // Como o script ficou grande, fiz a fatoração em etapas de execução
+        // *** Configuração da rota e timeout ***
+        const urlBase = 'https://dummyjson.com/products';
+        const TIMEOUT_MS = 8000;
+
+        // *** Elementos HTML para manipulação ***
+        const btnAnterior = document.getElementById('btnAnterior');
+        const btnProxima = document.getElementById('btnProxima');
+        const btnFiltro = document.getElementById('btnFiltro');
+        const selectQuantidade = document.getElementById('selectQuantidade');
+
+        const statusEl = document.getElementById('status');
+        const tabela = document.getElementById('tabelaProdutos');
+        const tbody = tabela.querySelector('tbody');
+        const erroEl = document.getElementById('erro');
+        const infoFooter = document.getElementById('infoFooter');
+
+        // *** Parâmetros de renderização da página ***
+        let paginaAtual = 1;
+        let itensPorPagina = Number(selectQuantidade.value);
+        let filtrarEstoque = false;
+        let totalPaginas = 1;
+        let totalRegistros = 0;
+
+        // *** Funções auxiliares ***
+        function formatarPreco(preco) {
+            if (preco === null || preco === undefined) return '—';
+            return preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function formatarData(dataISO) {
+            if (!dataISO) return '—';
+            try {
+                const data = new Date(dataISO);
+
+                if (Number.isNaN(data.getTime())) return '—';
+                const dia = String(data.getDate()).padStart(2, '0');
+                const mes = String(data.getMonth() + 1).padStart(2, '0');
+                const ano = data.getFullYear();
+
+                return `${dia}/${mes}/${ano}`;
+            } catch {
+                return '—';
+            }
+        }
+
+        // fetch com timeout e tratamento de erro, retorna o JSON dos dados ou lança erro
+        async function fetchComTimeout(url, options = {}, timeout = TIMEOUT_MS) {
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout);
+            try {
+                const response = await fetch(url, { ...options, signal: controller.signal });
+                clearTimeout(id);
+
+                if (!response.ok) {
+                    throw new Error(`${response.status} - ${response.statusText}`);
+                }
+                return await response.json();
+            } catch (err) {
+                if (err.name === 'AbortError') throw new Error('Tempo de resposta esgotado (timeout)');
+                throw err;
+            }
+        }
+
+        // busca produtos com skip/limit e retorna os dados brutos
+        async function buscarProdutos(limit, skip) {
+            const url = `${urlBase}?limit=${limit}&skip=${skip}`;
+            return await fetchComTimeout(url);
+        }
+
+        // obtém total de registros utilizando a resposta da API (quando disponível)
+        async function obterTotalRegistros() {
+            try {
+                // a API dummyjson retorna o total no objeto response.
+                const data = await fetchComTimeout(`${urlBase}?limit=1&skip=0`);
+                if (typeof data.total === 'number') return data.total;
+                if (Array.isArray(data.products)) return data.products.length;
+                return 0;
+            } catch (err) {
+                console.warn('Não foi possível obter total de registros:', err.message);
+                return 0;
+            }
+        }
+
+        // monta lista de objetos com campos da tabela
+        function mapearProdutos(products) {
+            console.log(products[0].meta.updatedAt);
+            return products.map(produto => ({
+                nome: produto.title ?? '—',
+                preco: (typeof produto.price === 'number') ? produto.price : null,
+                estoque: (typeof produto.stock === 'number') ? produto.stock : null,
+                data: produto.meta.updatedAt ? produto.meta.updatedAt : null
+            }));
+        }
+
+        // renderiza a tabela com a lista (já filtrada/formatada)
+        function renderizarTabela(lista) {
+            tbody.innerHTML = '';
+            if (!lista || lista.length === 0) {
+                tabela.style.display = 'none';
+                statusEl.style.display = 'block';
+                statusEl.textContent = filtrarEstoque ? 'Nenhum produto em estoque nesta página.' : 'Nenhum dado para exibição nesta página.';
+                infoFooter.textContent = `Página: ${paginaAtual} / ${totalPaginas} — Total: ${totalRegistros}`;
+                return;
+            }
+
+            tabela.style.display = 'table';
+            statusEl.style.display = 'none';
+
+            console.log(lista);
+
+            lista.forEach(item => {
+                const tr = document.createElement('tr');
+
+                const tdNome = document.createElement('td');
+                tdNome.textContent = item.nome;
+
+                const tdPreco = document.createElement('td');
+                tdPreco.textContent = formatarPreco(item.preco);
+
+                const tdEstoque = document.createElement('td');
+                tdEstoque.textContent = (item.estoque === null) ? '—' : String(item.estoque);
+
+                const tdData = document.createElement('td');
+                tdData.textContent = formatarData(item.data);
+
+                tr.appendChild(tdNome);
+                tr.appendChild(tdPreco);
+                tr.appendChild(tdEstoque);
+                tr.appendChild(tdData);
+
+                tbody.appendChild(tr);
+            });
+
+            infoFooter.textContent = `Página: ${paginaAtual} / ${totalPaginas} — Itens por página: ${itensPorPagina} — Total de registros (estimado sem filtro): ${totalRegistros}`;
+        }
+
+        // função principal que carrega a página
+        async function carregarPagina(itens, pagina) {
+            erroEl.textContent = '';
+            tabela.style.display = 'none';
+            statusEl.style.display = 'block';
+            statusEl.textContent = 'Carregando...';
+
+            // calcular skip (registros para pular)
+            const skip = itens * (pagina - 1);
+
+            try {
+                // obter dados da API
+                const data = await buscarProdutos(itens, skip);
+
+                // atualizar total (se possível)
+                if (typeof data.total === 'number') {
+                    totalRegistros = data.total;
+                    totalPaginas = Math.max(1, Math.ceil(totalRegistros / itens));
+                } else if (Array.isArray(data.products)) {
+                    // usar products.length e estimar total por skip+length
+                    totalRegistros = Math.max(totalRegistros, skip + data.products.length);
+                    totalPaginas = Math.max(1, Math.ceil(totalRegistros / itens));
+                }
+
+                // mapear produtos
+                let lista = mapearProdutos(Array.isArray(data.products) ? data.products : []);
+
+                // aplicar filtro se necessário
+                if (filtrarEstoque) {
+                    lista = lista.filter(produto => (typeof produto.estoque === 'number' && produto.estoque > 0));
+                }
+
+                renderizarTabela(lista);
+
+                // atualizar botões
+                btnAnterior.disabled = (pagina <= 1);
+                btnProxima.disabled = (pagina >= totalPaginas);
+
+            } catch (err) {
+                // mostrar erro amigável
+                tabela.style.display = 'none';
+                statusEl.style.display = 'block';
+                statusEl.textContent = 'Ocorreu um erro ao carregar os dados.';
+                erroEl.textContent = `Erro: ${err.message}`;
+                console.error(err);
+            }
+        }
+
+        // *** Funções do Usuário ***
+        btnAnterior.addEventListener('click', () => {
+            if (paginaAtual > 1) {
+                paginaAtual--;
+                carregarPagina(itensPorPagina, paginaAtual);
+            }
+        });
+
+        btnProxima.addEventListener('click', () => {
+            if (paginaAtual < totalPaginas) {
+                paginaAtual++;
+                carregarPagina(itensPorPagina, paginaAtual);
+            }
+        });
+
+        btnFiltro.addEventListener('click', () => {
+            filtrarEstoque = !filtrarEstoque;
+            btnFiltro.textContent = filtrarEstoque ? 'Exibir TODOS os produtos' : 'Filtrar Produtos em Estoque';
+            // ao ativar/desativar filtro, sempre retornar para página 1
+            paginaAtual = 1;
+            carregarPagina(itensPorPagina, paginaAtual);
+        });
+
+        selectQuantidade.addEventListener('change', () => {
+            itensPorPagina = Number(selectQuantidade.value);
+            paginaAtual = 1;
+            carregarPagina(itensPorPagina, paginaAtual);
+        });
+
+        // *** inicialização ***
+        (async function init() {
+            // tentar obter total de registros antes
+            totalRegistros = await obterTotalRegistros();
+            totalPaginas = Math.max(1, Math.ceil(totalRegistros / itensPorPagina));
+            await carregarPagina(itensPorPagina, paginaAtual);
+        })();
+
+    </script>
+</body>
+
+</html>
