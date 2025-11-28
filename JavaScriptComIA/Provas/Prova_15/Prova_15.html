@@ -1,0 +1,51 @@
+<!-- [JSIA-A15] Crie uma aplicação web que consuma dados de uma API pública para listar usuários. A aplicação deve incluir tratamento de erros e manipulação dos dados retornados da API.
+
+Requisitos do Projeto:
+
+Interface Inicial (HTML):
+Um botão "Carregar Usuários".
+Uma área para exibir a lista de usuários.
+Uma mensagem de erro exibida em caso de falhas na requisição.
+Requisição à API:
+Utilize o método fetch() para buscar dados de uma API pública, como https://jsonplaceholder.typicode.com/users.
+Verifique o status da resposta HTTP utilizando a propriedade response.ok.
+Caso o status indique erro, lance um erro com throw new Error().
+Tratamento de Erros:
+Use try...catch para capturar possíveis erros na requisição ou no processamento dos dados.
+Exiba uma mensagem amigável, como "Erro ao carregar os usuários, tente novamente mais tarde."
+Manipulação de Dados:
+Converta os dados retornados da API para JSON com o método .json().
+Exiba os nomes e e-mails dos usuários em uma lista
+Para cada usuário, crie dinamicamente um item de lista (
+) utilizando createElement() e appendChild().
+Interatividade:
+Ao clicar no botão "Carregar Usuários", inicie a requisição para a API e exiba a lista de usuários.
+Caso o botão seja clicado novamente, atualize a lista com os dados mais recentes. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova Consumo de API II </title>
+    <link rel="stylesheet" href="Prova_15.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Lista de Usuários</h1>
+        <button class="center">Carregar Usuários</button>
+    </header>
+    <hr>
+    <main>
+        <div class="controls" id="containerUsers"></div>
+        <div id="containerMessage"></div>
+    </main>
+    <footer class="controls"></footer>
+
+    <script src="Prova_15.js"></script>
+</body>
+
+</html>
