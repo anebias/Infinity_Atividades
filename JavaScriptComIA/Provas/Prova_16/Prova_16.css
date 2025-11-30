@@ -1,0 +1,105 @@
+ :root {
+     margin: 0;
+     padding: 0;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     color: rgb(7, 139, 111);
+ }
+
+ header,
+ main,
+ footer,
+ div,
+ ul {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ ul,
+ main {
+     flex-direction: column;
+     width: 100%;
+ }
+
+ ul {
+     padding: 0;
+     width: 100%;
+ }
+
+ input {
+     margin: 20px 0;
+     padding: 8px;
+     border-radius: 5px;
+ }
+
+ div {
+     gap: 10px;
+     margin: 0px;
+     width: 80%;
+ }
+
+ li {
+     list-style: none;
+ }
+
+ p {
+     min-width: 80%;
+ }
+
+ main {
+     /* flex-direction: column; */
+     align-items: center;
+ }
+
+ button {
+     margin: 0 2px;
+     padding: 2px 8px;
+     border: none;
+     background-color: cadetblue;
+     color: antiquewhite;
+     border-radius: 15px;
+ }
+
+ button.btnExcluir {
+     background-color: rgb(133, 30, 35);
+ }
+
+ header,
+ footer {
+     background-color: cadetblue;
+     color: antiquewhite;
+ }
+
+ footer {
+     padding: 6px;
+ }
+
+ h1 {
+     font-weight: 800;
+ }
+
+ div#tarefa {
+     background-color: rgb(220, 248, 239);
+     width: 100%;
+     padding: 1px;
+     border: 0;
+ }
+
+ div.divDetalheTarefa {
+     min-width: 40%;
+ }
+
+ input#tarefaIncluir {
+     min-width: 60%;
+ }
+
+ .ulTask {
+     border-bottom: 1px solid salmon;
+     padding: 10px 0;
+ }
+
+ #message {
+     display: none;
+     color: rgb(133, 30, 35);
+     text-align: center;
+ }
