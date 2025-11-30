@@ -1,0 +1,314 @@
+<!-- PROJETO - LISTA DE TAREFAS TO-DO
+ * REQUISITOS FUNCIONAIS:
+ - Adicionar Tarefas:
+    - O usuário deve ser capaz de adicionar novas tarefas.
+    - Cada tarefa deve ter um título e um estado inicial como "pendente"
+(não concluída).
+- Exibir Tarefas:
+    - Ao carregar a página, as tarefas devem ser exibidas na tela.
+    - O usuário deve poder ver todas as suas tarefas e o estado de cada
+uma (concluída ou pendente).
+- Marcar como Concluída:
+    - O usuário deve ser capaz de marcar as tarefas como concluídas ou
+desmarcá-las (alterar seu estado).
+- Remover Tarefas:
+    - O usuário deve ser capaz de remover tarefas da lista.
+
+* REQUISITOS TÉCNICOS:
+1.Manipulação do DOM:
+    - A aplicação deve manipular o DOM para exibir, adicionar, remover e editar tarefas dinamicamente, sem a necessidade de recarregar a página.
+2.Eventos:
+    - Use eventos de JavaScript, como click e submit, para que o usuário possa interagir com a interface (adicionar, remover, editar e marcar tarefas como concluídas).
+3.Estilização:
+    - Aplique uma estilização simples com CSS para tornar a interface intuitiva e agradável. Use classes dinâmicas para marcar tarefas como concluídas ou pendentes.
+4.Persistência de Dados:
+    - Utilizando Local Storage para armazenar as tarefas localmente no navegador, garantindo que elas permaneçam mesmo após o fechamento da página.
+
+Uma sugestão é a Fetch Api:
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+Utilizando a Fetch API do JavaScript para realizar requisições HTTP (GET, POST, PUT, DELETE), permitindo o armazenamento e sincronização das tarefas com o servidor.
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 16 - PROJETO - LISTA DE TAREFAS TO-DO</title>
+    <style>
+        :root {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(7, 139, 111);
+        }
+
+        header,
+        main,
+        footer,
+        div,
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul,
+        main {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        ul {
+            padding: 0;
+            width: 100%;
+        }
+
+        input {
+            margin: 20px 0;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        div {
+            gap: 10px;
+            margin: 0px;
+            width: 80%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        p {
+            min-width: 80%;
+        }
+
+        main {
+            /* flex-direction: column; */
+            align-items: center;
+        }
+
+        button {
+            margin: 0 2px;
+            padding: 2px 8px;
+            border: none;
+            background-color: cadetblue;
+            color: antiquewhite;
+            border-radius: 15px;
+        }
+
+        button.btnExcluir {
+            background-color: rgb(133, 30, 35);
+        }
+
+        header,
+        footer {
+            background-color: cadetblue;
+            color: antiquewhite;
+        }
+
+        footer {
+            padding: 6px;
+        }
+
+        h1 {
+            font-weight: 800;
+        }
+
+        div#tarefa {
+            background-color: rgb(220, 248, 239);
+            width: 100%;
+            padding: 1px;
+            border: 0;
+        }
+
+        div.divDetalheTarefa {
+            min-width: 40%;
+        }
+
+        input#tarefaIncluir {
+            min-width: 60%;
+        }
+
+        .ulTask {
+            border-bottom: 1px solid salmon;
+            padding: 10px 0;
+        }
+
+        #message {
+            display: none;
+            color: rgb(133, 30, 35);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Lista de Tarefas</h1>
+    </header>
+
+    <main>
+        <div id="tarefa">
+            <input type="text" id="tituloTarefa" placeholder="Título da tarefa">
+            <input type="text" id="tarefaIncluir" placeholder="Digite os detalhes da tarefa para incluir na lista">
+        </div>
+        <div id="message"></div>
+
+        <ul></ul>
+
+    </main>
+
+    <footer></footer>
+
+    <script>
+        const inputTaskDetalhe = document.getElementById('tarefaIncluir');
+        inputTaskDetalhe.addEventListener('keydown', incluirTarefa);
+
+        const inputTaskTitulo = document.getElementById('tituloTarefa');
+
+        inputTaskTitulo.focus();
+
+        const ul = document.querySelector('ul');
+        const footer = document.querySelector('footer');
+
+        function incluirTarefa(event) {
+            if (event.key === 'Enter') {
+                const inputDetalheTask = inputTaskDetalhe.value;
+                const inputTituloTask = inputTaskTitulo.value;
+
+                if (inputDetalheTask.length < 3 || inputTituloTask.length < 3) {
+                    const message = document.createElement('p');
+                    message.textContent = "O título e o detalhe da tarefa precisam ter pelo menos 3 caracteres."
+
+                    const divTarefa = document.getElementById("message");
+                    divTarefa.appendChild(message);
+                    divTarefa.style.display = 'block';
+
+                    setTimeout(() => {
+                        message.remove();
+                    }, 1500);
+
+                    inputTaskTitulo.focus();
+
+                    return
+                };
+
+                const div = document.createElement('div');
+                div.classList.add('ulTask');
+
+                const divDetalheTarefa = document.createElement('div');
+                div.classList.add('divDetalheTarefa');
+
+                const checkInput = document.createElement('input');
+                checkInput.setAttribute('type', 'checkbox');
+                checkInput.classList.add('check-task');
+                checkInput.addEventListener('change', alterarStatusTarefa);
+
+                const titulo = document.createElement('h4');
+                titulo.textContent = inputTituloTask;
+
+                const detalheTask = document.createElement('p');
+                detalheTask.textContent = inputDetalheTask;
+
+                const buttonStatus = document.createElement('button');
+                buttonStatus.textContent = 'pendente';
+                buttonStatus.classList.add('btnStatus');
+                buttonStatus.style.backgroundColor = 'rgb(133, 30, 35)';
+
+                const buttonExcluir = document.createElement('button');
+                buttonExcluir.textContent = 'excluir';
+                buttonExcluir.setAttribute('class', 'btnExcluir');
+                buttonExcluir.addEventListener('click', excluirTarefa);
+
+                divDetalheTarefa.appendChild(titulo);
+                divDetalheTarefa.appendChild(detalheTask);
+
+                div.appendChild(checkInput);
+                div.appendChild(buttonStatus);
+                div.appendChild(divDetalheTarefa);
+                div.appendChild(buttonExcluir);
+
+                ul.appendChild(div);
+
+                inputTaskDetalhe.value = '';
+                inputTaskTitulo.value = '';
+                setTimeout(() => {
+                    inputTaskTitulo.focus();
+                }, 0);
+            };
+            totalTarefasCadastradas();
+            totalTarefasCadastradasPorTipo();
+        };
+
+        function excluirTarefa(event) {
+            event.preventDefault();
+            const target = event.target;
+            const divPai = target.parentNode;
+            divPai.remove();
+            totalTarefasCadastradas();
+            totalTarefasCadastradasPorTipo();
+        };
+
+        function alterarStatusTarefa(event) {
+            event.preventDefault();
+            const target = event.target;
+            const divPai = target.parentNode;
+            const tarefa = divPai.querySelector('p');
+            const buttonStatus = divPai.querySelector('button.btnStatus');
+
+            if (target.checked) {
+                tarefa.style.textDecoration = 'line-through';
+                buttonStatus.textContent = 'concluído';
+                buttonStatus.style.backgroundColor = 'rgb(7, 139, 111)';
+            } else {
+                tarefa.style.textDecoration = 'none';
+                buttonStatus.textContent = 'pendente';
+                buttonStatus.style.backgroundColor = 'rgb(133, 30, 35)';
+            };
+
+            totalTarefasCadastradas();
+        };
+
+        let totalTarefasCadastradas = () => {
+            const totalPorStatus = totalTarefasCadastradasPorTipo();
+
+            if (ul.childElementCount === 0) {
+                footer.textContent = "Não existem tarefas cadastradas"
+            } else {
+                footer.textContent = `Total de tarefas cadastradas: ${ul.childElementCount} | ${totalPorStatus.concluidos} Concluídas e ${totalPorStatus.pendentes} Pendentes`
+            }
+        };
+
+        let totalTarefasCadastradasPorTipo = () => {
+
+            if (ul.childElementCount === 0) { return }
+
+            const ulList = Array.from(ul.childNodes);
+
+            listaConcluidos = [];
+            listaPendentes = [];
+
+            ulList.forEach(div => {
+                const status = div.querySelector('.btnStatus').textContent;
+                if (status === 'concluído') {
+                    listaConcluidos.push(div);
+                }
+                else if (status === 'pendente') {
+                    listaPendentes.push(div);
+                }
+                else { console.log('erro status') };
+            });
+
+            return { concluidos: listaConcluidos.length, pendentes: listaPendentes.length }
+        };
+
+        totalTarefasCadastradas();
+
+    </script>
+</body>
+
+</html>
